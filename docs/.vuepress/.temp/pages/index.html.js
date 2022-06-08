@@ -20,27 +20,14 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1654674998000,
+    "updatedTime": 1654687931000,
     "contributors": [
       {
         "name": "413432643",
         "email": "9022695+zdp12345@user.noreply.gitee.com",
-        "commits": 1
+        "commits": 2
       }
     ]
   },
   "filePathRelative": "README.md"
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
 }

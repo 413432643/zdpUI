@@ -8,8 +8,8 @@
 Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token constant">ZUI</span><span class="token punctuation">)</span>
 
 <span class="token comment">// 按需引用</span>
-<span class="token keyword">import</span> <span class="token string">'zdp-ui/dist/assets/button.css'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Button<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'zdp-ui'</span>
-Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Button<span class="token punctuation">)</span>
+<span class="token comment">// import 'zdp-ui/dist/assets/button.css'</span>
+<span class="token comment">// import {Button} from 'zdp-ui'</span>
+<span class="token comment">// Vue.use(Button)</span>
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
