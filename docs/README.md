@@ -16,8 +16,8 @@ import ZUI from 'zdp-ui'
 Vue.use(ZUI)
 
 // 按需引用
-import 'zdp-ui/dist/assets/button.css'
-import {Button} from 'zdp-ui'
-Vue.use(Button)
+// import 'zdp-ui/dist/assets/button.css'
+// import {Button} from 'zdp-ui'
+// Vue.use(Button)
 
 ```
