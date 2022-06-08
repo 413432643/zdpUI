@@ -19,7 +19,16 @@ export const data = {
       "children": []
     }
   ],
-  "git": {},
+  "git": {
+    "updatedTime": 1654674998000,
+    "contributors": [
+      {
+        "name": "413432643",
+        "email": "9022695+zdp12345@user.noreply.gitee.com",
+        "commits": 1
+      }
+    ]
+  },
   "filePathRelative": "README.md"
 }
 

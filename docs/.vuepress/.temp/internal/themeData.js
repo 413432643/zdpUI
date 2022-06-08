@@ -1,4 +1,5 @@
 export const themeData = {
+  "base": "/zdpUI/",
   "sidebar": [
     "/"
   ],
