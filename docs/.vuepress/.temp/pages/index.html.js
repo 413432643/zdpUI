@@ -20,12 +20,12 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1654699864000,
+    "updatedTime": 1654702057000,
     "contributors": [
       {
         "name": "413432643",
         "email": "9022695+zdp12345@user.noreply.gitee.com",
-        "commits": 5
+        "commits": 6
       }
     ]
   },

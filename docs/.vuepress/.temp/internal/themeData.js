@@ -1,6 +1,19 @@
 export const themeData = {
-  "base": "/zdpUI/",
-  "sidebar": [],
+  "sidebar": [
+    "/",
+    {
+      "text": "卡片组件",
+      "link": "/components/README.md",
+      "children": [
+        {
+          "text": "github",
+          "link": "https://github.com",
+          "children": []
+        },
+        "/foo/bar.md"
+      ]
+    }
+  ],
   "locales": {
     "/": {
       "selectLanguageName": "English"

@@ -1,5 +1,5 @@
 export const siteData = {
-  "base": "/",
+  "base": "/zdpUI/",
   "lang": "en-US",
   "title": "",
   "description": "",
