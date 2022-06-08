@@ -26,6 +26,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
+    "deploy":"bash deploy.sh",
     "preview": "vite preview"
   },
   "dependencies": {
