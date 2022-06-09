@@ -41,11 +41,11 @@ module.exports = {
       },
     ],
   }),
-  // plugins: [
-  //   registerComponentsPlugin({
-  //     // 自动注册组件
-  //     componentsDir: path.resolve(__dirname, './components'),
-  //   }),
-  // ],
+  plugins: [
+    registerComponentsPlugin({
+      // 自动注册组件
+      componentsDir: path.resolve(__dirname, './components'),
+    }),
+  ],
 }
 
