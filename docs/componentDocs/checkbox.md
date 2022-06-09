@@ -1,6 +1,5 @@
 # checkbox 多选
 
-<z-button></z-button>111
 
 ::: details 点击查看代码
 ```
