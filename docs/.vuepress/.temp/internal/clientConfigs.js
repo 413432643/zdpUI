@@ -5,7 +5,7 @@ import clientConfig3 from 'C:/Users/111/Desktop/zdp-ui/node_modules/@vuepress/pl
 import clientConfig4 from 'C:/Users/111/Desktop/zdp-ui/node_modules/@vuepress/plugin-nprogress/lib/client/config.js'
 import clientConfig5 from 'C:/Users/111/Desktop/zdp-ui/node_modules/@vuepress/plugin-theme-data/lib/client/config.js'
 import clientConfig6 from 'C:/Users/111/Desktop/zdp-ui/node_modules/@vuepress/theme-default/lib/client/config.js'
-import clientConfig7 from 'C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/register-components/clientConfig.45481c38.js'
+import clientConfig7 from 'C:/Users/111/Desktop/zdp-ui/docs/.vuepress/client.js'
 
 export const clientConfigs = [
   clientConfig0,
