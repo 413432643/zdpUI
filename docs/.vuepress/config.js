@@ -5,6 +5,8 @@ module.exports = {
   description: '描述：个人组件库',
   base: "/zdpUI/",
   theme: defaultTheme({
+    contributors:false,
+    lastUpdated:false,
     sidebar: [
       {
         text: '快速开始',

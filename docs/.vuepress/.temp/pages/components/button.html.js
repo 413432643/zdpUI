@@ -6,10 +6,7 @@ export const data = {
   "frontmatter": {},
   "excerpt": "",
   "headers": [],
-  "git": {
-    "updatedTime": null,
-    "contributors": []
-  },
+  "git": {},
   "filePathRelative": "components/button.md"
 }
 
