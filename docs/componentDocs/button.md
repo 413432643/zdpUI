@@ -1,8 +1,8 @@
 # button 按钮
 
-<z-button summary="Vue"></z-button>
-<z-button summary="Vue"></z-button>
-<z-button summary="Vue"></z-button>
+<z-button></z-button>
+<z-button></z-button>
+<z-button></z-button>
 
 ::: details 点击查看代码
 ```
