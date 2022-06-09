@@ -2,12 +2,12 @@ import { Vuepress } from '@vuepress/client'
 
 const routeItems = [
   ["v-8daa1a0e","/",{"title":"快速开始"},["/index.html","/README.md"]],
-  ["v-3bb939a7","/components/button.html",{"title":"button 按钮"},["/components/button","/components/button.md"]],
-  ["v-20ce47b6","/components/checkbox.html",{"title":"checkbox 多选"},["/components/checkbox","/components/checkbox.md"]],
-  ["v-3c8eae8f","/components/input.html",{"title":"input 输入框"},["/components/input","/components/input.md"]],
-  ["v-2c6e2e04","/components/radio.html",{"title":"radio 单选"},["/components/radio","/components/radio.md"]],
-  ["v-9d218bc6","/components/select.html",{"title":"select 下拉框"},["/components/select","/components/select.md"]],
-  ["v-23835ae5","/components/switch.html",{"title":"switch 开关"},["/components/switch","/components/switch.md"]],
+  ["v-c3669552","/componentDocs/button.html",{"title":"button 按钮"},["/componentDocs/button","/componentDocs/button.md"]],
+  ["v-2c719766","/componentDocs/checkbox.html",{"title":"checkbox 多选"},["/componentDocs/checkbox","/componentDocs/checkbox.md"]],
+  ["v-60c4fcdf","/componentDocs/input.html",{"title":"input 输入框"},["/componentDocs/input","/componentDocs/input.md"]],
+  ["v-0dff374e","/componentDocs/radio.html",{"title":"radio 单选"},["/componentDocs/radio","/componentDocs/radio.md"]],
+  ["v-1402b5cd","/componentDocs/select.html",{"title":"select 下拉框"},["/componentDocs/select","/componentDocs/select.md"]],
+  ["v-f3d252d6","/componentDocs/switch.html",{"title":"switch 开关"},["/componentDocs/switch","/componentDocs/switch.md"]],
   ["v-3706649a","/404.html",{"title":""},["/404"]],
 ]
 

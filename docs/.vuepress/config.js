@@ -1,4 +1,7 @@
 const { defaultTheme } = require('@vuepress/theme-default')
+const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
+const { path } = require('@vuepress/utils')
+
 
 module.exports = {
   title: 'zdpUI',
@@ -14,29 +17,35 @@ module.exports = {
       },
       {
         text: 'button 按钮',
-        link: '/components/button.md',
+        link: '/componentDocs/button.md',
       },
       {
         text: 'radio 单选',
-        link: '/components/radio.md',
+        link: '/componentDocs/radio.md',
       },
       {
         text: 'checkbox 多选',
-        link: '/components/checkbox.md',
+        link: '/componentDocs/checkbox.md',
       },
       {
         text: 'input 输入框',
-        link: '/components/input.md',
+        link: '/componentDocs/input.md',
       },
       {
         text: 'select 下拉框',
-        link: '/components/select.md',
+        link: '/componentDocs/select.md',
       },
       {
         text: 'switch 开关',
-        link: '/components/switch.md',
+        link: '/componentDocs/switch.md',
       },
     ],
   }),
+  plugins: [
+    registerComponentsPlugin({
+      // 自动注册组件
+      componentsDir: path.resolve(__dirname, './components'),
+    }),
+  ],
 }
 
