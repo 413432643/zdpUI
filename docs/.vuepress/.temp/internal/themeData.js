@@ -1,17 +1,32 @@
 export const themeData = {
   "sidebar": [
-    "/",
     {
-      "text": "卡片组件",
-      "link": "/components/README.md",
-      "children": [
-        {
-          "text": "github",
-          "link": "https://github.com",
-          "children": []
-        },
-        "/foo/bar.md"
-      ]
+      "text": "快速开始",
+      "link": "/"
+    },
+    {
+      "text": "button 按钮",
+      "link": "/components/button.md"
+    },
+    {
+      "text": "radio 单选",
+      "link": "/components/radio.md"
+    },
+    {
+      "text": "checkbox 多选",
+      "link": "/components/checkbox.md"
+    },
+    {
+      "text": "input 输入框",
+      "link": "/components/input.md"
+    },
+    {
+      "text": "select 下拉框",
+      "link": "/components/select.md"
+    },
+    {
+      "text": "switch 开关",
+      "link": "/components/switch.md"
     }
   ],
   "locales": {

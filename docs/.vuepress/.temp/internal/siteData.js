@@ -1,8 +1,8 @@
 export const siteData = {
   "base": "/zdpUI/",
   "lang": "en-US",
-  "title": "",
-  "description": "",
+  "title": "zdpUI",
+  "description": "描述：个人组件库",
   "head": [],
   "locales": {}
 }

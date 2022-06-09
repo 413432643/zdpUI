@@ -12,13 +12,12 @@ npm i zdp-ui
 
 ```javascript
 // 全部引用
-import 'zdp-ui/dist/assets/index.73364d44.css'
+import 'zdp-ui/dist/index.73364d44.css'
 import ZUI from 'zdp-ui'
 Vue.use(ZUI)
 
 // 按需引用
-import 'zdp-ui/dist/assets/button.css'
+import 'zdp-ui/dist/button.css'
 import {Button} from 'zdp-ui'
 Vue.use(Button)
-
 ```
