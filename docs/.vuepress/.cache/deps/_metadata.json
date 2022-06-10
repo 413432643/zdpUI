@@ -1,59 +1,50 @@
 {
-  "hash": "57465d09",
-  "browserHash": "a17b317d",
+  "hash": "98561104",
+  "browserHash": "039109ef",
   "optimized": {
     "@vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "@vue_devtools-api.js",
-      "fileHash": "9f36a482",
+      "fileHash": "066114e4",
       "needsInterop": false
     },
     "@vuepress/shared": {
       "src": "../../../../node_modules/@vuepress/shared/dist/index.js",
       "file": "@vuepress_shared.js",
-      "fileHash": "eb45981e",
+      "fileHash": "60b78897",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "9c108873",
+      "fileHash": "6b0196a9",
       "needsInterop": false
     },
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "cbbb8277",
+      "fileHash": "82deb4c7",
       "needsInterop": false
     },
     "vue-router": {
       "src": "../../../../node_modules/vue-router/dist/vue-router.esm-bundler.js",
       "file": "vue-router.js",
-      "fileHash": "82beeb9f",
-      "needsInterop": false
-    },
-    "element-plus": {
-      "src": "../../../../node_modules/element-plus/es/index.mjs",
-      "file": "element-plus.js",
-      "fileHash": "7ee137e6",
+      "fileHash": "37f06970",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-RTJHSLAR": {
-      "file": "chunk-RTJHSLAR.js"
+    "chunk-WMZTZZNO": {
+      "file": "chunk-WMZTZZNO.js"
     },
-    "chunk-YB4HU7ZY": {
-      "file": "chunk-YB4HU7ZY.js"
+    "chunk-ZT2TARZU": {
+      "file": "chunk-ZT2TARZU.js"
     },
-    "chunk-GJYUFPYO": {
-      "file": "chunk-GJYUFPYO.js"
+    "chunk-VNKCJBW6": {
+      "file": "chunk-VNKCJBW6.js"
     },
-    "chunk-C4JIX7AS": {
-      "file": "chunk-C4JIX7AS.js"
-    },
-    "chunk-2B7BBVM6": {
-      "file": "chunk-2B7BBVM6.js"
+    "chunk-FEFTYQ2P": {
+      "file": "chunk-FEFTYQ2P.js"
     }
   }
 }
