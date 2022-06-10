@@ -17,7 +17,7 @@ export default defineConfig({
     lib:{
       // 入口
       entry:'./components/index.ts',
-      name:'test'
+      name:'zdp-ui'
     }
   }
 })
