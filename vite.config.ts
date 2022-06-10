@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import alias from "@rollup/plugin-alias";
 import  path  from 'path';
+import resolve from "rollup-plugin-node-resolve";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [alias(),vue()],
+  plugins: [vue()],
   resolve: {
     alias: {
       "/@": path.resolve(__dirname, "./src"),
@@ -19,7 +19,10 @@ export default defineConfig({
         globals:{
           vue:"Vue"
         }
-      }
+      },
+      plugins:[
+        resolve()
+      ]
     },
     lib:{
       // 入口
