@@ -7,7 +7,7 @@ export default defineConfig({
   build:{
     // 不需要的外部依赖
     rollupOptions:{
-      external:["vue()"],
+      external:["vue"],
       output:{
         globals:{
           vue:"Vue"

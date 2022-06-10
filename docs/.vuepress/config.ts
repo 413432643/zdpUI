@@ -16,6 +16,10 @@ module.exports = {
         link: '/',
       },
       {
+        text: 'layout 布局',
+        link: '/componentDocs/layout.md',
+      },
+      {
         text: 'button 按钮',
         link: '/componentDocs/button.md',
       },

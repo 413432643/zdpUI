@@ -1,8 +1,10 @@
 import { defineClientConfig } from '@vuepress/client'
-import zButton from './components/z-button.vue'
+// import 'zdp-ui/dist/style.css'
+import ZUI from 'zdp-ui'
+// import "zdp-ui/dist/style.css"
 
 export default defineClientConfig({
   enhance({ app }) {
-    app.component('zButton', zButton)
+    app.use(ZUI)
   },
 })

@@ -1,6 +1,6 @@
 {
   "name": "zdp-ui",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "个人组件库",
   "main": "./dist/zdp-ui.umd.js",
   "module": "./dist/zdp-ui.es.js",
@@ -17,7 +17,7 @@
   "keywords": [
     "zdp-ui",
     "vue",
-    "组件库",
+    "vueprass",
     "ts"
   ],
   "author": "zdp",
@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "sass": "^1.52.2",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "zdp-ui": "^0.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
