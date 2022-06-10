@@ -1,56 +1,59 @@
 {
-  "hash": "5a4e6181",
-  "browserHash": "cbbe8a62",
+  "hash": "6806f7b8",
+  "browserHash": "76edc5e4",
   "optimized": {
     "@vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "@vue_devtools-api.js",
-      "fileHash": "30ee0a50",
+      "fileHash": "a6d27615",
       "needsInterop": false
     },
     "@vuepress/shared": {
       "src": "../../../../node_modules/@vuepress/shared/dist/index.js",
       "file": "@vuepress_shared.js",
-      "fileHash": "799a2e21",
+      "fileHash": "17cf9c6e",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "05b82710",
+      "fileHash": "558300ff",
       "needsInterop": false
     },
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "3f55d8ad",
+      "fileHash": "ab3f7b01",
       "needsInterop": false
     },
     "vue-router": {
       "src": "../../../../node_modules/vue-router/dist/vue-router.esm-bundler.js",
       "file": "vue-router.js",
-      "fileHash": "281f5b37",
+      "fileHash": "3f33939b",
       "needsInterop": false
     },
-    "zdp-ui": {
-      "src": "../../../../node_modules/zdp-ui/dist/zdp-ui.es.js",
-      "file": "zdp-ui.js",
-      "fileHash": "05e81d98",
+    "element-plus": {
+      "src": "../../../../node_modules/element-plus/es/index.mjs",
+      "file": "element-plus.js",
+      "fileHash": "4cffc84f",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-WMZTZZNO": {
-      "file": "chunk-WMZTZZNO.js"
+    "chunk-RTJHSLAR": {
+      "file": "chunk-RTJHSLAR.js"
     },
-    "chunk-BU5ENP4N": {
-      "file": "chunk-BU5ENP4N.js"
+    "chunk-PDRWI2WF": {
+      "file": "chunk-PDRWI2WF.js"
     },
-    "chunk-VNKCJBW6": {
-      "file": "chunk-VNKCJBW6.js"
+    "chunk-LP4WYGK4": {
+      "file": "chunk-LP4WYGK4.js"
     },
-    "chunk-FEFTYQ2P": {
-      "file": "chunk-FEFTYQ2P.js"
+    "chunk-C4JIX7AS": {
+      "file": "chunk-C4JIX7AS.js"
+    },
+    "chunk-2B7BBVM6": {
+      "file": "chunk-2B7BBVM6.js"
     }
   }
 }
