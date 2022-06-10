@@ -3234,7 +3234,7 @@ function resolveAsset(type, name, warnMissing = true, maybeSelfReference = false
   if (instance) {
     const Component = instance.type;
     if (type === COMPONENTS) {
-      const selfName = getComponentName(Component);
+      const selfName = getComponentName(Component, false);
       if (selfName && (selfName === name || selfName === camelize(name) || selfName === capitalize(camelize(name)))) {
         return Component;
       }
@@ -4553,7 +4553,7 @@ function setRef(rawRef, oldRawRef, parentSuspense, vnode, isUnmount = false) {
           if (hasOwn(setupState, ref2)) {
             setupState[ref2] = value;
           }
-        } else if (isRef(ref2)) {
+        } else if (_isRef) {
           ref2.value = value;
           if (rawRef.k)
             refs[rawRef.k] = value;
@@ -4582,11 +4582,13 @@ function createHydrationFunctions(rendererInternals) {
       warn2(`Attempting to hydrate existing markup but container is empty. Performing full mount instead.`);
       patch(null, vnode, container);
       flushPostFlushCbs();
+      container._vnode = vnode;
       return;
     }
     hasMismatch = false;
     hydrateNode(container.firstChild, vnode, null, null, null);
     flushPostFlushCbs();
+    container._vnode = vnode;
     if (hasMismatch && true) {
       console.error(`Hydration completed but contains mismatches.`);
     }
@@ -4630,14 +4632,14 @@ function createHydrationFunctions(rendererInternals) {
         }
         break;
       case Static:
-        if (domType !== 1) {
+        if (domType !== 1 && domType !== 3) {
           nextNode = onMismatch();
         } else {
           nextNode = node;
           const needToAdoptContent = !vnode.children.length;
           for (let i = 0; i < vnode.staticCount; i++) {
             if (needToAdoptContent)
-              vnode.children += nextNode.outerHTML;
+              vnode.children += nextNode.nodeType === 1 ? nextNode.outerHTML : nextNode.data;
             if (i === vnode.staticCount - 1) {
               vnode.anchor = nextNode;
             }
@@ -6626,8 +6628,8 @@ function getExposeProxy(instance) {
 }
 var classifyRE = /(?:^|[-_])(\w)/g;
 var classify = (str) => str.replace(classifyRE, (c) => c.toUpperCase()).replace(/[-_]/g, "");
-function getComponentName(Component) {
-  return isFunction(Component) ? Component.displayName || Component.name : Component.name;
+function getComponentName(Component, includeInferred = true) {
+  return isFunction(Component) ? Component.displayName || Component.name : Component.name || includeInferred && Component.__name;
 }
 function formatComponentName(instance, Component, isRoot = false) {
   let name = getComponentName(Component);
@@ -6969,7 +6971,7 @@ function isMemoSame(cached, memo) {
   }
   return true;
 }
-var version = "3.2.36";
+var version = "3.2.37";
 var _ssrUtils = {
   createComponentInstance,
   setupComponent,
@@ -8519,4 +8521,4 @@ export {
   initDirectivesForSSR,
   compile2 as compile
 };
-//# sourceMappingURL=chunk-LP4WYGK4.js.map
+//# sourceMappingURL=chunk-GJYUFPYO.js.map

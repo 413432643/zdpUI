@@ -1,6 +1,4 @@
 const { defaultTheme } = require('@vuepress/theme-default')
-// const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
-// const { path } = require('@vuepress/utils')
 
 
 module.exports = {
@@ -45,11 +43,5 @@ module.exports = {
       },
     ],
   }),
-  // plugins: [
-  //   registerComponentsPlugin({
-  //     // 自动注册组件
-  //     componentsDir: path.resolve(__dirname, './components'),
-  //   }),
-  // ],
 }
 

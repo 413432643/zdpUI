@@ -7,17 +7,11 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 export default defineClientConfig({
-  setup() {
-    onMounted(() => {
-      // 在 mounted 之后使用 DOM API
-      document.querySelector('#app')
-    })
-  },
   enhance({ app }) {
     // app.use(ZUI)
-    // app.component('el-button',ElButton)
     app.use(ElementPlus)
+    
   },
+  
 })
-
 

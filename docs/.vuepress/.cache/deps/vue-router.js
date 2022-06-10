@@ -18,7 +18,7 @@ import {
   unref,
   watch,
   watchEffect
-} from "./chunk-LP4WYGK4.js";
+} from "./chunk-GJYUFPYO.js";
 import "./chunk-C4JIX7AS.js";
 import {
   init_define_EXTERNAL_LINK_ICON_LOCALES,
@@ -695,7 +695,17 @@ function comparePathParserScore(a, b) {
       return comp;
     i++;
   }
+  if (Math.abs(bScore.length - aScore.length) === 1) {
+    if (isLastScoreNegative(aScore))
+      return 1;
+    if (isLastScoreNegative(bScore))
+      return -1;
+  }
   return bScore.length - aScore.length;
+}
+function isLastScoreNegative(score) {
+  const last = score[score.length - 1];
+  return score.length > 0 && last[last.length - 1] < 0;
 }
 var ROOT_TOKEN = {
   type: 0,
@@ -1370,6 +1380,7 @@ function useLink(props) {
 }
 var RouterLinkImpl = defineComponent({
   name: "RouterLink",
+  compatConfig: { MODE: 3 },
   props: {
     to: {
       type: [String, Object],
@@ -2377,7 +2388,7 @@ export {
   viewDepthKey
 };
 /*!
-  * vue-router v4.0.15
+  * vue-router v4.0.16
   * (c) 2022 Eduardo San Martin Morote
   * @license MIT
   */
