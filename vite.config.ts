@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import  path  from 'path';
+// import  path  from 'path';
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,10 +9,12 @@ export default defineConfig({
   build:{
     // 不需要的外部依赖
     rollupOptions:{
-      external:["vue"],
+      external:["vue",'ufo', '@vueuse/core'],
       output:{
         globals:{
-          vue:"Vue"
+          vue:"Vue",
+          ufo: 'ufo',
+          '@vueuse/core': 'VueUseCore',
         }
       },
     },
@@ -20,5 +23,8 @@ export default defineConfig({
       entry:'./components/index.ts',
       name:'zdp-ui'
     }
+    
   }
 })
+
+
