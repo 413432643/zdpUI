@@ -29,12 +29,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@rollup/plugin-alias": "^3.1.9",
     "element-plus": "^2.2.5",
     "sass": "^1.52.2",
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
     "@types/node": "^17.0.41",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vueuse/core": "^8.6.0",
