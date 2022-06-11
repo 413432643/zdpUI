@@ -62,6 +62,10 @@ const zClass = computed(() => {
     color: #fff;
     color: #333;
     border: 1px solid #dcdfe6;
+    margin-bottom: 10px;
+    &:hover,&:focus{
+        opacity: .8;
+    }
 }
 
 .btn-primary {
@@ -84,17 +88,16 @@ const zClass = computed(() => {
     border: 1px solid #F56C6C;
 }
 
-.btn-Info {
+.btn-info {
     background: #909399;
     border: 1px solid #909399;
 }
 .btn-large {
-    background: #909399;
-    border: 1px solid #909399;
+    padding: 12px 19px;
 }
 .btn-small {
-    background: #909399;
-    border: 1px solid #909399;
+    font-size: 12px;
+    padding: 5px 11px;
 }
 .btn-round {
     background: #909399;
