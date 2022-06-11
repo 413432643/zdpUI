@@ -1,87 +1,151 @@
 <template><div><h1 id="button-按钮" tabindex="-1"><a class="header-anchor" href="#button-按钮" aria-hidden="true">#</a> button 按钮</h1>
 <h3 id="状态" tabindex="-1"><a class="header-anchor" href="#状态" aria-hidden="true">#</a> 状态</h3>
-<z-button style="margin-right: 10px;">Default</z-button>
-<z-button style="margin-right: 10px;" type="primary">Primary</z-button>
-<z-button style="margin-right: 10px;" type="success" >Success</z-button>
-<z-button style="margin-right: 10px;" type="warning">Warning</z-button>
-<z-button style="margin-right: 10px;" type="danger">Danger</z-button>
-<z-button style="margin-right: 10px;" type="info">Info</z-button>
+<z-row>
+    <z-col span="3">
+        <z-button>Default</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="primary">Primary</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="success">Success</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="warning">Warning</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="danger">Danger</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="info">Info</z-button>
+    </z-col>
+</z-row>
 <details class="custom-container details"><summary>显示代码</summary>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>    &lt;z-button>Default&lt;/z-button>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>&lt;z-button>Default&lt;/z-button>
 
-    &lt;z-button type="primary">Primary&lt;/z-button>
+&lt;z-button type="primary">Primary&lt;/z-button>
 
-    &lt;z-button type="success">Success&lt;/z-button>
+&lt;z-button type="success">Success&lt;/z-button>
 
-    &lt;z-button type="warning">Warning&lt;/z-button>
+&lt;z-button type="warning">Warning&lt;/z-button>
 
-    &lt;z-button type="danger">Danger&lt;/z-button>
+&lt;z-button type="danger">Danger&lt;/z-button>
 
-    &lt;z-button type="info">Info&lt;/z-button>
+&lt;z-button type="info">Info&lt;/z-button>
     
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="圆角" tabindex="-1"><a class="header-anchor" href="#圆角" aria-hidden="true">#</a> 圆角</h3>
-<z-button style="margin-right: 10px;" round>Default</z-button>
-<z-button style="margin-right: 10px;" type="primary" round >Primary</z-button>
-<z-button style="margin-right: 10px;" type="success" round>Success</z-button>
-<z-button style="margin-right: 10px;" type="warning" round>Warning</z-button>
-<z-button style="margin-right: 10px;" type="danger" round>Danger</z-button>
-<z-button style="margin-right: 10px;" type="info" round>Info</z-button>
+<z-row>
+    <z-col span="3">
+        <z-button round>Default</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="primary" round>Primary</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="success" round>Success</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="warning" round>Warning</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="danger" round>Danger</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="info" round>Info</z-button>
+    </z-col>
+</z-row>
 <details class="custom-container details"><summary>显示代码</summary>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>    &lt;z-button round>Default&lt;/z-button>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>&lt;z-button round>Default&lt;/z-button>
 
-    &lt;z-button type="primary" round >Primary&lt;/z-button>
+&lt;z-button type="primary" round >Primary&lt;/z-button>
 
-    &lt;z-button type="success" round>Success&lt;/z-button>
+&lt;z-button type="success" round>Success&lt;/z-button>
 
-    &lt;z-button type="warning" round>Warning&lt;/z-button>
+&lt;z-button type="warning" round>Warning&lt;/z-button>
 
-    &lt;z-button type="danger" round>Danger&lt;/z-button>
+&lt;z-button type="danger" round>Danger&lt;/z-button>
 
-    &lt;z-button   z-button type="info" round>Info&lt;/z-button>
+&lt;z-button type="info" round>Info&lt;/z-button>
 
     
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
-<h3 id="圆形图标" tabindex="-1"><a class="header-anchor" href="#圆形图标" aria-hidden="true">#</a> 圆形图标</h3>
-<z-button style="margin-right: 10px;" circle icon></z-button>
-<z-button style="margin-right: 10px;" type="primary" circle icon></z-button>
-<z-button style="margin-right: 10px;" type="success" circle icon></z-button>
-<z-button style="margin-right: 10px;" type="warning" circle icon></z-button>
-<z-button style="margin-right: 10px;" type="danger" circle icon></z-button>
-<z-button style="margin-right: 10px;" type="info" circle icon></z-button>
+<h3 id="图标按钮" tabindex="-1"><a class="header-anchor" href="#图标按钮" aria-hidden="true">#</a> 图标按钮</h3>
+<z-row>
+    <z-col span="2">
+        <z-button circle icon></z-button>
+    </z-col>
+    <z-col span="2">
+        <z-button type="primary" circle icon></z-button>
+    </z-col>
+    <z-col span="2">
+        <z-button type="success" circle icon></z-button>
+    </z-col>
+    <z-col span="2">
+        <z-button type="warning" circle icon></z-button>
+    </z-col>
+    <z-col span="2">
+        <z-button type="danger" circle icon></z-button>
+    </z-col>
+    <z-col span="2">
+        <z-button type="info" circle icon></z-button>
+    </z-col>
+</z-row>
 <details class="custom-container details"><summary>显示代码</summary>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>    &lt;z-button circle>Default&lt;/z-button>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>&lt;z-button circle icon>Default&lt;/z-button>
 
-    &lt;z-button type="primary" circle >Primary&lt;/z-button>
+&lt;z-button type="primary" circle icon>Primary&lt;/z-button>
 
-    &lt;z-button type="success" circle>Success&lt;/z-button>
+&lt;z-button type="success" circle icon>Success&lt;/z-button>
 
-    &lt;z-button type="warning" circle>Warning&lt;/z-button>
+&lt;z-button type="warning" circle icon>Warning&lt;/z-button>
 
-    &lt;z-button type="danger" circle>Danger&lt;/z-button>
+&lt;z-button type="danger" circle icon>Danger&lt;/z-button>
 
-    &lt;z-button type="info" circle>Info&lt;/z-button>
+&lt;z-button type="info" circle icon>Info&lt;/z-button>
 
     
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="尺寸大小" tabindex="-1"><a class="header-anchor" href="#尺寸大小" aria-hidden="true">#</a> 尺寸大小</h3>
-<z-button style="margin-right: 10px;" size="small">Small</z-button>
-<z-button style="margin-right: 10px;">Default</z-button>
-<z-button style="margin-right: 10px;" size="large">Large</z-button>
+<z-row>
+    <z-col span="2">
+        <z-button size="small">Small</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button >Default</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button size="large">Large</z-button>
+    </z-col>
+</z-row>
 <details class="custom-container details"><summary>显示代码</summary>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>    &lt;z-button size="small">Small&lt;/z-button>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>&lt;z-button size="small">Small&lt;/z-button>
 
-    &lt;z-button>Default&lt;/z-button>
+&lt;z-button>Default&lt;/z-button>
 
-    &lt;z-button size="large">Large&lt;/z-button>
+&lt;z-button size="large">Large&lt;/z-button>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="禁用状态" tabindex="-1"><a class="header-anchor" href="#禁用状态" aria-hidden="true">#</a> 禁用状态</h3>
-<z-button style="margin-right: 10px;" disabled >Default</z-button>
-<z-button style="margin-right: 10px;" type="primary" disabled>Primary</z-button>
-<z-button style="margin-right: 10px;" type="success" disabled>Success</z-button>
-<z-button style="margin-right: 10px;" type="warning" disabled>Warning</z-button>
-<z-button style="margin-right: 10px;" type="danger" disabled>Danger</z-button>
-<z-button style="margin-right: 10px;" type="info" disabled>Info</z-button>
+<z-row>
+    <z-col span="3">
+        <z-button disabled>Default</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="primary" disabled>Primary</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="success" disabled>Success</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="warning" disabled>Warning</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="danger" disabled>Danger</z-button>
+    </z-col>
+    <z-col span="3">
+        <z-button type="info" disabled>Info</z-button>
+    </z-col>
+</z-row>
 <details class="custom-container details"><summary>显示代码</summary>
 <div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>&lt;z-button disabled>Default&lt;/z-button>
 

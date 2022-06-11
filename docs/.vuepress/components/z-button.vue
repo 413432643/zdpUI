@@ -56,7 +56,7 @@ const zClass = computed(() => {
     display: inline-block;
     color: #333;
     border: 1px solid #dcdfe6;
-    margin-bottom: 10px;
+
 
     &:hover,
     &:focus {
