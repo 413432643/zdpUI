@@ -9,7 +9,6 @@ export default defineConfig({
     vue()
   ],
   build: {
-
     // 不需要的外部依赖
     rollupOptions: {
       external: ["vue"],
