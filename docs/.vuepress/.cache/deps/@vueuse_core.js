@@ -1,35 +1,57 @@
 import {
   computed,
-  customRef,
-  effectScope,
   getCurrentInstance,
-  getCurrentScope,
+  init_vue_runtime_esm_bundler,
   inject,
-  isRef,
-  markRaw,
   nextTick,
   onBeforeMount,
   onBeforeUnmount,
   onBeforeUpdate,
   onMounted,
-  onScopeDispose,
   onUnmounted,
   onUpdated,
   provide,
+  watch,
+  watchEffect
+} from "./chunk-24V5FM7B.js";
+import {
+  customRef,
+  effectScope,
+  getCurrentScope,
+  isRef,
+  markRaw,
+  onScopeDispose,
   reactive,
   readonly,
   ref,
   shallowRef,
   toRef,
   toRefs,
-  unref,
-  watch,
-  watchEffect
-} from "./chunk-ZT2TARZU.js";
-import "./chunk-VNKCJBW6.js";
-import "./chunk-FEFTYQ2P.js";
+  unref
+} from "./chunk-IONGLT5G.js";
+import "./chunk-UIUCX46I.js";
+import {
+  init_define_EXTERNAL_LINK_ICON_LOCALES,
+  init_define_MZ_ZOOM_OPTIONS
+} from "./chunk-6P7BTK63.js";
+
+// dep:@vueuse_core
+init_define_EXTERNAL_LINK_ICON_LOCALES();
+init_define_MZ_ZOOM_OPTIONS();
+
+// node_modules/@vueuse/core/index.mjs
+init_define_EXTERNAL_LINK_ICON_LOCALES();
+init_define_MZ_ZOOM_OPTIONS();
+
+// node_modules/@vueuse/core/node_modules/@vueuse/shared/index.mjs
+init_define_EXTERNAL_LINK_ICON_LOCALES();
+init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vueuse/core/node_modules/vue-demi/lib/index.mjs
+init_define_EXTERNAL_LINK_ICON_LOCALES();
+init_define_MZ_ZOOM_OPTIONS();
+init_vue_runtime_esm_bundler();
+init_vue_runtime_esm_bundler();
 var isVue2 = false;
 var isVue3 = true;
 function set(target, key, val) {

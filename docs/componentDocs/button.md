@@ -1,12 +1,18 @@
 # button 按钮
 
-<z-button></z-button>
+### 基础用法
 
-<z-button></z-button>
+<z-button>Default</z-button>
 
-<z-button></z-button>
+<z-button type="primary">Primary</z-button>
 
+<z-button type="success">Success</z-button>
 
+<z-button type="warning">Warning</z-button>
+
+<z-button type="danger">Danger</z-button>
+
+<z-button type="Info">Info</z-button>
 
 
 
