@@ -5,14 +5,16 @@ import { defineClientConfig } from '@vuepress/client'
 // import "zdp-ui/dist/style.css"
 
 import ZButton from './components/z-button.vue'
-import ZLayout from './components/z-layout.vue'
+import ZRow from './components/z-row.vue'
+import ZCol from './components/z-col.vue'
 
 
 export default defineClientConfig({
   enhance({ app }) {
     // app.use(ZUI)
     app.component('z-button',ZButton)
-    app.component('z-layout',ZLayout)
+    app.component('z-row',ZRow)
+    app.component('z-col',ZCol)
 
   },
 

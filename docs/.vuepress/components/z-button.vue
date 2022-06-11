@@ -1,10 +1,8 @@
 <template>
-    <div>
-        <button :class="zClass" :disabled="disabled" :circle="circle" :round="round">
-            <slot></slot>
-            <span :icon="icon" v-if="icon"/>    
-        </button>
-    </div>
+    <button :class="zClass" :disabled="disabled" :circle="circle" :round="round">
+        <slot></slot>
+        <span :icon="icon" v-if="icon" />
+    </button>
 </template>
 
 <script>
@@ -26,7 +24,7 @@ const props = defineProps({
     disabled: Boolean,
     circle: Boolean,
     round: Boolean,
-    icon:Boolean
+    icon: Boolean
 
 })
 const zClass = computed(() => {
@@ -37,9 +35,10 @@ const zClass = computed(() => {
         props.disabled ? 'btn-disabled' : '',
         props.circle ? 'btn-circle' : '',
         props.round ? 'btn-round' : '',
-        props.icon ?'btn-icon':''
+        props.icon ? 'btn-icon' : ''
     ]
 })
+
 
 </script>
 
@@ -69,6 +68,8 @@ const zClass = computed(() => {
     color: #fff;
     background: #409EFF;
     border: 1px solid #409EFF;
+
+
 }
 
 .btn-success {
@@ -122,9 +123,10 @@ const zClass = computed(() => {
     }
 
 }
-.btn-icon{
+
+.btn-icon {
     padding: 10px;
-    
+
 }
 </style>
     

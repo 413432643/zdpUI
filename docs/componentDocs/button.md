@@ -2,17 +2,20 @@
 
 ### 状态
 
-<z-button>Default</z-button>
 
-<z-button type="primary">Primary</z-button>
+<z-button style="margin-right: 10px;">Default</z-button>
 
-<z-button type="success" >Success</z-button>
+<z-button style="margin-right: 10px;" type="primary">Primary</z-button>
 
-<z-button type="warning">Warning</z-button>
+<z-button style="margin-right: 10px;" type="success" >Success</z-button>
 
-<z-button type="danger">Danger</z-button>
+<z-button style="margin-right: 10px;" type="warning">Warning</z-button>
 
-<z-button type="info">Info</z-button>
+<z-button style="margin-right: 10px;" type="danger">Danger</z-button>
+
+<z-button style="margin-right: 10px;" type="info">Info</z-button>
+
+
 
 ::: details 显示代码
 ```
@@ -34,17 +37,17 @@
 
 ### 圆角
 
-<z-button round>Default</z-button>
+<z-button style="margin-right: 10px;" round>Default</z-button>
 
-<z-button type="primary" round >Primary</z-button>
+<z-button style="margin-right: 10px;" type="primary" round >Primary</z-button>
 
-<z-button type="success" round>Success</z-button>
+<z-button style="margin-right: 10px;" type="success" round>Success</z-button>
 
-<z-button type="warning" round>Warning</z-button>
+<z-button style="margin-right: 10px;" type="warning" round>Warning</z-button>
 
-<z-button type="danger" round>Danger</z-button>
+<z-button style="margin-right: 10px;" type="danger" round>Danger</z-button>
 
-<z-button type="info" round>Info</z-button>
+<z-button style="margin-right: 10px;" type="info" round>Info</z-button>
 
 
 ::: details 显示代码
@@ -67,17 +70,17 @@
 
 
 ### 圆形图标
-<z-button circle icon></z-button>
+<z-button style="margin-right: 10px;" circle icon></z-button>
 
-<z-button type="primary" circle icon></z-button>
+<z-button style="margin-right: 10px;" type="primary" circle icon></z-button>
 
-<z-button type="success" circle icon></z-button>
+<z-button style="margin-right: 10px;" type="success" circle icon></z-button>
 
-<z-button type="warning" circle icon></z-button>
+<z-button style="margin-right: 10px;" type="warning" circle icon></z-button>
 
-<z-button type="danger" circle icon></z-button>
+<z-button style="margin-right: 10px;" type="danger" circle icon></z-button>
 
-<z-button type="info" circle icon></z-button>
+<z-button style="margin-right: 10px;" type="info" circle icon></z-button>
 
 
 ::: details 显示代码
@@ -102,11 +105,11 @@
 
 ### 尺寸大小
 
-<z-button size="small">Small</z-button>
+<z-button style="margin-right: 10px;" size="small">Small</z-button>
 
-<z-button>Default</z-button>
+<z-button style="margin-right: 10px;">Default</z-button>
 
-<z-button size="large">Large</z-button>
+<z-button style="margin-right: 10px;" size="large">Large</z-button>
 
 ::: details 显示代码
 ```
@@ -120,17 +123,17 @@
 
 ### 禁用状态
 
-<z-button disabled >Default</z-button>
+<z-button style="margin-right: 10px;" disabled >Default</z-button>
 
-<z-button type="primary" disabled>Primary</z-button>
+<z-button style="margin-right: 10px;" type="primary" disabled>Primary</z-button>
 
-<z-button type="success" disabled>Success</z-button>
+<z-button style="margin-right: 10px;" type="success" disabled>Success</z-button>
 
-<z-button type="warning" disabled>Warning</z-button>
+<z-button style="margin-right: 10px;" type="warning" disabled>Warning</z-button>
 
-<z-button type="danger" disabled>Danger</z-button>
+<z-button style="margin-right: 10px;" type="danger" disabled>Danger</z-button>
 
-<z-button type="info" disabled>Info</z-button>
+<z-button style="margin-right: 10px;" type="info" disabled>Info</z-button>
 
 
 ::: details 显示代码
@@ -150,7 +153,7 @@
 :::
 
 
-
+### button属性
 
 |    属性    |       说明      |     类型     |  可选值               |     默认值       |
 |:------------:|:------------:|:------------:|:-------------------:|:------------:|

@@ -35,6 +35,12 @@ export const data = {
       "title": "禁用状态",
       "slug": "禁用状态",
       "children": []
+    },
+    {
+      "level": 3,
+      "title": "button属性",
+      "slug": "button属性",
+      "children": []
     }
   ],
   "git": {},
