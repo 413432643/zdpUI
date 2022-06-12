@@ -2,6 +2,7 @@
     <button :class="zClass" :disabled="disabled" :circle="circle" :round="round">
         <slot></slot>
         <span :icon="icon" v-if="icon" />
+        
     </button>
 </template>
 

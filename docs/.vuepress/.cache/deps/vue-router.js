@@ -1,41 +1,28 @@
 import {
   setupDevtoolsPlugin
-} from "./chunk-YREF44XP.js";
+} from "./chunk-WMZTZZNO.js";
 import {
   computed,
   defineComponent,
   getCurrentInstance,
   h,
-  init_vue_runtime_esm_bundler,
   inject,
   nextTick,
   onActivated,
   onDeactivated,
   onUnmounted,
   provide,
-  watch,
-  watchEffect
-} from "./chunk-24V5FM7B.js";
-import {
   reactive,
   ref,
   shallowRef,
-  unref
-} from "./chunk-IONGLT5G.js";
-import "./chunk-UIUCX46I.js";
-import {
-  init_define_EXTERNAL_LINK_ICON_LOCALES,
-  init_define_MZ_ZOOM_OPTIONS
-} from "./chunk-6P7BTK63.js";
-
-// dep:vue-router
-init_define_EXTERNAL_LINK_ICON_LOCALES();
-init_define_MZ_ZOOM_OPTIONS();
+  unref,
+  watch,
+  watchEffect
+} from "./chunk-ZT2TARZU.js";
+import "./chunk-VNKCJBW6.js";
+import "./chunk-FEFTYQ2P.js";
 
 // node_modules/vue-router/dist/vue-router.esm-bundler.js
-init_define_EXTERNAL_LINK_ICON_LOCALES();
-init_define_MZ_ZOOM_OPTIONS();
-init_vue_runtime_esm_bundler();
 var hasSymbol = typeof Symbol === "function" && typeof Symbol.toStringTag === "symbol";
 var PolySymbol = (name) => hasSymbol ? Symbol(true ? "[vue-router]: " + name : name) : (true ? "[vue-router]: " : "_vr_") + name;
 var matchedRouteKey = PolySymbol(true ? "router view location matched" : "rvlm");

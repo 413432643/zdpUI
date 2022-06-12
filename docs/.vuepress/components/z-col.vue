@@ -1,6 +1,8 @@
 <template>
     <div :class="zClass" ref="col">
-        <slot><div style="height:30px;"></div></slot>
+        <slot>
+            <div style="height:40px;"></div>
+        </slot>
     </div>
 </template>
 
@@ -14,8 +16,12 @@ export default {
 import { computed } from 'vue';
 const props = defineProps({
     span: {
-        type: Number,
+        type: [Number,String],
         default: 24
+    },
+    offset: {
+        type: Number,
+        default: 0
     }
 })
 const zClass = computed(() => {
@@ -30,7 +36,7 @@ const zClass = computed(() => {
 
 <style lang="scss">
 .z-col {
-    border-radius: 2px;
+    border-radius: 4px;
     display: inline-block;
     box-sizing: border-box;
 }

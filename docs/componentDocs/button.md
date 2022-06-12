@@ -4,6 +4,9 @@
 
 <z-row>
     <z-col span="3">
+        <el-icon :size="20">
+    <Edit />
+  </el-icon>
         <z-button>Default</z-button>
     </z-col>
     <z-col span="3">
