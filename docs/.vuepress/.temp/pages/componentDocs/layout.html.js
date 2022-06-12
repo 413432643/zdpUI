@@ -32,6 +32,12 @@ export const data = {
     },
     {
       "level": 3,
+      "title": "左右移动",
+      "slug": "左右移动",
+      "children": []
+    },
+    {
+      "level": 3,
       "title": "响应式布局",
       "slug": "响应式布局",
       "children": []
