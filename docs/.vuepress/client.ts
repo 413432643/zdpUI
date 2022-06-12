@@ -3,12 +3,12 @@ import { defineClientConfig } from '@vuepress/client'
 
 // import ZUI from 'zdp-ui'
 // import "zdp-ui/dist/style.css"
+import * as ElementPlusIconsVue from './styles/icons-vue'
 
 import ZButton from './components/z-button.vue'
 import ZRow from './components/z-row.vue'
 import ZCol from './components/z-col.vue'
 
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 
 export default defineClientConfig({

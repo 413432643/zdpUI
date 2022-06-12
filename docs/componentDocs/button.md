@@ -4,10 +4,10 @@
 
 <z-row>
     <z-col span="3">
-        <el-icon :size="20">
-    <Edit />
-  </el-icon>
         <z-button>Default</z-button>
+        <el-icon >
+      <Edit />
+    </el-icon>
     </z-col>
     <z-col span="3">
         <z-button type="primary">Primary</z-button>
