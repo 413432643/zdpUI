@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('./iconfont.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-editor:before {
+  content: "\e6f6";
+}
+
+.icon-pic:before {
+  content: "\e6ff";
+}
+
+.icon-arrow-right:before {
+  content: "\e743";
+}
+
+.icon-arrow-left:before {
+  content: "\e744";
+}
+
+.icon-arrow-up:before {
+  content: "\e745";
+}
+
+.icon-ashbin:before {
+  content: "\e746";
+}
+
+.icon-close:before {
+  content: "\e747";
+}
+
+.icon-email:before {
+  content: "\e74f";
+}
+
+.icon-loading:before {
+  content: "\e756";
+}
+
+.icon-seleted:before {
+  content: "\e763";
+}
+
+.icon-set:before {
+  content: "\e76c";
+}
+
+.icon-exchangerate:before {
+  content: "\e772";
+}
+
+.icon-collection:before {
+  content: "\e79d";
+}
+
+.icon-add-select:before {
+  content: "\e7b0";
+}
+
+.icon-sami-select:before {
+  content: "\e7b1";
+}
+
+.icon-arrow-down:before {
+  content: "\e7b2";
+}
+
+.icon-favorites:before {
+  content: "\e7b3";
+}
+
+.icon-search:before {
+  content: "\e7b4";
+}
+

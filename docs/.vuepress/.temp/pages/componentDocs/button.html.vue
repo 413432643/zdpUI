@@ -3,9 +3,7 @@
 <z-row>
     <z-col span="3">
         <z-button>Default</z-button>
-        <el-icon >
-      <Edit />
-    </el-icon>
+        <i class="iconfont icon-pic" style="color: red"></i> 
     </z-col>
     <z-col span="3">
         <z-button type="primary">Primary</z-button>
