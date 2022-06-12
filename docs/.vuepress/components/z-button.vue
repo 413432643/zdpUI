@@ -1,8 +1,6 @@
 <template>
     <button :class="zClass" :disabled="disabled" :circle="circle" :round="round">
         <slot></slot>
-        <span :icon="icon" v-if="icon" />
-        
     </button>
 </template>
 
@@ -25,7 +23,6 @@ const props = defineProps({
     disabled: Boolean,
     circle: Boolean,
     round: Boolean,
-    icon: Boolean
 
 })
 const zClass = computed(() => {
@@ -36,7 +33,6 @@ const zClass = computed(() => {
         props.disabled ? 'btn-disabled' : '',
         props.circle ? 'btn-circle' : '',
         props.round ? 'btn-round' : '',
-        props.icon ? 'btn-icon' : ''
     ]
 })
 
@@ -112,6 +108,8 @@ const zClass = computed(() => {
 
 .btn-circle {
     border-radius: 50%;
+    padding: 10px;
+
 }
 
 .btn-disabled {
@@ -125,9 +123,5 @@ const zClass = computed(() => {
 
 }
 
-.btn-icon {
-    padding: 10px;
-
-}
 </style>
     

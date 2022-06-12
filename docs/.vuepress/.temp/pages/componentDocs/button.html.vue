@@ -3,7 +3,6 @@
 <z-row>
     <z-col span="3">
         <z-button>Default</z-button>
-        <i class="iconfont icon-pic" style="color: red"></i> 
     </z-col>
     <z-col span="3">
         <z-button type="primary">Primary</z-button>
@@ -71,39 +70,39 @@
 
     
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
-<h3 id="图标按钮" tabindex="-1"><a class="header-anchor" href="#图标按钮" aria-hidden="true">#</a> 图标按钮</h3>
+<h3 id="圆形" tabindex="-1"><a class="header-anchor" href="#圆形" aria-hidden="true">#</a> 圆形</h3>
 <z-row>
     <z-col span="2">
-        <z-button circle icon></z-button>
+        <z-button circle ><i class="iconfont icon-search"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="primary" circle icon></z-button>
+        <z-button type="primary" circle><i class="iconfont icon-editor"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="success" circle icon></z-button>
+        <z-button type="success" circle><i class="iconfont icon-seleted"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="warning" circle icon></z-button>
+        <z-button type="warning" circle><i class="iconfont icon-favorites"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="danger" circle icon></z-button>
+        <z-button type="danger" circle><i class="iconfont icon-close"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="info" circle icon></z-button>
+        <z-button type="info" circle><i class="iconfont icon-pic"></i></z-button>
     </z-col>
 </z-row>
 <details class="custom-container details"><summary>显示代码</summary>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>&lt;z-button circle icon>Default&lt;/z-button>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>&lt;z-button circle >&lt;i class="iconfont icon-search">&lt;/i>&lt;/z-button>
 
-&lt;z-button type="primary" circle icon>Primary&lt;/z-button>
+&lt;z-button type="primary" circle>&lt;i class="iconfont icon-editor">&lt;/i>&lt;/z-button>
 
-&lt;z-button type="success" circle icon>Success&lt;/z-button>
+&lt;z-button type="success" circle>&lt;i class="iconfont icon-seleted">&lt;/i>&lt;/z-button>
 
-&lt;z-button type="warning" circle icon>Warning&lt;/z-button>
+&lt;z-button type="warning" circle>&lt;i class="iconfont icon-favorites">&lt;/i>&lt;/z-button>
 
-&lt;z-button type="danger" circle icon>Danger&lt;/z-button>
+&lt;z-button type="danger" circle>&lt;i class="iconfont icon-close">&lt;/i>&lt;/z-button>
 
-&lt;z-button type="info" circle icon>Info&lt;/z-button>
+&lt;z-button type="info" circle>&lt;i class="iconfont icon-pic">&lt;/i>&lt;/z-button>
 
     
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
@@ -205,13 +204,6 @@
 <td style="text-align:center">按钮是否为禁用状态</td>
 <td style="text-align:center">boolean</td>
 <td style="text-align:center">true/fales</td>
-<td style="text-align:center">—</td>
-</tr>
-<tr>
-<td style="text-align:center">icon</td>
-<td style="text-align:center">图标组件</td>
-<td style="text-align:center">string</td>
-<td style="text-align:center">string / Component</td>
 <td style="text-align:center">—</td>
 </tr>
 </tbody>

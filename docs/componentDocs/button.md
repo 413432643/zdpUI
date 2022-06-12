@@ -5,7 +5,6 @@
 <z-row>
     <z-col span="3">
         <z-button>Default</z-button>
-        <i class="iconfont icon-pic" style="color: red"></i> 
     </z-col>
     <z-col span="3">
         <z-button type="primary">Primary</z-button>
@@ -86,42 +85,42 @@
 :::
 
 
-### 图标按钮
+### 圆形
 <z-row>
     <z-col span="2">
-        <z-button circle icon></z-button>
+        <z-button circle ><i class="iconfont icon-search"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="primary" circle icon></z-button>
+        <z-button type="primary" circle><i class="iconfont icon-editor"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="success" circle icon></z-button>
+        <z-button type="success" circle><i class="iconfont icon-seleted"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="warning" circle icon></z-button>
+        <z-button type="warning" circle><i class="iconfont icon-favorites"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="danger" circle icon></z-button>
+        <z-button type="danger" circle><i class="iconfont icon-close"></i></z-button>
     </z-col>
     <z-col span="2">
-        <z-button type="info" circle icon></z-button>
+        <z-button type="info" circle><i class="iconfont icon-pic"></i></z-button>
     </z-col>
 </z-row>
 
 
 ::: details 显示代码
 ```
-<z-button circle icon>Default</z-button>
+<z-button circle ><i class="iconfont icon-search"></i></z-button>
 
-<z-button type="primary" circle icon>Primary</z-button>
+<z-button type="primary" circle><i class="iconfont icon-editor"></i></z-button>
 
-<z-button type="success" circle icon>Success</z-button>
+<z-button type="success" circle><i class="iconfont icon-seleted"></i></z-button>
 
-<z-button type="warning" circle icon>Warning</z-button>
+<z-button type="warning" circle><i class="iconfont icon-favorites"></i></z-button>
 
-<z-button type="danger" circle icon>Danger</z-button>
+<z-button type="danger" circle><i class="iconfont icon-close"></i></z-button>
 
-<z-button type="info" circle icon>Info</z-button>
+<z-button type="info" circle><i class="iconfont icon-pic"></i></z-button>
 
     
 ```
@@ -206,4 +205,3 @@
 |     round    |     是否为圆角按钮     | 	boolean  |   true/fales                      |   —       |
 |     circle   |     是否为圆形按钮     | 	boolean  |   true/fales                      |   —      |
 |     disabled |     按钮是否为禁用状态    | 	boolean  |   true/fales                   |   —      |
-|     icon     |     图标组件     | 	string |string / Component                       |   —     |

@@ -20,8 +20,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "图标按钮",
-      "slug": "图标按钮",
+      "title": "圆形",
+      "slug": "圆形",
       "children": []
     },
     {
