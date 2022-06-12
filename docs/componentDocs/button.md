@@ -27,7 +27,7 @@
 
 
 ::: details 显示代码
-```
+```html
 <z-button>Default</z-button>
 
 <z-button type="primary">Primary</z-button>
@@ -67,7 +67,7 @@
 </z-row>
 
 ::: details 显示代码
-```
+```html
 <z-button round>Default</z-button>
 
 <z-button type="primary" round >Primary</z-button>
@@ -109,7 +109,7 @@
 
 
 ::: details 显示代码
-```
+```html
 <z-button circle ><i class="iconfont icon-search"></i></z-button>
 
 <z-button type="primary" circle><i class="iconfont icon-editor"></i></z-button>
@@ -146,7 +146,7 @@
 
 
 ::: details 显示代码
-```
+```html
 <z-button size="small">Small</z-button>
 
 <z-button>Default</z-button>
@@ -180,7 +180,7 @@
 
 
 ::: details 显示代码
-```
+```html
 <z-button disabled>Default</z-button>
 
 <z-button type="primary" disabled>Primary</z-button>

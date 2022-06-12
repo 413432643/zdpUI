@@ -28,7 +28,7 @@
 
 
 ::: details 点击查看代码
-```
+```html
 <z-row>
     <z-col span=24></z-col>
 </z-row>
@@ -84,7 +84,7 @@
 
 
 ::: details 点击查看代码
-```
+```html
 <z-row gutter=20>
     <z-col span=24></z-col>
 </z-row>
@@ -135,8 +135,7 @@
 
 
 ::: details 点击查看代码
-```
-
+```html
 <z-row>
     <z-col span=6></z-col>
     <z-col span=6></z-col>
@@ -193,7 +192,7 @@
 
 
 ::: details 点击查看代码
-```
+```html
 <z-row gutter=20 type="flax" justify="start">
     <z-col span=6></z-col>
     <z-col span=6></z-col>
@@ -243,7 +242,7 @@
 </z-row>
 
 ::: details 点击查看代码
-```
+```html
 <z-row gutter=20>
     <z-col span=6 ></div></z-col>
     <z-col span=6 push=2></z-col>
@@ -267,7 +266,7 @@
 </z-row>
 
 ::: details 点击查看代码
-```
+```html
 <z-row gutter=20>
     <z-col span=1 xs=3 sm=5 md=6 lg=8 xl=10></z-col>
     <z-col span=2 xs=4 sm=6 md=8 lg=10 xl=14></z-col>
