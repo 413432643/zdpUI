@@ -133,6 +133,59 @@
     &lt;z-col span=6 offault=6>&lt;/z-col>
 &lt;/z-row>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<h3 id="对齐方式" tabindex="-1"><a class="header-anchor" href="#对齐方式" aria-hidden="true">#</a> 对齐方式</h3>
+<z-row gutter=20 type="flex" justify="start">
+    <z-col span=6><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
+    <z-col span=6><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
+</z-row>
+<z-row gutter=20 type="flex" justify="center">
+    <z-col span=6 ><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
+    <z-col span=6 ><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
+</z-row>
+<z-row gutter=20 type="flex" justify="end">
+    <z-col span=6><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
+    <z-col span=6><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
+</z-row>
+<z-row gutter=20 type="flex" justify="space-between">
+    <z-col span=6 ><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
+    <z-col span=6 ><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
+</z-row>
+<z-row gutter=20 type="flex" justify="space-around">
+    <z-col span=6 ><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
+    <z-col span=6 ><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
+</z-row>
+<z-row gutter=20 type="flex" justify="space-evenly">
+    <z-col span=6 ><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
+    <z-col span=6 ><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
+</z-row>
+<details class="custom-container details"><summary>点击查看代码</summary>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>&lt;z-row gutter=20 type="flax" justify="start">
+    &lt;z-col span=6>&lt;/z-col>
+    &lt;z-col span=6>&lt;/z-col>
+&lt;/z-row>
+&lt;z-row gutter=20 type="flax" justify="center">
+    &lt;z-col span=6 >&lt;/div>&lt;/z-col>
+    &lt;z-col span=6 >&lt;/div>&lt;/z-col>
+
+&lt;/z-row>
+&lt;z-row gutter=20 type="flax" justify="end">
+    &lt;z-col span=6>&lt;/z-col>
+    &lt;z-col span=6>&lt;/z-col>
+&lt;/z-row>
+&lt;z-row gutter=20 type="flax" justify="space-between">
+    &lt;z-col span=6 >&lt;/z-col>
+    &lt;z-col span=6 >&lt;/z-col>
+&lt;/z-row>
+&lt;z-row gutter=20 type="flax" justify="space-around">
+    &lt;z-col span=6 >&lt;/z-col>
+    &lt;z-col span=6 >&lt;/z-col>
+&lt;/z-row>
+&lt;z-row gutter=20 type="flax" justify="space-evenly">
+    &lt;z-col span=6 >&lt;/div>&lt;/z-col>
+    &lt;z-col span=6 >&lt;/div>&lt;/z-col>
+&lt;/z-row>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<h3 id="响应式布局" tabindex="-1"><a class="header-anchor" href="#响应式布局" aria-hidden="true">#</a> 响应式布局</h3>
 <h3 id="row-属性" tabindex="-1"><a class="header-anchor" href="#row-属性" aria-hidden="true">#</a> Row 属性</h3>
 <table>
 <thead>
@@ -151,6 +204,20 @@
 <td style="text-align:center">number</td>
 <td style="text-align:center">—</td>
 <td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">justify</td>
+<td style="text-align:center">flex 布局下的水平排列方式</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">start/end/center/space-around/space-between/space-evenly</td>
+<td style="text-align:center">start</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">布局样式</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">flex,''</td>
+<td style="text-align:center">''</td>
 </tr>
 </tbody>
 </table>
@@ -172,6 +239,13 @@
 <td style="text-align:center">number</td>
 <td style="text-align:center">—</td>
 <td style="text-align:center">24</td>
+</tr>
+<tr>
+<td style="text-align:center">offault</td>
+<td style="text-align:center">栅格左侧的间隔格数</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">0</td>
 </tr>
 </tbody>
 </table>

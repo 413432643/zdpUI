@@ -26,6 +26,18 @@ export const data = {
     },
     {
       "level": 3,
+      "title": "对齐方式",
+      "slug": "对齐方式",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "响应式布局",
+      "slug": "响应式布局",
+      "children": []
+    },
+    {
+      "level": 3,
       "title": "Row 属性",
       "slug": "row-属性",
       "children": []
