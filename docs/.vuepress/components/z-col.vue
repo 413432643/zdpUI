@@ -7,12 +7,12 @@
 
 <script>
 export default {
-    name: "zCol",
+    name: "ZCol",
 };
 </script>
 
-<script setup>
-import { computed, inject, ref } from 'vue';
+<script setup >
+import { computed, inject } from 'vue';
 
 
 const props = defineProps({
@@ -83,7 +83,7 @@ const getColGutterStyle = computed(() => {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .z-col {
     display: inline-block;
     box-sizing: border-box;

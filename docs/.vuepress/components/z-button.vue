@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: "zButton",
+    name: "ZButton",
 };
 </script>
 <script setup>

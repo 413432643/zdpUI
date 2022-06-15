@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name: "zRow",
+    name: "ZRow",
 };
 </script>
 
@@ -59,7 +59,7 @@ provide('gutter', props.gutter)
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .z-row {
     margin-bottom: 10px;
 }

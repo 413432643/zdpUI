@@ -193,33 +193,33 @@
 
 ::: details 点击查看代码
 ```html
-<z-row gutter=20 type="flax" justify="start">
+<z-row gutter=20 type="flex" justify="start">
     <z-col span=6></z-col>
     <z-col span=6></z-col>
     <z-col span=6></z-col>
 </z-row>
-<z-row gutter=20 type="flax" justify="center">
+<z-row gutter=20 type="flex" justify="center">
     <z-col span=6></z-col>
     <z-col span=6></z-col>
     <z-col span=6></z-col>
 </z-row>
-<z-row gutter=20 type="flax" justify="end">
+<z-row gutter=20 type="flex" justify="end">
     <z-col span=6></z-col>
     <z-col span=6></z-col>
     <z-col span=6></z-col>
 </z-row>
-<z-row gutter=20 type="flax" justify="space-between">
+<z-row gutter=20 type="flex" justify="space-between">
     <z-col span=6></z-col>
     <z-col span=6></z-col>
     <z-col span=6></z-col>
     <z-col span=6></z-col>
 </z-row>
-<z-row gutter=20 type="flax" justify="space-around">
+<z-row gutter=20 type="flex" justify="space-around">
     <z-col span=6></z-col>
     <z-col span=6></z-col>
     <z-col span=6></z-col>
 </z-row>
-<z-row gutter=20 type="flax" justify="space-evenly">
+<z-row gutter=20 type="flex" justify="space-evenly">
     <z-col span=6></z-col>
     <z-col span=6></z-col>
     <z-col span=6></z-col>
