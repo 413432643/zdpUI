@@ -5,64 +5,89 @@
 
 <z-row>
     <z-col>
-        <z-radio :options="options"></z-radio>
+        <z-radio v-model="radioVal" :options="options"></z-radio>
     </z-col>
 </z-row>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const state = reactive({
     options: [
         {
-            label: '1',
+            value: '1',
             title: '选项1',
-            
         },
         {
-            label: '2',
+            value: '2',
             title: '选项2'
         },
         {
-            label: '3',
+            value: '3',
             title: '选项3'
         },
         {
-            label: '4',
+            value: '4',
             title: '选项4',
         },
     ]
 })
 const { options } = state
-
+const radioVal = ref("1");
 
 const state1 = reactive({
     options: [
         {
-            label: '1',
+            value: '1',
             title: '选项1',
             disabled: true
         },
         {
-            label: '2',
+            value: '2',
             title: '选项2',
             disabled: true
         },
         {
-            label: '3',
+            value: '3',
             title: '选项3',
             disabled: true
         },
         {
-            label: '4',
+            value: '4',
             title: '选项4',
             disabled: true
         },
     ]
 })
 
+const radioVal1 = ref("1");
+
 const { options: options1 } = state1
 
+
+const state2 = reactive({
+    options: [
+        {
+            num: '1',
+            name: '选项1',
+        },
+        {
+            num: '2',
+            name: '选项2'
+        },
+        {
+            num: '3',
+            name: '选项3'
+        },
+        {
+            num: '4',
+            name: '选项4',
+        },
+    ]
+})
+
+const { options: options2 } = state2
+const radioVal2 = ref("1");
 
 </script>
 
@@ -70,35 +95,35 @@ const { options: options1 } = state1
 ```vue
 <z-row>
     <z-col>
-        <z-radio :options="options"></z-radio>
+        <z-radio v-model="radioVal" :options="options"></z-radio>
     </z-col>
 </z-row>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive,ref } from 'vue'
 
 const state = reactive({
     options: [
         {
-            label: '1',
+            value: '1',
             title: '选项1',
         },
         {
-            label: '2',
+            value: '2',
             title: '选项2'
         },
         {
-            label: '3',
+            value: '3',
             title: '选项3'
         },
         {
-            label: '4',
+            value: '4',
             title: '选项4',
         },
     ]
 })
 const { options } = state
-
+const radioVal = ref("1");
 </script>
 ```
 :::
@@ -108,7 +133,7 @@ const { options } = state
 
 <z-row>
     <z-col>
-        <z-radio :options="options1"></z-radio>
+        <z-radio v-model="radioVal1" :options="options1"></z-radio>
     </z-col>
 </z-row>
 
@@ -118,33 +143,33 @@ const { options } = state
 ```vue
 <z-row>
     <z-col>
-        <z-radio :options="options"></z-radio>
+        <z-radio v-model="radioVal" :options="options"></z-radio>
     </z-col>
 </z-row>
 
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive,ref } from 'vue'
 
 const state1 = reactive({
     options: [
         {
-            label: '1',
+            value: '1',
             title: '选项1',
             disabled: true
         },
         {
-            label: '2',
+            value: '2',
             title: '选项2',
             disabled: true
         },
         {
-            label: '3',
+            value: '3',
             title: '选项3',
             disabled: true
         },
         {
-            label: '4',
+            value: '4',
             title: '选项4',
             disabled: true
         },
@@ -152,7 +177,7 @@ const state1 = reactive({
 })
 
 const { options: options1 } = state1
-
+const radioVal = ref("1");
 </script>
 
 ```
@@ -164,7 +189,7 @@ const { options: options1 } = state1
 
 <z-row>
     <z-col>
-        <z-radio :options="options" inline></z-radio>
+        <z-radio :options="options" inline v-model="radioVal"></z-radio>
     </z-col>
 </z-row>
 
@@ -173,32 +198,32 @@ const { options: options1 } = state1
 ```vue
 <z-row>
     <z-col>
-        <z-radio :options="options" inline></z-radio>
+        <z-radio :options="options" inline v-model="radioVal"></z-radio>
     </z-col>
 </z-row>
 
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive,ref } from 'vue'
 
 const state = reactive({
     options: [
         {
-            label: '1',
+            value: '1',
             title: '选项1',
 
         },
         {
-            label: '2',
+            value: '2',
             title: '选项2',
 
         },
         {
-            label: '3',
+            value: '3',
             title: '选项3',
         },
         {
-            label: '4',
+            value: '4',
             title: '选项4',
         },
     ]
@@ -206,6 +231,7 @@ const state = reactive({
 
 const { options } = state
 
+const radioVal = ref("1");
 </script>
 
 ```
@@ -216,9 +242,9 @@ const { options } = state
 
 <z-row>
     <z-col>
-        <z-radio :options="options" size="small"></z-radio>
-        <z-radio :options="options" ></z-radio>
-        <z-radio :options="options" size="large"></z-radio>
+        <z-radio :options="options" size="small" v-model="radioVal"></z-radio>
+        <z-radio :options="options" v-model="radioVal"></z-radio>
+        <z-radio :options="options" size="large" v-model="radioVal"></z-radio>
     </z-col>
 </z-row>
 
@@ -226,22 +252,21 @@ const { options } = state
 ```vue
 <z-row>
     <z-col>
-        <z-radio :options="options" size="small"></z-radio>
-        <z-radio :options="options" ></z-radio>
-        <z-radio :options="options" size="large"></z-radio>
+        <z-radio :options="options" size="small" v-model="radioVal"></z-radio>
+        <z-radio :options="options" v-model="radioVal"></z-radio>
+        <z-radio :options="options" size="large" v-model="radioVal"></z-radio>
     </z-col>
 </z-row>
 
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive,ref } from 'vue'
 
 const state = reactive({
     options: [
         {
-            label: '1',
+            value: '1',
             title: '选项1',
-
         },
         {
             label: '2',
@@ -249,18 +274,68 @@ const state = reactive({
 
         },
         {
-            label: '3',
+            value: '3',
             title: '选项3',
         },
         {
-            label: '4',
+            value: '4',
             title: '选项4',
         },
     ]
 })
 
 const { options } = state
+const radioVal = ref("1");
+</script>
 
+```
+:::
+
+### 自定义label和title属性名
+
+<z-row>
+    <z-col>
+        <z-radio v-model="radioVal2" :options="options2" valueFiled="num" titleFiled="name"></z-radio>
+    </z-col>
+</z-row>
+
+
+::: details 点击查看代码
+```vue
+<z-row>
+    <z-col>
+        <z-radio :options="options" v-model="radioVal" labelFiled="num" titleFiled="name"></z-radio>
+    </z-col>
+</z-row>
+
+
+<script setup>
+import { reactive,ref } from 'vue'
+
+const state = reactive({
+    options: [
+        {
+            num: '1',
+            name: '选项1',
+        },
+        {
+            num: '2',
+            name: '选项2',
+
+        },
+        {
+            num: '3',
+            name: '选项3',
+        },
+        {
+            num: '4',
+            name: '选项4',
+        },
+    ]
+})
+
+const { options } = state
+const radioVal = ref("1");
 </script>
 
 ```
@@ -271,7 +346,10 @@ const { options } = state
 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
-|     options     |  Object  | 	单选数据配置，具体见下方 options API    |   —                |   -              |
+| v-model   | 单选绑定值  | string/number         | -                    | -                 |
+| labelFiled   | 自定义替换lable的字段名  | string         | -                    |value                 |
+| titleFiled   | 自定义替换title的字段名  | string         | -                    |title                 |
+|     options     |  Object  | 	单选数据配置，具体见下方 options API    |   -                |   -              |
 |     inline     |  	Boolean  | 	是否垂直排列    |   true/false               |   false            |
 |     size     |  	尺寸  | 	String   |   small/large             |   -              |
 
@@ -282,6 +360,6 @@ const { options } = state
 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
-|     label     |  单选框对应的值     | 	string / number     |   —                |   —              |
-|     title     |  标签标题     | 	string    |   —                |   —              |
-|     disabled     |  是否禁用     | 	boolean    |   —                |   false            |
+|     label     |  单选框对应的值     | 	string / number     |   -                |  -             |
+|     title     |  标签标题     | 	string    |   -              |   -             |
+|     disabled     |  是否禁用     | 	boolean    |   -               |   false            |

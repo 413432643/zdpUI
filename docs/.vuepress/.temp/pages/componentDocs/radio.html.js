@@ -32,6 +32,12 @@ export const data = {
     },
     {
       "level": 3,
+      "title": "自定义label和title属性名",
+      "slug": "自定义label和title属性名",
+      "children": []
+    },
+    {
+      "level": 3,
       "title": "Radio 属性",
       "slug": "radio-属性",
       "children": []

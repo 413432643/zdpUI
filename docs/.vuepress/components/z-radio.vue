@@ -1,14 +1,12 @@
 <template>
-    <div :class="zClass">
+    <div :class="zInlineClass">
         <label class="z-radio" v-for="(item, index) in options" :key="index"
-            :class="{ 'z-radio-disabled': item.disabled }" @click="radioClick(item, index)">
-            <span :class="[{ 'active': radioIndex == index && item.disabled ==flase },{'z-radio-small': size=='small'},{'z-radio-large': size=='large'}]"></span>
-            {{ item.title }}
+            :class="{ 'z-radio-disabled': item.disabled }" @click="radioChange(item, index)">
+            <span :class="[{ 'active': modelVal == item[valueFiled] && item.disabled != true }, zSizeClass]"></span>
+            {{ item[titleFiled] }}
         </label>
     </div>
-
 </template>
-
 <script>
 export default {
     name: 'ZRadio',
@@ -17,35 +15,54 @@ export default {
 
 <script setup>
 import { computed, ref } from 'vue';
-
+// const emit = defineEmits(['update:modelValue', 'change'])
 const props = defineProps({
+    modelValue: String | Number,
+    inline: Boolean,
     options: {
         type: Object,
-        default: false
+        default: () => {
+            return {}
+        }
     },
     size: {
         type: String,
         default: 'default'
     },
-    inline: Boolean,
+    valueFiled: {
+        type: String,
+        default: "value"
+    },
+    titleFiled: {
+        type: String,
+        default: "title"
+    },
+
 })
 
-const zClass = computed(() => {
+const zInlineClass = computed(() => {
     return [
-        props.inline ? '' : `z-radio-row` ,
+        props.inline ? '' : `z-radio-row`,
     ]
 })
 
-const radioIndex = ref(0)
+const zSizeClass = computed(() => {
+    return [
+        props.size == 'small' ? 'z-radio-small' : '',
+        props.size == 'large' ? 'z-radio-large' : '',
+    ]
+})
 
 
-const radioClick = (e, index) => {
-    if (e.disabled) {
-        return
+const modelVal = ref(props.modelValue)
+
+const radioChange = (item, index) => {
+    if (!item.disabled) {
+        modelVal.value = item[props.valueFiled]
+        // emit('update:modelValue', item[props.valueFiled])
+        // emit('change', { "value": item[props.valueFiled], "index": index })
     }
-    radioIndex.value = index
 }
-
 
 
 </script>
