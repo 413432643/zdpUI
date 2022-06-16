@@ -100,49 +100,50 @@ const getColGutterStyle = computed(() => {
     display: block;
 }
 
-// @for $i from 0 through 24 {
-//     .z-col-#{$i} {
-//         width: 100%/24*$i;
-//     }
+@for $i from 0 through 24 {
+    .z-col-#{$i} {
+        // width: 100%/24*$i;
+        width: calc(100%/24*$i);
+    }
 
-//     .z-col-offault-#{$i} {
-//         margin-left: 100%/24*$i;
-//     }
-//     .z-col-push-#{$i} {
-//         left: 100%/24*$i;
-//     }
-//     .z-col-pull-#{$i} {
-//         right: 100%/24*$i;
-//     }
+    .z-col-offault-#{$i} {
+        margin-left: calc(100%/24*$i);
+    }
+    .z-col-push-#{$i} {
+        left: calc(100%/24*$i);
+    }
+    .z-col-pull-#{$i} {
+        right: calc(100%/24*$i);
+    }
 
-//     @media only screen and(max-width:767px) {
-//         .z-col-xs-#{$i} {
-//             width: 100%/24*$i;
-//         }
-//     }
+    @media only screen and(max-width:767px) {
+        .z-col-xs-#{$i} {
+            width: calc(100%/24*$i);
+        }
+    }
 
-//     @media only screen and(min-width:768px) {
-//         .z-col-sm-#{$i} {
-//             width: 100%/24*$i;
-//         }
-//     }
+    @media only screen and(min-width:768px) {
+        .z-col-sm-#{$i} {
+            width: calc(100%/24*$i);
+        }
+    }
 
-//     @media only screen and(min-width:992px) {
-//         .z-col-md-#{$i} {
-//             width: 100%/24*$i;
-//         }
-//     }
+    @media only screen and(min-width:992px) {
+        .z-col-md-#{$i} {
+            width: calc(100%/24*$i);
+        }
+    }
 
-//     @media only screen and(min-width:1200px) {
-//         .z-col-lg-#{$i} {
-//             width: 100%/24*$i;
-//         }
-//     }
+    @media only screen and(min-width:1200px) {
+        .z-col-lg-#{$i} {
+            width: calc(100%/24*$i);
+        }
+    }
 
-//     @media only screen and(min-width:1920px) {
-//         .z-col-xl-#{$i} {
-//             width: 100%/24*$i;
-//         }
-//     }
-// }
+    @media only screen and(min-width:1920px) {
+        .z-col-xl-#{$i} {
+            width: calc(100%/24*$i);
+        }
+    }
+}
 </style>
