@@ -102,7 +102,6 @@ const getColGutterStyle = computed(() => {
 
 @for $i from 0 through 24 {
     .z-col-#{$i} {
-        // width: 100%/24*$i;
         width: calc(100%/24*$i);
     }
 
