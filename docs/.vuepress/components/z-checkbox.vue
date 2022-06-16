@@ -136,6 +136,7 @@ const checkChange = (item, index) => {
 }
 .z-checkbox-disabled{
     cursor: not-allowed;
+    color:#b9b9b9;
     .z-checkbox-selectbox {
         border: 1px solid #b9b9b9;
         background: #f5f7fa;
