@@ -32,8 +32,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "自定义label和title属性名",
-      "slug": "自定义label和title属性名",
+      "title": "自定义value和title属性名",
+      "slug": "自定义value和title属性名",
       "children": []
     },
     {
@@ -44,8 +44,14 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "options API",
+      "title": "Options API",
       "slug": "options-api",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "Event 事件",
+      "slug": "event-事件",
       "children": []
     }
   ],

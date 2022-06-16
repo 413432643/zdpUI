@@ -1,24 +1,20 @@
 <template>
-    <div :class="[`z-checkbox-${size}`, customClass]">
-        <label v-for="(item, index) in checkOptions" :key="index" class="z-checkbox-label"
-            :class="[{ 'z-checkbox-label-active': item.checked }, item.checked ? item.disabled ? 'z-checkbox-label-active-disabled' : '' : item.disabled ? 'z-checkbox-label-disabled' : '']"
-            @click="checkChange(item, index)"
-            :style="{ 'display': inline ? 'inline-block' : 'table', 'margin-bottom': inline ? '0' : size == 'small' ? '8px' : size == 'mini' ? '6px' : '10px' }">
-            <span class="z-checkbox-selectbox"
-                :style="{ 'border-color': customColor == '' ? '' : item.disabled ? '' : item.checked ? customColor : '', 'background': customColor == '' ? '' : item.disabled ? '' : item.checked ? customColor : '' }"></span>
-            <span :style="{ 'color': customColor == '' ? '' : item.disabled ? '' : item.checked ? customColor : '' }">{{
-                    item[labelFiled]
-            }}</span>
+    <div :class="ZInlineClass">
+        <label v-for="(item, index) in checkOptions" :key="index" class="z-checkbox"
+            :class="[{ 'active': item.checked && item.disabled != true }, { 'z-checkbox-disabled': item.disabled }]"
+            @click="checkChange(item, index)">
+            <span class="z-checkbox-selectbox" :class="zSizeClass"></span>
+            {{ item[titleFiled] }}
         </label>
     </div>
 </template>
 <script>
 export default {
-    name: "zCheckbox"
+    name: "mCheckbox"
 }
 </script>
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 const emit = defineEmits(['update:modelValue', 'change'])
 const props = defineProps({
     modelValue: {
@@ -27,32 +23,30 @@ const props = defineProps({
             return []
         }
     },
-    size: {
-        type: String,
-        default: 'default'
-    },
     options: {
         type: Array,
         default: () => {
             return []
         }
     },
-    labelFiled: {
+    titleFiled: {
         type: String,
-        default: "label"
+        default: "title"
     },
     valueFiled: {
         type: String,
         default: "value"
     },
-    inline: {
-        type: Boolean,
-        default: true
+    size: {
+        type: String,
+        default: 'default'
     },
-    customColor: String,
-    customClass: String
+    inline: Boolean,
+
 })
 const checkOptions = ref(props.options || [])
+
+// 默认值
 checkOptions.value.forEach((item) => {
     item.checked = false
     props.modelValue.forEach((item1) => {
@@ -60,8 +54,22 @@ checkOptions.value.forEach((item) => {
             item.checked = true
         }
     })
-
 })
+
+
+const ZInlineClass = computed(() => {
+    return [
+        props.inline ? '' : 'z-checkbox-row',
+    ]
+})
+
+const zSizeClass = computed(() => {
+    return [
+        props.size == 'small' ? 'z-radio-small' : '',
+        props.size == 'large' ? 'z-radio-large' : '',
+    ]
+})
+
 const checkChange = (item, index) => {
     let checkData = []
     if (!item.disabled) {
@@ -78,314 +86,77 @@ const checkChange = (item, index) => {
 </script>
 
 <style lang="scss" scoped>
-.z-checkbox-default {
-    width: auto;
-    height: auto;
-    overflow: hidden;
+.z-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 20px;
+    user-select: none;
 
-    .z-checkbox-label {
-        width: auto;
-        height: auto;
-        overflow: hidden;
+    .z-checkbox-selectbox {
+        width: 14px;
+        height: 14px;
+        border-radius: 4px;
         display: inline-block;
-        line-height: 20px;
-        cursor: pointer;
+        border: 1px solid #b9b9b9;
+        margin: 3.2px 8px 0 0;
+        background: #fff;
+        position: relative;
         font-size: 14px;
-        margin-right: 20px;
-        user-select: none;
+        box-sizing: border-box;
+        transition: transform 0.15s ease-in;
 
-        span {
-            float: left;
-            color: #505050;
-            font-size: 14px;
-        }
-
-        .z-checkbox-selectbox {
-            width: 14px;
-            height: 14px;
-            border-radius: 4px;
+        &::after {
+            box-sizing: content-box;
+            content: "";
             display: inline-block;
-            border: 1px solid #b9b9b9;
-            margin: 3.2px 8px 0 0;
-            background: #fff;
-            position: relative;
-            float: left;
-            font-size: 14px;
-            box-sizing: border-box;
+            width: 3px;
+            height: 7.5px;
+            transform: rotate(45deg);
+            border-style: solid;
+            border-color: #fff;
+            border-width: 0 2px 2px 0;
+            position: absolute;
+            left: 4px;
             transition: transform 0.15s ease-in;
-
-            &::after {
-                box-sizing: content-box;
-                content: "";
-                display: inline-block;
-                width: 3px;
-                height: 7.5px;
-                transform: rotate(45deg);
-                border-style: solid;
-                border-color: #fff;
-                border-width: 0 2px 2px 0;
-                position: absolute;
-                left: 4px;
-                transition: transform 0.15s ease-in;
-            }
-        }
-    }
-
-    .z-checkbox-label-active {
-        span {
-            color: #0e80eb
-        }
-
-        .z-checkbox-selectbox {
-            border: 1px solid #0e80eb;
-            background: #0e80eb;
-
-            &::after {
-                border-color: #fff;
-            }
-        }
-    }
-
-    .z-checkbox-label-active-disabled {
-        cursor: no-drop;
-
-        span {
-            color: #b4b6b9
-        }
-
-        .z-checkbox-selectbox {
-            border: 1px solid #b9b9b9;
-            background: #ebebeb;
-
-            &::after {
-                border-color: #999999;
-            }
-        }
-    }
-
-    .z-checkbox-label-disabled {
-        cursor: no-drop;
-
-        span {
-            color: #b4b6b9
-        }
-
-        .z-checkbox-selectbox {
-            border: 1px solid #b9b9b9;
-            background: #ebebeb;
-
-            &::after {
-                border-color: #ebebeb;
-            }
         }
     }
 }
 
-// small
-.z-checkbox-small {
-    width: auto;
-    height: auto;
-    overflow: hidden;
+.active {
+    .z-checkbox-selectbox {
+        border: 1px solid #0e80eb;
+        background: #0e80eb;
 
-    .z-checkbox-label {
-        width: auto;
-        height: auto;
-        overflow: hidden;
-        display: inline-block;
-        line-height: 20px;
-        cursor: pointer;
-        font-size: 13px;
-        margin-right: 15px;
-        user-select: none;
-
-        span {
-            float: left;
-            color: #505050;
-            font-size: 13px;
-        }
-
-        .z-checkbox-selectbox {
-            width: 13px;
-            height: 13px;
-            border-radius: 3px;
-            display: inline-block;
-            border: 1px solid #b9b9b9;
-            margin: 3.5px 8px 0 0;
-            background: #fff;
-            position: relative;
-            float: left;
-            font-size: 13px;
-            box-sizing: border-box;
-            transition: transform 0.15s ease-in;
-
-            &::after {
-                box-sizing: content-box;
-                content: "";
-                display: inline-block;
-                width: 2.5px;
-                height: 6.5px;
-                transform: rotate(45deg);
-                border-style: solid;
-                border-color: #fff;
-                border-width: 0 2px 2px 0;
-                position: absolute;
-                left: 3px;
-                transition: transform 0.15s ease-in;
-            }
-        }
-    }
-
-    .z-checkbox-label-active {
-        span {
-            color: #0e80eb
-        }
-
-        .z-checkbox-selectbox {
-            border: 1px solid #0e80eb;
-            background: #0e80eb;
-
-            &::after {
-                border-color: #fff;
-            }
-        }
-    }
-
-    .z-checkbox-label-active-disabled {
-        cursor: no-drop;
-
-        span {
-            color: #b4b6b9
-        }
-
-        .z-checkbox-selectbox {
-            border: 1px solid #b9b9b9;
-            background: #ebebeb;
-
-            &::after {
-                border-color: #999999;
-            }
-        }
-    }
-
-    .z-checkbox-label-disabled {
-        cursor: no-drop;
-
-        span {
-            color: #b4b6b9
-        }
-
-        .z-checkbox-selectbox {
-            border: 1px solid #b9b9b9;
-            background: #ebebeb;
-
-            &::after {
-                border-color: #ebebeb;
-            }
+        &::after {
+            border-color: #fff;
         }
     }
 }
-
-// mini
-.z-checkbox-mini {
-    width: auto;
-    height: auto;
-    overflow: hidden;
-
-    .z-checkbox-label {
-        width: auto;
-        height: auto;
-        overflow: hidden;
-        display: inline-block;
-        line-height: 20px;
-        cursor: pointer;
-        font-size: 12px;
-        margin-right: 14px;
-        user-select: none;
-
-        span {
-            float: left;
-            color: #505050;
-            font-size: 12px;
+.z-checkbox-disabled{
+    cursor: not-allowed;
+    .z-checkbox-selectbox {
+        border: 1px solid #b9b9b9;
+        background: #f5f7fa;
+        &::after {
+            border-color: #f5f7fa;
         }
+    }   
+}
 
-        .mzl-checkbox-selectbox {
-            width: 12px;
-            height: 12px;
-            border-radius: 2px;
-            display: inline-block;
-            border: 1px solid #b9b9b9;
-            margin: 4.3px 8px 0 0;
-            background: #fff;
-            position: relative;
-            float: left;
-            font-size: 12px;
-            box-sizing: border-box;
-            transition: transform 0.15s ease-in;
+.z-checkbox-row {
+    display: flex;
+}
 
-            &::after {
-                box-sizing: content-box;
-                content: "";
-                display: inline-block;
-                width: 2px;
-                height: 6px;
-                transform: rotate(45deg);
-                border-style: solid;
-                border-color: #fff;
-                border-width: 0 2px 2px 0;
-                position: absolute;
-                left: 3px;
-                transition: transform 0.15s ease-in;
-            }
-        }
-    }
 
-    .z-checkbox-label-active {
-        span {
-            color: #0e80eb
-        }
+.z-radio-small {
+    width: 12px !important;
+    height: 12px !important;
+}
 
-        .z-checkbox-selectbox {
-            border: 1px solid #0e80eb;
-            background: #0e80eb;
-
-            &::after {
-                border-color: #fff;
-            }
-        }
-    }
-
-    .z-checkbox-label-active-disabled {
-        cursor: no-drop;
-
-        span {
-            color: #b4b6b9
-        }
-
-        .z-checkbox-selectbox {
-            border: 1px solid #b9b9b9;
-            background: #ebebeb;
-
-            &::after {
-                border-color: #999999;
-            }
-        }
-    }
-
-    .z-checkbox-label-disabled {
-        cursor: no-drop;
-
-        span {
-            color: #b4b6b9
-        }
-
-        .z-checkbox-selectbox {
-            border: 1px solid #b9b9b9;
-            background: #ebebeb;
-
-            &::after {
-                border-color: #ebebeb;
-            }
-        }
-    }
+.z-radio-large {
+    width: 16px !important;
+    height: 16px !important;
 }
 </style>

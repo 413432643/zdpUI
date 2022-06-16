@@ -5,7 +5,7 @@
 
 <z-row>
     <z-col>
-        <z-radio v-model="radioVal" :options="options"></z-radio>
+        <z-radio v-model="radioVal" :options="options" @change="radioChange"></z-radio>
     </z-col>
 </z-row>
 
@@ -34,6 +34,10 @@ const state = reactive({
 })
 const { options } = state
 const radioVal = ref("1");
+
+const radioChange = (e) => {
+  console.log(e.value, e.index);
+};
 
 const state1 = reactive({
     options: [
@@ -95,7 +99,7 @@ const radioVal2 = ref("1");
 ```vue
 <z-row>
     <z-col>
-        <z-radio v-model="radioVal" :options="options"></z-radio>
+        <z-radio v-model="radioVal" :options="options" @change="radioChange"></z-radio>
     </z-col>
 </z-row>
 
@@ -124,6 +128,11 @@ const state = reactive({
 })
 const { options } = state
 const radioVal = ref("1");
+
+const radioChange = (e) => {
+  console.log(e.value, e.index);
+};
+
 </script>
 ```
 :::
@@ -291,7 +300,7 @@ const radioVal = ref("1");
 ```
 :::
 
-### 自定义label和title属性名
+### 自定义value和title属性名
 
 <z-row>
     <z-col>
@@ -347,7 +356,7 @@ const radioVal = ref("1");
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
 | v-model   | 单选绑定值  | string/number         | -                    | -                 |
-| labelFiled   | 自定义替换lable的字段名  | string         | -                    |value                 |
+| valueFiled   | 自定义替换value的字段名  | string         | -                    |value                 |
 | titleFiled   | 自定义替换title的字段名  | string         | -                    |title                 |
 |     options     |  Object  | 	单选数据配置，具体见下方 options API    |   -                |   -              |
 |     inline     |  	Boolean  | 	是否垂直排列    |   true/false               |   false            |
@@ -355,11 +364,17 @@ const radioVal = ref("1");
 
 
 
-### options API
+### Options API
 
 
-|    属性      |       说明      |     类型       |  可选值               |     默认值     |
+|    参数      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
-|     label     |  单选框对应的值     | 	string / number     |   -                |  -             |
+|     value     |  单选框对应的值     | 	string / number     |   -                |  -             |
 |     title     |  标签标题     | 	string    |   -              |   -             |
 |     disabled     |  是否禁用     | 	boolean    |   -               |   false            |
+
+### Event 事件
+
+|    事件      |       说明      |     参数       | 
+|:------------:|:--------------:|:--------------:|
+| change     | 单选框选中事件     | 	选中的 Radio label 值 和 index值   | 

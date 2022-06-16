@@ -2,13 +2,13 @@
 <h3 id="基础用法" tabindex="-1"><a class="header-anchor" href="#基础用法" aria-hidden="true">#</a> 基础用法</h3>
 <z-row>
     <z-col>
-        <z-radio v-model="radioVal" :options="options"></z-radio>
+        <z-radio v-model="radioVal" :options="options" @change="radioChange"></z-radio>
     </z-col>
 </z-row>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-row</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-col</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-radio</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radioVal<span class="token punctuation">"</span></span> <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-radio</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-radio</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radioVal<span class="token punctuation">"</span></span> <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span> <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radioChange<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-radio</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-col</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-row</span><span class="token punctuation">></span></span>
 
@@ -37,8 +37,13 @@
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">const</span> <span class="token punctuation">{</span> options <span class="token punctuation">}</span> <span class="token operator">=</span> state
 <span class="token keyword">const</span> radioVal <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">radioChange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>value<span class="token punctuation">,</span> e<span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="禁用" tabindex="-1"><a class="header-anchor" href="#禁用" aria-hidden="true">#</a> 禁用</h3>
 <z-row>
     <z-col>
@@ -180,7 +185,7 @@
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
-<h3 id="自定义label和title属性名" tabindex="-1"><a class="header-anchor" href="#自定义label和title属性名" aria-hidden="true">#</a> 自定义label和title属性名</h3>
+<h3 id="自定义value和title属性名" tabindex="-1"><a class="header-anchor" href="#自定义value和title属性名" aria-hidden="true">#</a> 自定义value和title属性名</h3>
 <z-row>
     <z-col>
         <z-radio v-model="radioVal2" :options="options2" valueFiled="num" titleFiled="name"></z-radio>
@@ -244,8 +249,8 @@
 <td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center">labelFiled</td>
-<td style="text-align:center">自定义替换lable的字段名</td>
+<td style="text-align:center">valueFiled</td>
+<td style="text-align:center">自定义替换value的字段名</td>
 <td style="text-align:center">string</td>
 <td style="text-align:center">-</td>
 <td style="text-align:center">value</td>
@@ -280,11 +285,11 @@
 </tr>
 </tbody>
 </table>
-<h3 id="options-api" tabindex="-1"><a class="header-anchor" href="#options-api" aria-hidden="true">#</a> options API</h3>
+<h3 id="options-api" tabindex="-1"><a class="header-anchor" href="#options-api" aria-hidden="true">#</a> Options API</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">属性</th>
+<th style="text-align:center">参数</th>
 <th style="text-align:center">说明</th>
 <th style="text-align:center">类型</th>
 <th style="text-align:center">可选值</th>
@@ -293,7 +298,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">label</td>
+<td style="text-align:center">value</td>
 <td style="text-align:center">单选框对应的值</td>
 <td style="text-align:center">string / number</td>
 <td style="text-align:center">-</td>
@@ -312,6 +317,23 @@
 <td style="text-align:center">boolean</td>
 <td style="text-align:center">-</td>
 <td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-事件" tabindex="-1"><a class="header-anchor" href="#event-事件" aria-hidden="true">#</a> Event 事件</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">事件</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">change</td>
+<td style="text-align:center">单选框选中事件</td>
+<td style="text-align:center">选中的 Radio label 值 和 index值</td>
 </tr>
 </tbody>
 </table>
@@ -342,6 +364,10 @@ const state = reactive({
 })
 const { options } = state
 const radioVal = ref("1");
+
+const radioChange = (e) => {
+  console.log(e.value, e.index);
+};
 
 const state1 = reactive({
     options: [

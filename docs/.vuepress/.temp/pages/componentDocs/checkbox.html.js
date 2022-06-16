@@ -5,7 +5,56 @@ export const data = {
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
-  "headers": [],
+  "headers": [
+    {
+      "level": 3,
+      "title": "基础用法",
+      "slug": "基础用法",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "禁用",
+      "slug": "禁用",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "垂直排列",
+      "slug": "垂直排列",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "大小",
+      "slug": "大小",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "自定义value和title属性名",
+      "slug": "自定义value和title属性名",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "Checkbox 属性",
+      "slug": "checkbox-属性",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "Options API",
+      "slug": "options-api",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "Event 事件",
+      "slug": "event-事件",
+      "children": []
+    }
+  ],
   "git": {},
   "filePathRelative": "componentDocs/checkbox.md"
 }

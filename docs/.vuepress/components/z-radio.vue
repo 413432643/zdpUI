@@ -15,7 +15,7 @@ export default {
 
 <script setup>
 import { computed, ref } from 'vue';
-// const emit = defineEmits(['update:modelValue', 'change'])
+const emit = defineEmits(['update:modelValue', 'change'])
 const props = defineProps({
     modelValue: String | Number,
     inline: Boolean,
@@ -53,14 +53,13 @@ const zSizeClass = computed(() => {
     ]
 })
 
-
-const modelVal = ref(props.modelValue)
+const modelVal = ref(props.modelValue || '')
 
 const radioChange = (item, index) => {
     if (!item.disabled) {
         modelVal.value = item[props.valueFiled]
-        // emit('update:modelValue', item[props.valueFiled])
-        // emit('change', { "value": item[props.valueFiled], "index": index })
+        emit('update:modelValue', item[props.valueFiled])
+        emit('change', { "value": item[props.valueFiled], "index": index })
     }
 }
 
@@ -106,7 +105,6 @@ const radioChange = (item, index) => {
     span.active {
         background: #409eff;
         border: 1px solid #409eff;
-
     }
 
 

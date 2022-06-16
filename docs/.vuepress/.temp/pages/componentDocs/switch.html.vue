@@ -43,7 +43,4 @@
 </tr>
 </tbody>
 </table>
-<z-select>
-    <z-son></z-son>
-</z-select>
 </div></template>
