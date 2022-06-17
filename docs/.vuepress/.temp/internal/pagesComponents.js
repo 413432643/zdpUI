@@ -19,6 +19,8 @@ export const pagesComponents = {
   "v-1402b5cd": defineAsyncComponent(() => import(/* webpackChunkName: "v-1402b5cd" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/select.html.vue")),
   // path: /componentDocs/switch.html
   "v-f3d252d6": defineAsyncComponent(() => import(/* webpackChunkName: "v-f3d252d6" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/switch.html.vue")),
+  // path: /componentDocs/tree.html
+  "v-20c3a86b": defineAsyncComponent(() => import(/* webpackChunkName: "v-20c3a86b" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/tree.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/404.html.vue")),
 }

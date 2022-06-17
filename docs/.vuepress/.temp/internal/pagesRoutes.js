@@ -10,6 +10,7 @@ const routeItems = [
   ["v-0dff374e","/componentDocs/radio.html",{"title":"radio 单选"},["/componentDocs/radio","/componentDocs/radio.md"]],
   ["v-1402b5cd","/componentDocs/select.html",{"title":"select 下拉框"},["/componentDocs/select","/componentDocs/select.md"]],
   ["v-f3d252d6","/componentDocs/switch.html",{"title":"switch 开关"},["/componentDocs/switch","/componentDocs/switch.md"]],
+  ["v-20c3a86b","/componentDocs/tree.html",{"title":"tree 树形控件"},["/componentDocs/tree","/componentDocs/tree.md"]],
   ["v-3706649a","/404.html",{"title":""},["/404"]],
 ]
 

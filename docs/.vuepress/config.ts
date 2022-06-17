@@ -38,6 +38,10 @@ module.exports = {
         link: '/componentDocs/inputNumber.md',
       },
       {
+        text: 'tree 树形控件',
+        link: '/componentDocs/tree.md',
+      },
+      {
         text: 'select 下拉框',
         link: '/componentDocs/select.md',
       },
