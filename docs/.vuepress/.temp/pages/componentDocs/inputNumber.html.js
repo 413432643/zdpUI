@@ -23,6 +23,42 @@ export const data = {
       "title": "步进",
       "slug": "步进",
       "children": []
+    },
+    {
+      "level": 3,
+      "title": "严格步进",
+      "slug": "严格步进",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "精度",
+      "slug": "精度",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "不同的输入框尺寸",
+      "slug": "不同的输入框尺寸",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "按钮位置",
+      "slug": "按钮位置",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "InputNumber 属性",
+      "slug": "inputnumber-属性",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "InputNumber 方法",
+      "slug": "inputnumber-方法",
+      "children": []
     }
   ],
   "git": {},

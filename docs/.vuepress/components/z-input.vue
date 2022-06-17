@@ -1,14 +1,11 @@
 <template>
     <div :class="zClass">
         <i :class="[{ leftIcon: !leftIcon }, 'iconfont', leftIcon]" style="padding:10px 0 10px 10px"></i>
-
         <textarea v-if="type === 'textarea'" class="z-input__inner" :value="modelValue" :autosize='autosize'
             :rows='rows' :placeholder="placeholder" :disabled='disabled' @input="input" @focus="focus" @blur="blur"
             @change="change" :style="{ height: tHeight }"></textarea>
-
         <input v-else class="z-input__inner" :value="modelValue" :placeholder="placeholder" :disabled='disabled'
             :type="type" :clearable='clearable' @input="input" @focus="focus" @blur="blur" @change="change" />
-
         <span @click="clear" class="iconfont icon-close"></span>
         <i :class="[{ rightIcon: !rightIcon }, 'iconfont', rightIcon]"></i>
     </div>
@@ -26,8 +23,10 @@ import { computed, ref } from 'vue';
 
 const focusValue = ref(false)
 
+const tHeight = ref('')
 
 const emit = defineEmits(['update:modelValue', 'clear', 'change', 'focus', 'input', 'blur'])
+
 const props = defineProps({
     modelValue: String | Number,
     placeholder: {
@@ -77,7 +76,7 @@ const zClass = computed(() => {
     ]
 })
 
-const tHeight = ref('')
+
 
 const input = (e) => {
     emit('update:modelValue', e.target.value)
@@ -85,7 +84,6 @@ const input = (e) => {
     if (props.type === 'textarea' && props.autosize) {
         tHeight.value = e.target.scrollHeight + 'px'
     }
-    console.log(e)
 }
 const clear = () => {
     emit('update:modelValue', '')
