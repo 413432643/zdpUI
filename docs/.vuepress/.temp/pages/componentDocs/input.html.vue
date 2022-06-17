@@ -11,13 +11,13 @@
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="禁用状态" tabindex="-1"><a class="header-anchor" href="#禁用状态" aria-hidden="true">#</a> 禁用状态</h3>
-<z-input v-model="input" placeholder="禁用状态" disabled></z-input>
+<z-input v-model="input2" placeholder="禁用状态" disabled></z-input>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-input</span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>禁止状态<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-input</span><span class="token punctuation">></span></span>
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="一键清空" tabindex="-1"><a class="header-anchor" href="#一键清空" aria-hidden="true">#</a> 一键清空</h3>
-<z-input v-model="input1" placeholder="一键清空" clearable></z-input>
+<z-input v-model="input3" placeholder="一键清空" clearable></z-input>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-input</span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>一键清空<span class="token punctuation">"</span></span> <span class="token attr-name">clearable</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-input</span><span class="token punctuation">></span></span>
 
@@ -31,27 +31,25 @@
 <h3 id="带图标的输入框" tabindex="-1"><a class="header-anchor" href="#带图标的输入框" aria-hidden="true">#</a> 带图标的输入框</h3>
 <z-row>
     <z-col span="8">
-        <z-input v-model="input1" placeholder="带图标的输入框" leftIcon="icon-close"></z-input>
+        <z-input v-model="input" placeholder="带图标的输入框" leftIcon="icon-close"></z-input>
     </z-col>
 </z-row>
 <z-row>
     <z-col span="8">
-        <z-input v-model="input1" placeholder="带图标的输入框" rightIcon="icon-close"></z-input>
+        <z-input v-model="input" placeholder="带图标的输入框" rightIcon="icon-close"></z-input>
     </z-col>
 </z-row>
+<h3 id="文本域" tabindex="-1"><a class="header-anchor" href="#文本域" aria-hidden="true">#</a> 文本域</h3>
+<z-input v-model="textarea" placeholder="文本域" type='textarea' rows="2"></z-input>
 <details class="custom-container details"><summary>点击查看代码</summary>
-<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-row</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-col</span> <span class="token attr-name">span</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input1<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>带图标的输入框<span class="token punctuation">"</span></span> <span class="token attr-name">leftIcon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon-close<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-input</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-col</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-row</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-row</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-col</span> <span class="token attr-name">span</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input1<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>带图标的输入框<span class="token punctuation">"</span></span> <span class="token attr-name">rightIcon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon-close<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-input</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-col</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-row</span><span class="token punctuation">></span></span>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>textarea<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>文本域<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>textarea<span class="token punctuation">'</span></span> <span class="token attr-name">rows</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-input</span><span class="token punctuation">></span></span>
 
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<h3 id="自适应高度文本域" tabindex="-1"><a class="header-anchor" href="#自适应高度文本域" aria-hidden="true">#</a> 自适应高度文本域</h3>
+<z-input v-model="textarea" placeholder="文本域" type='textarea' rows="1" autosize></z-input>
+<details class="custom-container details"><summary>点击查看代码</summary>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>textarea<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>文本域<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>textarea<span class="token punctuation">'</span></span> <span class="token attr-name">rows</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">autosize</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-input</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></details>
 <h3 id="input-属性" tabindex="-1"><a class="header-anchor" href="#input-属性" aria-hidden="true">#</a> input 属性</h3>
 <table>
 <thead>
@@ -96,7 +94,7 @@
 <td style="text-align:center">type</td>
 <td style="text-align:center">输入框类型</td>
 <td style="text-align:center">string</td>
-<td style="text-align:center">text/password/radio/checkbox/textarea</td>
+<td style="text-align:center">text/password/textarea</td>
 <td style="text-align:center">text</td>
 </tr>
 <tr>
@@ -110,6 +108,20 @@
 <td style="text-align:center">rightIcon</td>
 <td style="text-align:center">右侧图标</td>
 <td style="text-align:center">string</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">rows</td>
+<td style="text-align:center">文本域行数(只在type='textarea'生效)</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">autosize</td>
+<td style="text-align:center">文本域是否自适应高度(只在type='textarea'生效)</td>
+<td style="text-align:center">boolean</td>
 <td style="text-align:center">-</td>
 <td style="text-align:center">-</td>
 </tr>
@@ -158,4 +170,8 @@
 import { ref } from "vue";
 const input = ref('')
 const input1 = ref('')
+const input2 = ref('')
+const input3 = ref('')
+const textarea = ref('')
+
 </script>

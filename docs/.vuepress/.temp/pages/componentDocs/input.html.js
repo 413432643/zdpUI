@@ -38,6 +38,18 @@ export const data = {
     },
     {
       "level": 3,
+      "title": "文本域",
+      "slug": "文本域",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "自适应高度文本域",
+      "slug": "自适应高度文本域",
+      "children": []
+    },
+    {
+      "level": 3,
       "title": "input 属性",
       "slug": "input-属性",
       "children": []

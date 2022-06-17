@@ -1,11 +1,18 @@
 <template>
     <div :class="zClass">
-        <i :class="[{leftIcon:!leftIcon},'iconfont',leftIcon]" style="padding:10px 0 10px 10px"></i>
-        <input class="z-input__inner" :value="modelValue" :placeholder="placeholder" :disabled='disabled' :type="type"
-            :clearable='clearable' @input="input" @focus="focus" @blur="blur" @change="change"/>
+        <i :class="[{ leftIcon: !leftIcon }, 'iconfont', leftIcon]" style="padding:10px 0 10px 10px"></i>
+
+        <textarea v-if="type === 'textarea'" class="z-input__inner" :value="modelValue" :autosize='autosize'
+            :rows='rows' :placeholder="placeholder" :disabled='disabled' @input="input" @focus="focus" @blur="blur"
+            @change="change" :style="{ height: tHeight }"></textarea>
+
+        <input v-else class="z-input__inner" :value="modelValue" :placeholder="placeholder" :disabled='disabled'
+            :type="type" :clearable='clearable' @input="input" @focus="focus" @blur="blur" @change="change" />
+
         <span @click="clear" class="iconfont icon-close"></span>
-        <i :class="[{rightIcon:!rightIcon},'iconfont',rightIcon]"></i>
+        <i :class="[{ rightIcon: !rightIcon }, 'iconfont', rightIcon]"></i>
     </div>
+
 </template>
 
 <script>
@@ -20,7 +27,7 @@ import { computed, ref } from 'vue';
 const focusValue = ref(false)
 
 
-const emit = defineEmits(['update:modelValue','clear', 'change', 'focus', 'input','blur'])
+const emit = defineEmits(['update:modelValue', 'clear', 'change', 'focus', 'input', 'blur'])
 const props = defineProps({
     modelValue: String | Number,
     placeholder: {
@@ -37,7 +44,10 @@ const props = defineProps({
     },
     type: {
         type: String,
-        default: 'text'
+        default: 'text',
+        valdate() {
+            return ['text', 'password', 'textarea'].indexOf(value) !== -1
+        }
     },
     leftIcon: {
         type: String,
@@ -46,6 +56,14 @@ const props = defineProps({
     rightIcon: {
         type: String,
         default: ''
+    },
+    rows: {
+        type: [Number, String],
+        default: 1
+    },
+    autosize: {
+        type: Boolean,
+        default: false
     },
 
 })
@@ -59,9 +77,15 @@ const zClass = computed(() => {
     ]
 })
 
+const tHeight = ref('')
+
 const input = (e) => {
     emit('update:modelValue', e.target.value)
     emit('input', e.target.value)
+    if (props.type === 'textarea' && props.autosize) {
+        tHeight.value = e.target.scrollHeight + 'px'
+    }
+    console.log(e)
 }
 const clear = () => {
     emit('update:modelValue', '')
@@ -112,7 +136,6 @@ const change = (e) => {
         color: #606266;
 
         &::placeholder {
-            /* 大部分现代浏览器 */
             color: #c6c8cc;
             font-size: 14px;
         }
@@ -147,10 +170,12 @@ const change = (e) => {
     }
 }
 
+// 左侧图标
 .rightIcon {
     display: none;
 }
 
+//右侧图标
 .leftIcon {
     display: none;
 }

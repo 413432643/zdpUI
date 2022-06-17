@@ -9,6 +9,10 @@
 import { ref } from "vue";
 const input = ref('')
 const input1 = ref('')
+const input2 = ref('')
+const input3 = ref('')
+const textarea = ref('')
+
 </script>
 
 ::: details 点击查看代码
@@ -26,7 +30,7 @@ const input = ref('')
 
 ### 禁用状态
 
-<z-input v-model="input" placeholder="禁用状态" disabled></z-input>
+<z-input v-model="input2" placeholder="禁用状态" disabled></z-input>
 
 
 ::: details 点击查看代码
@@ -39,7 +43,7 @@ const input = ref('')
 
 ### 一键清空
 
-<z-input v-model="input1" placeholder="一键清空" clearable></z-input>
+<z-input v-model="input3" placeholder="一键清空" clearable></z-input>
 
 
 ::: details 点击查看代码
@@ -66,34 +70,39 @@ const input = ref('')
 ### 带图标的输入框
 <z-row>
     <z-col span="8">
-        <z-input v-model="input1" placeholder="带图标的输入框" leftIcon="icon-close"></z-input>
+        <z-input v-model="input" placeholder="带图标的输入框" leftIcon="icon-close"></z-input>
     </z-col>
 </z-row>
 <z-row>
     <z-col span="8">
-        <z-input v-model="input1" placeholder="带图标的输入框" rightIcon="icon-close"></z-input>
+        <z-input v-model="input" placeholder="带图标的输入框" rightIcon="icon-close"></z-input>
     </z-col>
 </z-row>
 
+### 文本域
 
+<z-input v-model="textarea" placeholder="文本域" type='textarea' rows="2"></z-input>
 
 
 
 ::: details 点击查看代码
 ```vue
-<z-row>
-    <z-col span="8">
-        <z-input v-model="input1" placeholder="带图标的输入框" leftIcon="icon-close"></z-input>
-    </z-col>
-</z-row>
-<z-row>
-    <z-col span="8">
-        <z-input v-model="input1" placeholder="带图标的输入框" rightIcon="icon-close"></z-input>
-    </z-col>
-</z-row>
+   <z-input v-model="textarea" placeholder="文本域" type='textarea' rows="2" ></z-input>
 
 ```
 :::
+
+
+### 自适应高度文本域
+
+<z-input v-model="textarea" placeholder="文本域" type='textarea' rows="1" autosize></z-input>
+
+::: details 点击查看代码
+```vue
+  <z-input v-model="textarea" placeholder="文本域" type='textarea' rows="1" autosize></z-input>
+```
+:::
+
 
 
 ### input 属性
@@ -104,9 +113,12 @@ const input = ref('')
 | disabled   | 是否禁用  | boolean         | -                    |-                 |
 | placeholder   | 占位文本  | string         | -                    |-                 |
 | clearable   | 是否显示清除按钮  | boolean         | -                    |-                 |
-| type   | 输入框类型  | string         | text/password/radio/checkbox/textarea        | text             |
+| type   | 输入框类型  | string         | text/password/textarea        | text             |
 | leftIcon   | 左侧图标  | string         | -                    |-                 |
 | rightIcon   | 右侧图标  | string         | -                    |-                 |
+| rows   | 文本域行数(只在type='textarea'生效)  | number         | -                    |-                 |
+| autosize   | 文本域是否自适应高度(只在type='textarea'生效)  | boolean         | -                    |-                 |
+
 
 
 
