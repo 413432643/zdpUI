@@ -34,6 +34,10 @@ module.exports = {
         link: '/componentDocs/input.md',
       },
       {
+        text: 'inputNumber 计数器',
+        link: '/componentDocs/inputNumber.md',
+      },
+      {
         text: 'select 下拉框',
         link: '/componentDocs/select.md',
       },

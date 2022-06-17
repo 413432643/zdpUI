@@ -7,6 +7,8 @@ export const pagesData = {
   "v-2c719766": () => import(/* webpackChunkName: "v-2c719766" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/checkbox.html.js").then(({ data }) => data),
   // path: /componentDocs/input.html
   "v-60c4fcdf": () => import(/* webpackChunkName: "v-60c4fcdf" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/input.html.js").then(({ data }) => data),
+  // path: /componentDocs/inputNumber.html
+  "v-4760d296": () => import(/* webpackChunkName: "v-4760d296" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/inputNumber.html.js").then(({ data }) => data),
   // path: /componentDocs/layout.html
   "v-7f119c5f": () => import(/* webpackChunkName: "v-7f119c5f" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/layout.html.js").then(({ data }) => data),
   // path: /componentDocs/radio.html

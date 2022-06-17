@@ -9,6 +9,8 @@ export const pagesComponents = {
   "v-2c719766": defineAsyncComponent(() => import(/* webpackChunkName: "v-2c719766" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/checkbox.html.vue")),
   // path: /componentDocs/input.html
   "v-60c4fcdf": defineAsyncComponent(() => import(/* webpackChunkName: "v-60c4fcdf" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/input.html.vue")),
+  // path: /componentDocs/inputNumber.html
+  "v-4760d296": defineAsyncComponent(() => import(/* webpackChunkName: "v-4760d296" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/inputNumber.html.vue")),
   // path: /componentDocs/layout.html
   "v-7f119c5f": defineAsyncComponent(() => import(/* webpackChunkName: "v-7f119c5f" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/layout.html.vue")),
   // path: /componentDocs/radio.html
