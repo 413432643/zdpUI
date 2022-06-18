@@ -1,9 +1,11 @@
 <template>
     <div :class="zClass">
         <button :class="zLeftButtonClass" @click="reduce"></button>
-        <input type="text" class="z-input__inner" :value="modelVal" :disabled='disabled' :min="min" :max='max' :step="step" :strict='strict'
-            @input="input" @focus="focus" @blur="blur" @change="change" />
+        <input type="text" class="z-input__inner" :value="modelVal" :disabled='disabled' :min="min" :max='max'
+            :precision="precision" :step="step" :strict='strict' @input="input" @focus="focus" @blur="blur"
+            @change="change" />
         <button :class="zRightButtonClass" @click="add"></button>
+
     </div>
 
 </template>
@@ -22,6 +24,8 @@ import { computed, ref } from 'vue';
 const focusValue = ref(false)
 
 const modelVal = ref(props.modelValue || '')
+
+const inputVal = ref('')
 
 const emit = defineEmits(['update:modelValue', 'change', 'blur', 'focus', 'input'])
 
@@ -47,11 +51,20 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+    position: {
+        type: String,
+        default: ''
+    },
+    precision: {
+        type: Number,
+        default: 0
+    },
 })
 
 const zClass = computed(() => {
     return [
         'z-input',
+        !props.position ? '' : `z-input-${props.position}`,
         focusValue.value ? 'z-input-focus' : '',
         props.disabled ? 'z-input-disabled' : '',
     ]
@@ -60,8 +73,8 @@ const zClass = computed(() => {
 const zLeftButtonClass = computed(() => {
     return [
         'iconfont',
-        'icon-sami-select',
-        'z-button-left',
+        props.position == '' ? 'icon-sami-select' : 'icon-arrow-down',
+        props.position != '' ? '' : 'z-button-left',
         modelVal.value > props.min && !props.disabled ? '' : 'z-button-left-disabled',
     ]
 })
@@ -69,14 +82,22 @@ const zLeftButtonClass = computed(() => {
 const zRightButtonClass = computed(() => {
     return [
         'iconfont',
-        'icon-add-select',
-        'z-button-right',
+        props.position == '' ? 'icon-add-select' : 'icon-arrow-up',
+        props.position != '' ? '' : 'z-button-right',
         modelVal.value < props.max && !props.disabled ? '' : 'z-button-right-disabled',
     ]
 })
 
 const input = (e) => {
     emit('input', e.target.value)
+    inputVal.value = e.target.value
+}
+
+const setPrecision = () => {
+    if (props.precision) {
+        modelVal.value = parseFloat(modelVal.value).toFixed(props.precision)
+        console.log(modelVal.value)
+    }
 }
 
 const change = (e) => {
@@ -87,28 +108,42 @@ const change = (e) => {
         modelVal.value = props.min
     } else {
         modelVal.value = e.target.value
+        setPrecision()
     }
 }
 const blur = (e) => {
+
     focusValue.value = false
     emit('blur', e.target.value)
+
+    if (!props.strict) {
+        return
+    }
+    const _inputVal = (inputVal.value - props.modelValue) / props.step
+    const newVal = Math.ceil(_inputVal) * props.step + props.modelValue
+    if (inputVal.value != '' || _inputVal % 1 !== 0) {
+        modelVal.value = newVal
+        setPrecision()
+    }
 }
 
 const focus = (e) => {
     focusValue.value = true
     emit('focus', e.target.value)
+
 }
 const add = (e) => {
+
     if (modelVal.value < props.max && !props.disabled) {
-        modelVal.value=Number(modelVal.value)+Number(props.step)
-        if(props.strict){
-            modelVal.value = Math.round(modelVal.value)
-        }
+        modelVal.value = Number(modelVal.value) + Number(props.step)
+        setPrecision()
     }
+
 }
 const reduce = (e) => {
-    if (modelVal.value > props.min && !props.disabled ) {
-        modelVal.value-=props.step
+    if (modelVal.value > props.min && !props.disabled) {
+        modelVal.value -= props.step
+        setPrecision()
     }
 }
 
@@ -127,6 +162,7 @@ const reduce = (e) => {
     transition: all .2s ease;
     position: relative;
     box-sizing: border-box;
+    position: relative;
 
     button {
         width: 30px;
@@ -195,5 +231,31 @@ const reduce = (e) => {
 .z-button-right-disabled {
     cursor: not-allowed;
     color: #c6c8cc;
+}
+
+// 按钮位置
+
+.z-input-right {
+    position: relative;
+
+    input {
+        width: 120px;
+    }
+
+    button {
+        position: absolute;
+        border-bottom: 1px solid #dcdfe6f6 !important;
+        border-left: 1px solid #dcdfe6f6 !important;
+        height: 15px;
+
+        &:first-child {
+            top: 14px;
+            right: 0;
+        }
+
+        &:last-child {
+            right: 0;
+        }
+    }
 }
 </style>

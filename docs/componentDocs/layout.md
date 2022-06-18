@@ -1,7 +1,11 @@
 # layout 布局
-
+通过基础的 24 分栏，迅速简便地创建布局。
 
 ### 基础布局
+
+使用`<z-row>`添加行，`<z-col>`添加列,通过`<z-col>`的`span`属性设置列的宽度。
+
+
 <z-row>
     <z-col span=24><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
 </z-row>
@@ -56,6 +60,8 @@
 :::
 
 ### 分栏间隔
+
+通过`<z-row>`的`gutter`属性设置列之间的间距。
 
 <z-row gutter=20>
     <z-col span=24><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
@@ -114,6 +120,9 @@
 
 ### 列偏移
 
+通过`<z-col>`的`offault`属性设置分栏偏移的栏数。
+
+
 <z-row gutter=20>
     <z-col span=6><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
     <z-col span=6><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
@@ -157,6 +166,9 @@
 
 
 ### 对齐方式
+
+通过`<z-row>`的`type`属性设置`flex`布局。
+通过`justify`属性来定义子元素的排版方式。
 
 <z-row gutter=20 type="flex" justify="start">
     <z-col span=6><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
@@ -230,7 +242,7 @@
 
 
 ### 左右移动
-
+通过`<z-col>`的`pull`和`push`属性设置左右移动格数。
 
 <z-row gutter=20>
     <z-col span=6 ><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
@@ -256,6 +268,7 @@
 
 ### 响应式布局
 
+参照 `Bootstrap` 的 响应式设计，预设了五个响应尺寸：`xs`、`sm`、`md`、`lg` 和 `xl`。
 <z-row gutter=20>
     <z-col span=1 xs=3 sm=5 md=6 lg=8 xl=10><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
     <z-col span=2 xs=4 sm=6 md=8 lg=10 xl=14><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>

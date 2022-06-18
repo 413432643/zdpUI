@@ -1,5 +1,6 @@
 <template><div><h1 id="button-按钮" tabindex="-1"><a class="header-anchor" href="#button-按钮" aria-hidden="true">#</a> button 按钮</h1>
 <h3 id="状态" tabindex="-1"><a class="header-anchor" href="#状态" aria-hidden="true">#</a> 状态</h3>
+<p>通过<code v-pre>type</code>属性调整按钮状态</p>
 <z-row>
     <z-col span="3">
         <z-button>Default</z-button>
@@ -35,6 +36,7 @@
     
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="圆角" tabindex="-1"><a class="header-anchor" href="#圆角" aria-hidden="true">#</a> 圆角</h3>
+<p>添加<code v-pre>round</code>属性使按钮获得圆角</p>
 <z-row>
     <z-col span="3">
         <z-button round>Default</z-button>
@@ -71,6 +73,7 @@
     
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="圆形" tabindex="-1"><a class="header-anchor" href="#圆形" aria-hidden="true">#</a> 圆形</h3>
+<p>添加<code v-pre>circle</code>属性使按钮变成圆形</p>
 <z-row>
     <z-col span="2">
         <z-button circle ><i class="iconfont icon-search"></i></z-button>
@@ -107,6 +110,7 @@
     
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="尺寸大小" tabindex="-1"><a class="header-anchor" href="#尺寸大小" aria-hidden="true">#</a> 尺寸大小</h3>
+<p>设置<code v-pre>size</code>属性可以调整按钮尺寸</p>
 <z-row>
     <z-col span="2">
         <z-button size="small">Small</z-button>
@@ -126,6 +130,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-button</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>large<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Large<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-button</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="禁用状态" tabindex="-1"><a class="header-anchor" href="#禁用状态" aria-hidden="true">#</a> 禁用状态</h3>
+<p>添加<code v-pre>disabled</code>禁用按钮</p>
 <z-row>
     <z-col span="3">
         <z-button disabled>Default</z-button>

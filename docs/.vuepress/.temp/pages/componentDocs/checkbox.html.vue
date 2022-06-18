@@ -31,12 +31,14 @@
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="禁用" tabindex="-1"><a class="header-anchor" href="#禁用" aria-hidden="true">#</a> 禁用</h3>
+<p>添加<code v-pre>disabled</code>属性，可以禁用选项</p>
 <z-row>
     <z-col>
         <z-checkbox v-model="checkboxVal6" :options="checkOptions6" @change="checkChange" ></z-checkbox>
     </z-col>
 </z-row>
 <h3 id="垂直排列" tabindex="-1"><a class="header-anchor" href="#垂直排列" aria-hidden="true">#</a> 垂直排列</h3>
+<p>添加<code v-pre>inline</code>属性改变为垂直排列</p>
 <z-row>
     <z-col>
         <z-checkbox v-model="checkboxVal2" :options="checkOptions2" @change="checkChange" inline></z-checkbox>
@@ -65,7 +67,8 @@
 <span class="token keyword">const</span> <span class="token punctuation">{</span> checkOptions <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
-<h3 id="大小" tabindex="-1"><a class="header-anchor" href="#大小" aria-hidden="true">#</a> 大小</h3>
+<h3 id="尺寸大小" tabindex="-1"><a class="header-anchor" href="#尺寸大小" aria-hidden="true">#</a> 尺寸大小</h3>
+<p>通过<code v-pre>size</code>属性设置尺寸大小</p>
 <z-row>
     <z-col>
         <z-checkbox v-model="checkboxVal3" :options="checkOptions3" @change="checkChange" size="small"></z-checkbox>
@@ -99,6 +102,7 @@
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="自定义value和title属性名" tabindex="-1"><a class="header-anchor" href="#自定义value和title属性名" aria-hidden="true">#</a> 自定义value和title属性名</h3>
+<p>通过<code v-pre>valueFiled</code>和<code v-pre>titleFiled</code>可以自定义value和title属性名，默认为<code v-pre>value</code>和<code v-pre>title</code>。</p>
 <z-row>
     <z-col>
         <z-checkbox v-model="checkboxVal1" :options="checkOptions1" @change="checkChange"  valueFiled="num" titleFiled="name"></z-checkbox>

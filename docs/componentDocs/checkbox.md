@@ -131,6 +131,7 @@ const { checkOptions } = state;
 :::
 
 ### 禁用
+添加`disabled`属性，可以禁用选项
 
 <z-row>
     <z-col>
@@ -140,6 +141,7 @@ const { checkOptions } = state;
 
 
 ### 垂直排列
+添加`inline`属性改变为垂直排列
 
 <z-row>
     <z-col>
@@ -173,7 +175,9 @@ const { checkOptions } = state;
 ```
 :::
 
-### 大小
+### 尺寸大小
+通过`size`属性设置尺寸大小
+
 <z-row>
     <z-col>
         <z-checkbox v-model="checkboxVal3" :options="checkOptions3" @change="checkChange" size="small"></z-checkbox>
@@ -213,6 +217,8 @@ const { checkOptions } = state;
 
 
 ### 自定义value和title属性名
+通过`valueFiled`和`titleFiled`可以自定义value和title属性名，默认为`value`和`title`。
+
 <z-row>
     <z-col>
         <z-checkbox v-model="checkboxVal1" :options="checkOptions1" @change="checkChange"  valueFiled="num" titleFiled="name"></z-checkbox>

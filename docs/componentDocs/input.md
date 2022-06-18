@@ -1,5 +1,7 @@
 # input 输入框
 
+通过鼠标或键盘输入字符
+
 ### 基本用法
 
 <z-input v-model="input" placeholder="基本用法"></z-input>
@@ -29,6 +31,7 @@ const input = ref('')
 
 
 ### 禁用状态
+通过 `disabled` 属性指定是否禁用组件
 
 <z-input v-model="input2" placeholder="禁用状态" disabled></z-input>
 
@@ -43,6 +46,8 @@ const input = ref('')
 
 ### 一键清空
 
+使用`clearable`属性即可键清空输入框
+
 <z-input v-model="input3" placeholder="一键清空" clearable></z-input>
 
 
@@ -55,7 +60,7 @@ const input = ref('')
 
 
 ### 密码框
-
+设置 `type`属性为`password` 即可得到一个可切换显示隐藏的密码框
 
 <z-input v-model="input1" placeholder="密码框" type='password'></z-input>
 
@@ -68,6 +73,10 @@ const input = ref('')
 
 
 ### 带图标的输入框
+
+设置`leftIcon`属性为图标名称即可得到左侧带图标的输入框
+设置`rightIcon`属性为图标名称即可得到左侧带图标的输入框
+
 <z-row>
     <z-col span="8">
         <z-input v-model="input" placeholder="带图标的输入框" leftIcon="icon-close"></z-input>
@@ -80,6 +89,7 @@ const input = ref('')
 </z-row>
 
 ### 文本域
+设置 `type`属性为`textarea` 即可得到一个用于输入多行文本信息可缩放的输入框
 
 <z-input v-model="textarea" placeholder="文本域" type='textarea' rows="2"></z-input>
 
@@ -94,6 +104,8 @@ const input = ref('')
 
 
 ### 自适应高度文本域
+
+添加`autosize`属性即可让输入框自动调整高度
 
 <z-input v-model="textarea" placeholder="文本域" type='textarea' rows="1" autosize></z-input>
 

@@ -2,6 +2,8 @@
 
 ### 状态
 
+通过`type`属性调整按钮状态
+
 <z-row>
     <z-col span="3">
         <z-button>Default</z-button>
@@ -45,6 +47,8 @@
 
 
 ### 圆角
+
+添加`round`属性使按钮获得圆角
 <z-row>
     <z-col span="3">
         <z-button round>Default</z-button>
@@ -86,6 +90,9 @@
 
 
 ### 圆形
+
+添加`circle`属性使按钮变成圆形
+
 <z-row>
     <z-col span="2">
         <z-button circle ><i class="iconfont icon-search"></i></z-button>
@@ -129,6 +136,9 @@
 
 
 ### 尺寸大小
+
+设置`size`属性可以调整按钮尺寸
+
 <z-row>
     <z-col span="2">
         <z-button size="small">Small</z-button>
@@ -156,6 +166,7 @@
 :::
 
 ### 禁用状态
+添加`disabled`禁用按钮
 
 <z-row>
     <z-col span="3">

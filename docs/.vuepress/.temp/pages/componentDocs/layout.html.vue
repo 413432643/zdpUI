@@ -1,5 +1,7 @@
 <template><div><h1 id="layout-布局" tabindex="-1"><a class="header-anchor" href="#layout-布局" aria-hidden="true">#</a> layout 布局</h1>
+<p>通过基础的 24 分栏，迅速简便地创建布局。</p>
 <h3 id="基础布局" tabindex="-1"><a class="header-anchor" href="#基础布局" aria-hidden="true">#</a> 基础布局</h3>
+<p>使用<code v-pre>&lt;z-row&gt;</code>添加行，<code v-pre>&lt;z-col&gt;</code>添加列,通过<code v-pre>&lt;z-col&gt;</code>的<code v-pre>span</code>属性设置列的宽度。</p>
 <z-row>
     <z-col span=24><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
 </z-row>
@@ -49,6 +51,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-row</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="分栏间隔" tabindex="-1"><a class="header-anchor" href="#分栏间隔" aria-hidden="true">#</a> 分栏间隔</h3>
+<p>通过<code v-pre>&lt;z-row&gt;</code>的<code v-pre>gutter</code>属性设置列之间的间距。</p>
 <z-row gutter=20>
     <z-col span=24><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
 </z-row>
@@ -98,6 +101,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-row</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="列偏移" tabindex="-1"><a class="header-anchor" href="#列偏移" aria-hidden="true">#</a> 列偏移</h3>
+<p>通过<code v-pre>&lt;z-col&gt;</code>的<code v-pre>offault</code>属性设置分栏偏移的栏数。</p>
 <z-row gutter=20>
     <z-col span=6><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
     <z-col span=6><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
@@ -133,6 +137,8 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-row</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="对齐方式" tabindex="-1"><a class="header-anchor" href="#对齐方式" aria-hidden="true">#</a> 对齐方式</h3>
+<p>通过<code v-pre>&lt;z-row&gt;</code>的<code v-pre>type</code>属性设置<code v-pre>flex</code>布局。
+通过<code v-pre>justify</code>属性来定义子元素的排版方式。</p>
 <z-row gutter=20 type="flex" justify="start">
     <z-col span=6><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
     <z-col span=6><div style="height:40px;background: #e5e9f2;border-radius: 4px;"></div></z-col>
@@ -198,6 +204,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-row</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="左右移动" tabindex="-1"><a class="header-anchor" href="#左右移动" aria-hidden="true">#</a> 左右移动</h3>
+<p>通过<code v-pre>&lt;z-col&gt;</code>的<code v-pre>pull</code>和<code v-pre>push</code>属性设置左右移动格数。</p>
 <z-row gutter=20>
     <z-col span=6 ><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
     <z-col span=6 push=2><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
@@ -217,6 +224,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-row</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="响应式布局" tabindex="-1"><a class="header-anchor" href="#响应式布局" aria-hidden="true">#</a> 响应式布局</h3>
+<p>参照 <code v-pre>Bootstrap</code> 的 响应式设计，预设了五个响应尺寸：<code v-pre>xs</code>、<code v-pre>sm</code>、<code v-pre>md</code>、<code v-pre>lg</code> 和 <code v-pre>xl</code>。</p>
 <z-row gutter=20>
     <z-col span=1 xs=3 sm=5 md=6 lg=8 xl=10><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>
     <z-col span=2 xs=4 sm=6 md=8 lg=10 xl=14><div style="height:40px;background: #d3dce6;border-radius: 4px;"></div></z-col>

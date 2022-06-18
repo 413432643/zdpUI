@@ -1,7 +1,9 @@
 # radio 单选
-
+在一组备选项中进行单选
 
 ### 基础用法
+
+通过`<z-radio>`使用组件，设置`v-model`绑定变量, 在`options`对象中使用`value`指定值，`title`指定显示文本。
 
 <z-row>
     <z-col>
@@ -139,6 +141,7 @@ const radioChange = (e) => {
 
 
 ### 禁用
+在`options`添加`disabled`属性，将禁用该选项
 
 <z-row>
     <z-col>
@@ -194,7 +197,7 @@ const radioVal = ref("1");
 
 
 ### 垂直排列
-
+添加`inline`改变排列方式为垂直排列
 
 <z-row>
     <z-col>
@@ -247,7 +250,8 @@ const radioVal = ref("1");
 :::
 
 
-### 大小
+### 按钮尺寸
+设置`size`属性调整按钮尺寸
 
 <z-row>
     <z-col>
@@ -301,6 +305,7 @@ const radioVal = ref("1");
 :::
 
 ### 自定义value和title属性名
+设置`valueKey`和`titleKey`属性改变value和title的属性名
 
 <z-row>
     <z-col>

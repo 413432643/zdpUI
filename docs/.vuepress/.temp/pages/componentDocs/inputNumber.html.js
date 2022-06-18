@@ -38,12 +38,6 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "不同的输入框尺寸",
-      "slug": "不同的输入框尺寸",
-      "children": []
-    },
-    {
-      "level": 3,
       "title": "按钮位置",
       "slug": "按钮位置",
       "children": []

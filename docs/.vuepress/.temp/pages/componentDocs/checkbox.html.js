@@ -26,8 +26,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "大小",
-      "slug": "大小",
+      "title": "尺寸大小",
+      "slug": "尺寸大小",
       "children": []
     },
     {
