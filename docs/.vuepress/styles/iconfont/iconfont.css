@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('./iconfont.ttf') format('truetype');
+  src: url('iconfont.ttf?t=1655533125365') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +9,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-close:before {
+  content: "\e69a";
+}
+
+.icon-duigou:before {
+  content: "\e65d";
 }
 
 .icon-editor:before {
@@ -35,7 +43,7 @@
   content: "\e746";
 }
 
-.icon-close:before {
+.icon-close1:before {
   content: "\e747";
 }
 
@@ -81,5 +89,9 @@
 
 .icon-search:before {
   content: "\e7b4";
+}
+
+.icon-arrow_right_fat:before {
+  content: "\e62c";
 }
 

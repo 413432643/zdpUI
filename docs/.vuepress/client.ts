@@ -12,6 +12,7 @@ import ZInput from './components/z-input.vue'
 import ZInputNumber from './components/z-input-number.vue'
 import ZTree from './components/z-tree.vue'
 
+
 import './styles/iconfont/iconfont.css'
 
 export default defineClientConfig({
@@ -25,6 +26,7 @@ export default defineClientConfig({
     app.component('z-input',ZInput)
     app.component('z-input-number',ZInputNumber)
     app.component('z-tree',ZTree)
+
   },
 
 })

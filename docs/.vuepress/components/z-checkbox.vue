@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-    name: "mCheckbox"
+    name: "zCheckbox"
 }
 </script>
 <script setup>

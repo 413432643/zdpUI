@@ -17,10 +17,7 @@ module.exports = {
         text: 'layout 布局',
         link: '/componentDocs/layout.md',
       },
-      {
-        text: 'button 按钮',
-        link: '/componentDocs/button.md',
-      },
+
       {
         text: 'radio 单选',
         link: '/componentDocs/radio.md',
@@ -40,6 +37,10 @@ module.exports = {
       {
         text: 'tree 树形控件',
         link: '/componentDocs/tree.md',
+      },
+      {
+        text: 'button 按钮',
+        link: '/componentDocs/button.md',
       },
       {
         text: 'select 下拉框',
