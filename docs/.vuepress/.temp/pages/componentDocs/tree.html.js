@@ -11,6 +11,18 @@ export const data = {
       "title": "基础用法",
       "slug": "基础用法",
       "children": []
+    },
+    {
+      "level": 3,
+      "title": "自定义属性名",
+      "slug": "自定义属性名",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "tree 属性",
+      "slug": "tree-属性",
+      "children": []
     }
   ],
   "git": {},
