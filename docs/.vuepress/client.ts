@@ -11,7 +11,8 @@ import ZCheckbox from './components/z-checkbox.vue'
 import ZInput from './components/z-input.vue'
 import ZInputNumber from './components/z-input-number.vue'
 import ZTree from './components/z-tree.vue'
-
+import ZSelect from './components/z-select.vue'
+import ZSwitch from './components/z-switch.vue'
 
 import './styles/iconfont/iconfont.css'
 
@@ -26,7 +27,8 @@ export default defineClientConfig({
     app.component('z-input',ZInput)
     app.component('z-input-number',ZInputNumber)
     app.component('z-tree',ZTree)
-
+    app.component('z-select',ZSelect)
+    app.component('z-switch',ZSwitch)
   },
 
 })

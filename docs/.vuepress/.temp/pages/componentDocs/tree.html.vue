@@ -139,6 +139,9 @@
 <span class="token keyword">const</span> <span class="token punctuation">{</span> options <span class="token punctuation">}</span> <span class="token operator">=</span> state
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<h3 id="可选择" tabindex="-1"><a class="header-anchor" href="#可选择" aria-hidden="true">#</a> 可选择</h3>
+<p>适用于需要选择层级时使用。</p>
+<z-tree v-model="treeVal" :options="options" checkbox></z-tree>
 <h3 id="tree-属性" tabindex="-1"><a class="header-anchor" href="#tree-属性" aria-hidden="true">#</a> tree 属性</h3>
 <table>
 <thead>
@@ -179,6 +182,13 @@
 <td style="text-align:center">-</td>
 <td style="text-align:center">label</td>
 </tr>
+<tr>
+<td style="text-align:center">checkbox</td>
+<td style="text-align:center">是否可选择</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">false</td>
+</tr>
 </tbody>
 </table>
 </div></template>
@@ -186,7 +196,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 
-const treeVal = ref([]);
+const treeVal = ref(['']);
 
 const state = reactive({
     options: [

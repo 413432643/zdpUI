@@ -12,7 +12,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 
-const treeVal = ref([]);
+const treeVal = ref(['']);
 
 const state = reactive({
     options: [
@@ -277,6 +277,13 @@ const { options } = state
 ```
 :::
 
+
+### 可选择
+
+适用于需要选择层级时使用。
+
+<z-tree v-model="treeVal" :options="options" checkbox></z-tree>
+
 ### tree 属性   
 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
@@ -285,3 +292,4 @@ const { options } = state
 |    v-model   | 当前选中的值    | Array          | -                  | -                |
 |    childrenF | 自定义children属性名 | String | -                 | children           |
 |    labelF    | 自定义label属性名 | String    |  -                | label               |
+|    checkbox  | 是否可选择      | Boolean    | -                | false              |

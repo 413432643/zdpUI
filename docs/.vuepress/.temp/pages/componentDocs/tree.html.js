@@ -20,6 +20,12 @@ export const data = {
     },
     {
       "level": 3,
+      "title": "可选择",
+      "slug": "可选择",
+      "children": []
+    },
+    {
+      "level": 3,
       "title": "tree 属性",
       "slug": "tree-属性",
       "children": []

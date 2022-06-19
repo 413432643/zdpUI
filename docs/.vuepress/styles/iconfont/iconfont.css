@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1655550519066') format('truetype');
+  src: url('iconfont.ttf?t=1655558770781') format('truetype');
 }
 
 .iconfont {
@@ -21,6 +21,14 @@
 
 .icon-youjiantou:before {
   content: "\f034f";
+}
+
+.icon-dxxz:before {
+  content: "\e609";
+}
+
+.icon-dxwx:before {
+  content: "\e64a";
 }
 
 .icon-editor:before {
@@ -97,5 +105,17 @@
 
 .icon-arrow_right_fat:before {
   content: "\e62c";
+}
+
+.icon-juxing1604:before {
+  content: "\e628";
+}
+
+.icon-zu323:before {
+  content: "\e62a";
+}
+
+.icon-dxbf:before {
+  content: "\e608";
 }
 
