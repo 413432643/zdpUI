@@ -26,8 +26,26 @@ export const data = {
     },
     {
       "level": 3,
+      "title": "默认展开和默认选中",
+      "slug": "默认展开和默认选中",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "禁用节点",
+      "slug": "禁用节点",
+      "children": []
+    },
+    {
+      "level": 3,
       "title": "tree 属性",
       "slug": "tree-属性",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "Options API",
+      "slug": "options-api",
       "children": []
     }
   ],

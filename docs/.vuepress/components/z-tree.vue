@@ -1,34 +1,15 @@
 <template>
-    <div>
-        <div v-for="(item, index) in newOptions" :key="item.id" @click.stop="isOpen(item, index)">
-
-            <div class="z-tree-label">
-                <!-- 箭头 -->
-                <div v-if="item[childrenF] && item[childrenF].length"
-                    :class="[{ 'icon-youjiantou-click': item.isOpen }, 'iconfont', 'icon-youjiantou']"></div>
-                <!-- 多选框 -->
-                <span v-if="checkbox" class="z-tree-checkbox" @click.stop="checkboxClick(item, index)">
-                    <span v-if="item.checkedAll" class="iconfont icon-dxbf"></span>
-                    <span v-else-if="item.checked" class="iconfont icon-dxxz"></span>
-                    <span v-else class="iconfont icon-dxwx"></span>
-                </span>
-                <!-- icon -->
-
-
-                <!-- 文本 -->
-                <div style="padding-left:10px">{{ item[labelF] }}</div>
-            </div>
-
-            <z-tree v-if="item.isOpen && item[childrenF] && item[childrenF].length" :options="item[childrenF]"
-                style="padding-left:20px" :childrenF="childrenF" :checkbox="checkbox" :labelF="labelF"></z-tree>
-        </div>
+    <div v-for="(item, index) in treeDate" :key="index.id">
+        <z-tree-node :items="item" :options="flatTree" :childrenF="childrenF" :labelF="labelF" :checkbox="checkbox"
+            :openAll="openAll" :disabled="disabled" :defaultOpenNodes="defaultOpenNodes"
+            :defaultCheckedNodes="defaultCheckedNodes"></z-tree-node>
     </div>
-
 </template>
 
 
 <script>
 export default {
+    components: { zTreeNode },
     name: 'ZTree',
 };
 
@@ -37,16 +18,21 @@ export default {
 
 <script setup>
 import { ref, computed } from 'vue'
-const emit = defineEmits(['update:modelValue', 'change'])
-
+import zTreeNode from './z-tree-node.vue';
 const props = defineProps({
-    modelValue: {
+    options: {
         type: Array,
         default: () => {
             return []
         }
     },
-    options: {
+    defaultOpenNodes: {
+        type: Array,
+        default: () => {
+            return []
+        }
+    },
+    defaultCheckedNodes: {
         type: Array,
         default: () => {
             return []
@@ -60,99 +46,109 @@ const props = defineProps({
         type: String,
         default: 'label'
     },
-    checkbox: {
-        type: Boolean,
-        default: false
-    },
+    checkbox: Boolean,
+    openAll: Boolean,
+    disabled: Boolean,
+
+
 })
-
-
-const newOptions = ref(props.options || [])
-
-
-const isOpen = (item, index) => {
-    item.isOpen = !item.isOpen
+// 默认展开全部节点
+const defaultOpenAll =(node)=>{
+    if(props.openAll){
+        node.isOpen = true
+    }
 }
 
 
-const checkboxClick = (item, index) => {
-    let list=[]
-    item.checked = !item.checked
-    newOptions.value.forEach((item1) => {
-        if (item.checked) {
-            
+// 默认展开节点
+const defaultOpen = (node) => {
+    if (props.defaultOpenNodes && props.defaultOpenNodes.length) {
+        props.defaultOpenNodes.forEach(item => {
+            if (item == node.id) {
+                node.isOpen = true
+            }
+        })
+    }
+}
+
+// 默认勾选节点
+const defaultChecked = (node) => {
+    if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
+        props.defaultCheckedNodes.forEach(item => {
+            if (item == node.id) {
+                node.checked = true
+                defaultCheckedChild(node)
+            }
+        })
+    }
+}
+// 默认勾选子节点
+const defaultCheckedChild=(node)=>{
+    if(node[props.childrenF] && node[props.childrenF].length){
+        node[props.childrenF].forEach(item=>{
+            item.checked=true
+            defaultCheckedChild(item)
+        })
+    }
+}
+
+
+// 数据初始化
+const compileTreeData = (arr) => {
+    const newAttr = (node, parent) => {
+        defaultOpen(node)
+        defaultChecked(node)
+        defaultOpenAll(node)
+        if (node[props.childrenF]) {
+            node[props.childrenF].forEach(item => {
+                return newAttr(item, node);
+            })
         }
-        
-    })
-     
+    }
+    arr.forEach(item => {
+        newAttr(item);
+    });
 
-    console.log(list)
-    emit('update:modelValue', list)
-    emit('change', { "value": list, "index": index })
+    return arr;
 }
+
+const treeDate = compileTreeData(props.options)
+
+
+// 处理各节点对应关系
+const compileFlatTree = (arr) => {
+    let keyCounter = 0;
+    const childrenKey = props.childrenF;
+    const flatTree = [];
+    const flatChildren = (node, parent) => {
+        node.nodeKey = keyCounter++;
+        flatTree[node.nodeKey] = {
+            node: node,
+            nodeKey: node.nodeKey
+        };
+        if (typeof parent != 'undefined') {
+            flatTree[node.nodeKey].parent = parent.nodeKey;
+            flatTree[parent.nodeKey][childrenKey].push(node.nodeKey);
+        }
+        if (node[childrenKey]) {
+            flatTree[node.nodeKey][childrenKey] = [];
+            node[childrenKey].forEach(item => {
+                return flatChildren(item, node);
+            });
+        }
+    }
+    arr.forEach((item) => {
+        flatChildren(item);
+    });
+    return flatTree;
+}
+const flatTree = compileFlatTree(props.options)
+
+
 
 
 </script>
 
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-}
-
-.z-tree-label {
-    padding-left: 10px;
-    display: inline-block;
-    width: 95%;
-
-    div {
-        display: inline-block;
-    }
-
-    &:hover {
-        background-color: #f5f5f5;
-    }
-}
-
-.z-tree-checkbox {
-    padding-left: 10px;
-
-    span {
-        color: #409eff;
-
-    }
-
-    &:last-child {
-        color: #cdd0d6;
-    }
-
-}
-
-
-// icon
-.icon-youjiantou {
-    color: #a8abb2;
-    font-size: 10px;
-    transition: transform .3s;
-    display: inline-block;
-}
-
-.icon-youjiantou-click {
-    font-size: 10px;
-    transform: rotate(90deg);
-}
-
-.icon-dxwx {
-    color: #cdd0d6 !important;
-}
-
-.icon-dxwx:hover {
-    color: #409eff !important;
-}
 </style>
