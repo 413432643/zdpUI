@@ -14,8 +14,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "自定义属性名",
-      "slug": "自定义属性名",
+      "title": "自定义节点名",
+      "slug": "自定义节点名",
       "children": []
     },
     {

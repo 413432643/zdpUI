@@ -22,8 +22,8 @@
         <div v-if="items.isOpen && items[childrenF] && items[childrenF].length">
             <div v-for="(item, i) in items[childrenF]" :key="i.id">
                 <z-tree-node :items="item" :options="options" :childrenF="childrenF" :labelF="labelF"
-                    :checkbox="checkbox" :openAll="openAll" style="padding-left:20px"
-                    :defaultOpenNodes="defaultOpenNodes" :defaultCheckedNodes="defaultCheckedNodes">
+                    :checkbox="checkbox" style="padding-left:20px" :defaultOpenNodes="defaultOpenNodes"
+                    :defaultCheckedNodes="defaultCheckedNodes">
                 </z-tree-node>
             </div>
         </div>
@@ -39,8 +39,7 @@ export default {
 
 
 <script setup>
-import { ref, computed, onMounted, popScopeId } from 'vue'
-
+import { ref, computed, onMounted } from 'vue'
 
 const props = defineProps({
     items: {
@@ -79,10 +78,6 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    openAll: {
-        type: Boolean,
-        default: false
-    },
     disabled: {
         type: Boolean,
         default: false
@@ -99,10 +94,12 @@ const isOpen = (item) => {
 //当前勾选节点的子节点是否勾选
 const updateChild = (item) => {
     if (item[props.childrenF] && item[props.childrenF].length) {
+        
         item[props.childrenF].forEach((item1) => {
             if (item.checked) {
                 item1.checked = true
             } else {
+                item.partChecked = false
                 item1.partChecked = false
                 item1.checked = false
             }
@@ -111,58 +108,60 @@ const updateChild = (item) => {
     }
 }
 
-
-// 部分选中
-const updatePart = (parent) => {
-    let i = 0, j = 0
-
-    parent[props.childrenF].forEach(item => {
-        if (item[props.childrenF]) {
-            item[props.childrenF].forEach(item1 => {
-                j++
-                item1.checked ? i++ : i
-            })
-        }
-        j++
-        item.checked ? i++ : i
-    })
-    if (i < j && i > 0) {
-        parent.partChecked = true
-    } else {
-        parent.partChecked = false
-    }
-
-}
-
-
 // 当前勾选节点的父节点是否勾选
 const updateParent = (nodeKey) => {
     const parentKey = props.options[nodeKey].parent;
     if (typeof parentKey == 'undefined') return;
     const parent = props.options[parentKey].node;
-    const parentNode = parent[props.childrenF].every(item => {
-        return item.checked == true
-    })
-    parentNode ? parent.checked = true : parent.checked = false
+    const allL = parent[props.childrenF].length
+    const selectedL = parent[props.childrenF].filter(item => item.checked).length
+    if (selectedL == 0) {   
+        parent.checked = false
 
-    // updatePart(parent)
+        // 子节点部分选中
+        const _allL = parent.children.length
+        const _selectedL = parent.children.filter(item => item.partChecked).length
+        if (_selectedL > 0 && _selectedL <= _allL) {
+            parent.partChecked = true
+        } else {
+            parent.partChecked = false
+        }
 
+    } else if (selectedL == allL) {
+        parent.checked = true
+        parent.partChecked = false
+        
+    } else {
+        parent.checked = false
+        parent.partChecked = true
+    }
+    
     updateParent(parentKey)
+
 }
-
-
 
 
 // 勾选节点
 const NodeClick = (item) => {
-    const nodeKey = item.nodeKey
     item.checked = !item.checked
-
-    updateParent(nodeKey)
+    updateParent(item.nodeKey)
     updateChild(item)
 }
 
 
+
+// onMounted(() => {
+//     if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
+//         props.options.forEach(item => {
+//             props.defaultCheckedNodes.forEach(item1 => {
+//                 if (item.node.id == item1) {
+//                     updateChild(item.node)
+//                     updateParent(item.node.nodeKey)
+//                 }
+//             })
+//         })
+//     }
+// })
 
 </script>
 

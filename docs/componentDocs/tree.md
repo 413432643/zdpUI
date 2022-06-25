@@ -149,8 +149,10 @@ const state2 = reactive({
                             id: 11,
                             label: '1-1-2',
                         },
+                        
                     ],
                 },
+                
                 {
                     id: 5,
                     label: '1-2',
@@ -273,6 +275,78 @@ const state3 = reactive({
 const { options: options3 } = state3
 
 
+const state4 = reactive({
+    options: [
+        {
+            id: 1,
+            label: '1',
+            children: [
+                {
+                    id: 4,
+                    label: '1-1',
+                    children: [
+                        {
+                            id: 10,
+                            label: '1-1-1',
+
+                        },
+                        {
+                            id: 11,
+                            label: '1-1-2',
+                        },
+                    ],
+                },
+                {
+                    id: 5,
+                    label: '1-2',
+                    children: [
+                        {
+                            id: 12,
+                            label: '1-2-1',
+                        },
+                        {
+                            id: 13,
+                            label: '1-2-2',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            id: 2,
+            label: '2',
+            children: [
+                {
+                    id: 6,
+                    label: '2-1',
+                },
+                {
+                    id: 7,
+                    label: '2-2',
+                },
+            ],
+        },
+        {
+            id: 3,
+            label: '3',
+            children: [
+                {
+                    id: 8,
+                    label: '3-1',
+                },
+                {
+                    id: 9,
+                    label: '3-2',
+                },
+            ],
+        },
+    ]
+
+})
+
+const { options: options4 } = state4
+
+
 </script>
 
 ::: details 点击查看代码
@@ -347,9 +421,9 @@ const { options } = state
 :::
 
 
-### 自定义属性名
+### 自定义节点名
 
-通过`childrenF`，`labelF`属性，自定义`label`，`children`属性名
+通过`childrenF`，`labelF`属性，自定义`label`，`children`节点名
 
 <z-tree :options="options1" childrenF="son" labelF="title"></z-tree>
 
@@ -519,10 +593,12 @@ const treeVal = ref([]);
 ### 默认展开和默认选中
 通过`defaultOpenNodes`和`defaultCheckedNodes`设置默认展开和默认选中的节点，必须在`options`中设置`id`字段,且该字段在整棵树中是唯一的
 
-<z-tree :options="options3" checkbox :defaultOpenNodes="[1,2,3]" :defaultCheckedNodes="[1,2]"></z-tree>
+<z-tree :options="options3" checkbox :defaultOpenNodes="[1,2,3]" :defaultCheckedNodes="[8,9]"></z-tree>
 
 ::: details 点击查看代码
 ```vue
+
+<z-tree :options="options" checkbox :defaultOpenNodes="[1,2,3]" :defaultCheckedNodes="[1,2]"></z-tree>
 
 <script setup>
 const state = reactive({
@@ -603,6 +679,91 @@ const { options } = state
 
 ### 禁用节点
 
+
+<z-tree :options="options4" checkbox openAll></z-tree>
+
+
+::: details 点击查看代码
+```vue
+
+<z-tree :options="options4" checkbox openAll></z-tree>
+
+<script setup>
+const state = reactive({
+    options: [
+        {
+            id: 1,
+            label: '1',
+            children: [
+                {
+                    id: 4,
+                    label: '1-1',
+                    children: [
+                        {
+                            id: 10,
+                            label: '1-1-1',
+
+                        },
+                        {
+                            id: 11,
+                            label: '1-1-2',
+                        },
+                    ],
+                },
+                {
+                    id: 5,
+                    label: '1-2',
+                    children: [
+                        {
+                            id: 12,
+                            label: '1-2-1',
+                        },
+                        {
+                            id: 13,
+                            label: '1-2-2',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            id: 2,
+            label: '2',
+            children: [
+                {
+                    id: 6,
+                    label: '2-1',
+                },
+                {
+                    id: 7,
+                    label: '2-2',
+                },
+            ],
+        },
+        {
+            id: 3,
+            label: '3',
+            children: [
+                {
+                    id: 8,
+                    label: '3-1',
+                },
+                {
+                    id: 9,
+                    label: '3-2',
+                },
+            ],
+        },
+    ]
+
+})
+
+const { options } = state
+
+</script>
+
+```
+:::
 
 ### tree 属性   
 

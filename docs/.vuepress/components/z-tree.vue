@@ -1,5 +1,5 @@
 <template>
-    <div v-for="(item, index) in treeDate" :key="index.id">
+    <div v-for="(item, index) in options" :key="index.id">
         <z-tree-node :items="item" :options="flatTree" :childrenF="childrenF" :labelF="labelF" :checkbox="checkbox"
             :openAll="openAll" :disabled="disabled" :defaultOpenNodes="defaultOpenNodes"
             :defaultCheckedNodes="defaultCheckedNodes"></z-tree-node>
@@ -52,69 +52,6 @@ const props = defineProps({
 
 
 })
-// 默认展开全部节点
-const defaultOpenAll =(node)=>{
-    if(props.openAll){
-        node.isOpen = true
-    }
-}
-
-
-// 默认展开节点
-const defaultOpen = (node) => {
-    if (props.defaultOpenNodes && props.defaultOpenNodes.length) {
-        props.defaultOpenNodes.forEach(item => {
-            if (item == node.id) {
-                node.isOpen = true
-            }
-        })
-    }
-}
-
-// 默认勾选节点
-const defaultChecked = (node) => {
-    if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
-        props.defaultCheckedNodes.forEach(item => {
-            if (item == node.id) {
-                node.checked = true
-                defaultCheckedChild(node)
-            }
-        })
-    }
-}
-// 默认勾选子节点
-const defaultCheckedChild=(node)=>{
-    if(node[props.childrenF] && node[props.childrenF].length){
-        node[props.childrenF].forEach(item=>{
-            item.checked=true
-            defaultCheckedChild(item)
-        })
-    }
-}
-
-
-// 数据初始化
-const compileTreeData = (arr) => {
-    const newAttr = (node, parent) => {
-        defaultOpen(node)
-        defaultChecked(node)
-        defaultOpenAll(node)
-        if (node[props.childrenF]) {
-            node[props.childrenF].forEach(item => {
-                return newAttr(item, node);
-            })
-        }
-    }
-    arr.forEach(item => {
-        newAttr(item);
-    });
-
-    return arr;
-}
-
-const treeDate = compileTreeData(props.options)
-
-
 // 处理各节点对应关系
 const compileFlatTree = (arr) => {
     let keyCounter = 0;
@@ -144,6 +81,91 @@ const compileFlatTree = (arr) => {
 }
 const flatTree = compileFlatTree(props.options)
 
+
+
+
+// 默认展开全部节点
+const defaultOpenAll = (node) => {
+    if (props.openAll) {
+        node.isOpen = true
+    }
+}
+
+
+// 默认展开节点
+const defaultOpen = (node) => {
+    if (props.defaultOpenNodes && props.defaultOpenNodes.length) {
+        props.defaultOpenNodes.forEach(item => {
+            if (item == node.id) {
+                node.isOpen = true
+            }
+           
+        })
+       
+  
+    }
+}
+
+
+// 默认勾选节点
+const defaultChecked = (node) => {
+    if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
+        props.defaultCheckedNodes.forEach(item => {
+            if (item == node.id) {
+                node.checked = true
+                defaultCheckedChild(node)
+                // defaultCheckedParent(node.nodeKey)
+            }
+        })
+        // console.log(node)
+    }
+}
+
+
+// 默认勾选子节点
+const defaultCheckedChild = (node) => {
+    if (node[props.childrenF] && node[props.childrenF].length) {
+        node[props.childrenF].forEach(item => {
+            item.checked = true
+            defaultCheckedChild(item)
+        })
+    }
+}
+
+
+
+// 默认勾选父节点
+// const defaultCheckedParent = (nodeKey) => {
+//     const parentKey = flatTree[nodeKey].parent
+//     if (typeof parentKey == 'undefined') return
+//     defaultCheckedParent(parentKey)
+//     // console.log(parentKey)
+// }
+
+
+
+
+// 数据初始化
+const compileTreeData = (arr) => {
+    const newAttr = (node, parent) => {
+        defaultOpen(node)
+        defaultOpenAll(node)
+
+        defaultChecked(node)
+        if (node[props.childrenF]) {
+            node[props.childrenF].forEach(item => {
+                return newAttr(item, node);
+            })
+        }
+    }
+    arr.forEach(item => {
+        newAttr(item);
+    });
+
+    return arr;
+}
+
+const treeDate = compileTreeData(props.options)
 
 
 
