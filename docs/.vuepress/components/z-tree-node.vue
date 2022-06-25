@@ -94,7 +94,7 @@ const isOpen = (item) => {
 //当前勾选节点的子节点是否勾选
 const updateChild = (item) => {
     if (item[props.childrenF] && item[props.childrenF].length) {
-        
+
         item[props.childrenF].forEach((item1) => {
             if (item.checked) {
                 item1.checked = true
@@ -115,7 +115,7 @@ const updateParent = (nodeKey) => {
     const parent = props.options[parentKey].node;
     const allL = parent[props.childrenF].length
     const selectedL = parent[props.childrenF].filter(item => item.checked).length
-    if (selectedL == 0) {   
+    if (selectedL == 0) {
         parent.checked = false
 
         // 子节点部分选中
@@ -130,12 +130,12 @@ const updateParent = (nodeKey) => {
     } else if (selectedL == allL) {
         parent.checked = true
         parent.partChecked = false
-        
+
     } else {
         parent.checked = false
         parent.partChecked = true
     }
-    
+
     updateParent(parentKey)
 
 }
@@ -148,20 +148,25 @@ const NodeClick = (item) => {
     updateChild(item)
 }
 
+const defaultChecked = () => {
+    if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
+        props.options.forEach(item => {
+            props.defaultCheckedNodes.forEach(item1 => {
+                if (item.node.id == item1) {
+                    item.node.checked = !item.node.checked
+                    updateParent(item.node.nodeKey)
+                    updateChild(item.node)
+                }
+            })
+        })
+    }
+}
+onMounted(()=>{
+    defaultChecked()
+})
 
 
-// onMounted(() => {
-//     if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
-//         props.options.forEach(item => {
-//             props.defaultCheckedNodes.forEach(item1 => {
-//                 if (item.node.id == item1) {
-//                     updateChild(item.node)
-//                     updateParent(item.node.nodeKey)
-//                 }
-//             })
-//         })
-//     }
-// })
+
 
 </script>
 

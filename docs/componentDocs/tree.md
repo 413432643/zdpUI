@@ -280,15 +280,15 @@ const state4 = reactive({
         {
             id: 1,
             label: '1',
+            
             children: [
                 {
                     id: 4,
                     label: '1-1',
                     children: [
-                        {
+                        {   
                             id: 10,
                             label: '1-1-1',
-
                         },
                         {
                             id: 11,
@@ -593,12 +593,12 @@ const treeVal = ref([]);
 ### 默认展开和默认选中
 通过`defaultOpenNodes`和`defaultCheckedNodes`设置默认展开和默认选中的节点，必须在`options`中设置`id`字段,且该字段在整棵树中是唯一的
 
-<z-tree :options="options3" checkbox :defaultOpenNodes="[1,2,3]" :defaultCheckedNodes="[8,9]"></z-tree>
+<z-tree :options="options3" checkbox :defaultOpenNodes="[1,3]" :defaultCheckedNodes="[8,9,11]"></z-tree>
 
 ::: details 点击查看代码
 ```vue
 
-<z-tree :options="options" checkbox :defaultOpenNodes="[1,2,3]" :defaultCheckedNodes="[1,2]"></z-tree>
+<z-tree :options="options" checkbox :defaultOpenNodes="[1,3]" :defaultCheckedNodes="[8,9,11]"></z-tree>
 
 <script setup>
 const state = reactive({
@@ -694,6 +694,7 @@ const state = reactive({
         {
             id: 1,
             label: '1',
+            
             children: [
                 {
                     id: 4,

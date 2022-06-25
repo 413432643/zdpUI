@@ -83,7 +83,6 @@ const flatTree = compileFlatTree(props.options)
 
 
 
-
 // 默认展开全部节点
 const defaultOpenAll = (node) => {
     if (props.openAll) {
@@ -99,59 +98,16 @@ const defaultOpen = (node) => {
             if (item == node.id) {
                 node.isOpen = true
             }
-           
-        })
-       
-  
-    }
-}
-
-
-// 默认勾选节点
-const defaultChecked = (node) => {
-    if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
-        props.defaultCheckedNodes.forEach(item => {
-            if (item == node.id) {
-                node.checked = true
-                defaultCheckedChild(node)
-                // defaultCheckedParent(node.nodeKey)
-            }
-        })
-        // console.log(node)
-    }
-}
-
-
-// 默认勾选子节点
-const defaultCheckedChild = (node) => {
-    if (node[props.childrenF] && node[props.childrenF].length) {
-        node[props.childrenF].forEach(item => {
-            item.checked = true
-            defaultCheckedChild(item)
         })
     }
 }
-
-
-
-// 默认勾选父节点
-// const defaultCheckedParent = (nodeKey) => {
-//     const parentKey = flatTree[nodeKey].parent
-//     if (typeof parentKey == 'undefined') return
-//     defaultCheckedParent(parentKey)
-//     // console.log(parentKey)
-// }
-
-
-
 
 // 数据初始化
 const compileTreeData = (arr) => {
     const newAttr = (node, parent) => {
         defaultOpen(node)
         defaultOpenAll(node)
-
-        defaultChecked(node)
+        node.checked = false
         if (node[props.childrenF]) {
             node[props.childrenF].forEach(item => {
                 return newAttr(item, node);
