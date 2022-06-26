@@ -143,7 +143,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="inputnumber-方法" tabindex="-1"><a class="header-anchor" href="#inputnumber-方法" aria-hidden="true">#</a> InputNumber 方法</h3>
+<h3 id="inputnumber-事件" tabindex="-1"><a class="header-anchor" href="#inputnumber-事件" aria-hidden="true">#</a> InputNumber 事件</h3>
 <table>
 <thead>
 <tr>

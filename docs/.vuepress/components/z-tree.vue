@@ -1,9 +1,12 @@
 <template>
-    <div v-for="(item, index) in options" :key="index.id">
-        <z-tree-node :items="item" :options="flatTree" :childrenF="childrenF" :labelF="labelF" :checkbox="checkbox"
-            :openAll="openAll" :disabled="disabled" :defaultOpenNodes="defaultOpenNodes"
-            :defaultCheckedNodes="defaultCheckedNodes"></z-tree-node>
-    </div>
+    <z-tree-node v-for="item in options" :key="item.id" :items="item" :options="flatTree" :childrenF="childrenF"
+        :labelF="labelF" :checkbox="checkbox" :openAll="openAll" :defaultOpenNodes="defaultOpenNodes"
+        :defaultCheckedNodes="defaultCheckedNodes">
+        <template #customNode="{ data,node}">
+            <slot name="customNode" :data="data" :node="node"></slot>
+        </template>
+    </z-tree-node>
+
 </template>
 
 
@@ -48,9 +51,6 @@ const props = defineProps({
     },
     checkbox: Boolean,
     openAll: Boolean,
-    disabled: Boolean,
-
-
 })
 // 处理各节点对应关系
 const compileFlatTree = (arr) => {
@@ -73,6 +73,7 @@ const compileFlatTree = (arr) => {
                 return flatChildren(item, node);
             });
         }
+        
     }
     arr.forEach((item) => {
         flatChildren(item);
@@ -104,7 +105,7 @@ const defaultOpen = (node) => {
 
 // 数据初始化
 const compileTreeData = (arr) => {
-    const newAttr = (node, parent) => {
+    const newAttr = (node) => {
         defaultOpen(node)
         defaultOpenAll(node)
         node.checked = false
@@ -117,7 +118,6 @@ const compileTreeData = (arr) => {
     arr.forEach(item => {
         newAttr(item);
     });
-
     return arr;
 }
 

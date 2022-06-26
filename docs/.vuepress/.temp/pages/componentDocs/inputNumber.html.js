@@ -50,8 +50,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "InputNumber 方法",
-      "slug": "inputnumber-方法",
+      "title": "InputNumber 事件",
+      "slug": "inputnumber-事件",
       "children": []
     }
   ],

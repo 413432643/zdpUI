@@ -1,7 +1,5 @@
 <template>
-    <div>
-        111
-    </div>
+    <slot name="controlNodes"></slot>
 </template>
 
 

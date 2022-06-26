@@ -8,25 +8,33 @@
                 </div>
             </div>
             <!-- 多选框 -->
-            <span v-if="checkbox" class="z-tree-checkbox iconfont" @click.stop="NodeClick(items)">
+            <span v-if="checkbox" :class="'z-tree-checkbox iconfont'" @click.stop="NodeClick(items)">
                 <span v-if="items.checked" class="icon-dxxz"></span>
                 <span v-else-if="items.partChecked" class="icon-dxbf"></span>
                 <span v-else class="icon-dxwx"></span>
             </span>
             <!-- icon -->
-            
+
 
             <!-- 文本 -->
             <div style="padding-left:10px">{{ items[labelF] }}</div>
+
+
+            <!-- 自定义节点 -->
+            <slot name="customNode" :data="items" :node='1'></slot>
         </div>
-        <div v-if="items.isOpen && items[childrenF] && items[childrenF].length">
-            <div v-for="(item, i) in items[childrenF]" :key="i.id">
-                <z-tree-node :items="item" :options="options" :childrenF="childrenF" :labelF="labelF"
-                    :checkbox="checkbox" style="padding-left:20px" :defaultOpenNodes="defaultOpenNodes"
-                    :defaultCheckedNodes="defaultCheckedNodes">
-                </z-tree-node>
-            </div>
+        <div v-if="items.isOpen && items[childrenF] && items[childrenF].length" style="padding-left:20px">
+            <z-tree-node v-for="item in items[childrenF]" :key="item.id" :items="item" :options="options"
+                :childrenF="childrenF" :labelF="labelF" :checkbox="checkbox" :defaultOpenNodes="defaultOpenNodes"
+                :defaultCheckedNodes="defaultCheckedNodes">
+                <template #customNode="{data:data,node:node}">
+                    <slot name="customNode" :data="data" :node="node"></slot>
+                </template>
+            </z-tree-node>
+
         </div>
+
+
     </div>
 </template>
 
@@ -78,11 +86,6 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-
 })
 
 
@@ -94,7 +97,6 @@ const isOpen = (item) => {
 //当前勾选节点的子节点是否勾选
 const updateChild = (item) => {
     if (item[props.childrenF] && item[props.childrenF].length) {
-
         item[props.childrenF].forEach((item1) => {
             if (item.checked) {
                 item1.checked = true
@@ -150,19 +152,17 @@ const NodeClick = (item) => {
 
 //默认选中
 const defaultChecked = () => {
-    if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
-        props.options.forEach(item => {
-            props.defaultCheckedNodes.forEach(item1 => {
-                if (item.node.id == item1) {
-                    item.node.checked = !item.node.checked
-                    updateParent(item.node.nodeKey)
-                    updateChild(item.node)
-                }
-            })
+    if (!props.defaultCheckedNodes) return
+    props.options.forEach(item => {
+        props.defaultCheckedNodes.forEach(item1 => {
+            if (item.node.id != item1) return
+            item.node.checked = !item.node.checked
+            updateParent(item.node.nodeKey)
+            updateChild(item.node)
         })
-    }
+    })
 }
-onMounted(()=>{
+onMounted(() => {
     defaultChecked()
 })
 
@@ -173,16 +173,6 @@ onMounted(()=>{
 
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-}
-
 .z-tree-label {
     width: 100%;
 
@@ -192,23 +182,12 @@ onMounted(()=>{
 
     &:hover {
         background-color: #f5f5f5;
-    }
-}
-
-.z-tree-checkbox {
-    margin-left: 10px;
-
-    span {
-        color: #409eff;
-    }
-
-    &:last-child {
-        color: #cdd0d6;
+        
     }
 }
 
 
-// icon
+// 箭头 
 .icon-youjiantou {
     color: #a8abb2;
     font-size: 10px;
@@ -221,11 +200,22 @@ onMounted(()=>{
     transform: rotate(90deg);
 }
 
-.icon-dxwx {
-    color: #cdd0d6 !important;
-}
+// 多选框
+.z-tree-checkbox {
+    margin-left: 10px;
 
-.icon-dxwx:hover {
-    color: #409eff !important;
+    span {
+        color: #409eff;
+    }
+
+    .icon-dxwx {
+        color: #cdd0d6;
+    }
+
+    .icon-dxwx:hover {
+        color: #409eff;
+    }
+
+
 }
 </style>

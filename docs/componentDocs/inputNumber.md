@@ -163,7 +163,7 @@ const num = ref(1)
 | position     | 按钮位置       | string      | right         | -             | -       |
 
 
-### InputNumber 方法
+### InputNumber 事件
 |    事件名      |       说明      |     回调参数       | 
 |:------------:|:--------------:|:------------------:|
 | change       | 绑定值被改变时触发       | number      |

@@ -2,7 +2,7 @@
 
 ### 基础用法
 
-<z-switch></z-switch>
+<z-switch><template #controlNodes>111111111111111</template></z-switch>
 
 ::: details 点击查看代码
 ```

@@ -32,8 +32,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "禁用节点",
-      "slug": "禁用节点",
+      "title": "树节点过滤",
+      "slug": "树节点过滤",
       "children": []
     },
     {

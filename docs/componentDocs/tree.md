@@ -149,10 +149,10 @@ const state2 = reactive({
                             id: 11,
                             label: '1-1-2',
                         },
-                        
+
                     ],
                 },
-                
+
                 {
                     id: 5,
                     label: '1-2',
@@ -280,13 +280,13 @@ const state4 = reactive({
         {
             id: 1,
             label: '1',
-            
+
             children: [
                 {
                     id: 4,
                     label: '1-1',
                     children: [
-                        {   
+                        {
                             id: 10,
                             label: '1-1-1',
                         },
@@ -343,9 +343,26 @@ const state4 = reactive({
     ]
 
 })
-
+// const input = ref('')
 const { options: options4 } = state4
-
+let id = 1000
+const append = (data) => {
+    const newChild = { id: id++, label: 'test', children: [] }
+    if (!data.children) {
+        data.children = []
+    }
+    data.children.push(newChild)
+    // options4.value = [...options4.value]
+}
+const remove = (node, data) => {
+    console.log(node)
+    console.log(data)
+    // const parent = node.parent
+    // const children = parent.data.children || parent.data
+    // const index = children.findIndex((d) => d.id === data.id)
+    // children.splice(index, 1)
+    // dataSource.value = [...dataSource.value]
+}
 
 </script>
 
@@ -431,7 +448,7 @@ const { options } = state
 ::: details 点击查看代码
 ```vue
 
-<z-tree v-model="treeVal" :options="options" childrenF="son" labelF="title"></z-tree>
+<z-tree  :options="options" childrenF="son" labelF="title"></z-tree>
 
 
 <script setup>
@@ -593,7 +610,7 @@ const treeVal = ref([]);
 ### 默认展开和默认选中
 通过`defaultOpenNodes`和`defaultCheckedNodes`设置默认展开和默认选中的节点，必须在`options`中设置`id`字段,且该字段在整棵树中是唯一的
 
-<z-tree :options="options3" checkbox :defaultOpenNodes="[1,3]" :defaultCheckedNodes="[8,9,11]"></z-tree>
+<z-tree :options="options3" checkbox :defaultOpenNodes="[1, 3]" :defaultCheckedNodes="[8, 9, 11]"></z-tree>
 
 ::: details 点击查看代码
 ```vue
@@ -677,11 +694,26 @@ const { options } = state
 ```
 :::
 
-### 禁用节点
+### 树节点过滤
 
+<!-- <z-input v-model="input" placeholder="树节点过滤"></z-input> -->
 
-<z-tree :options="options4" checkbox openAll></z-tree>
+<z-tree :options="options4" checkbox openAll >
+    <template #customNode="{node,data}" >
+        <span class="custom-tree-node">
+          <!-- <span>{{ node.label }}</span> -->
+            <span @click="append(data)"> Append </span>
+            <span @click="remove(node, data)"> Delete </span>
+          </span>
+      </template>
+</z-tree>
 
+<style>
+.custom-tree-node {
+    position: relative;
+    left:450px
+}
+</style>
 
 ::: details 点击查看代码
 ```vue
@@ -780,7 +812,7 @@ const { options } = state
 ### Options API 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
-|    label      |       节点内容      |     String       |  -               |     label     |
-|    children   |       子节点      |     String       |  -               |     children   |
-|    isOpen      |       展开子节点      |     Boolean       |  可选值       |     false     |
-|    id      |       该字段在整棵树中是唯一的      |     String       |  -               |     -     |
+|    label      |       节点内容      |     String       |  -             |     label     |
+|    children   |       子节点      |     String       |  -              |     children   |
+|    isOpen      |       展开子节点      |     Boolean       |  可选值     |     false     |
+|    id      |       该字段在整棵树中是唯一的      |     String       |  -      |     -     |
