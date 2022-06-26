@@ -6,8 +6,8 @@ module.exports = {
   description: '描述：个人组件库',
   base: "/zdpUI/",
   theme: defaultTheme({
-    contributors:false,
-    lastUpdated:false,
+    contributors: false,
+    lastUpdated: false,
     sidebar: [
       {
         text: '快速开始',
@@ -17,19 +17,6 @@ module.exports = {
         text: 'layout 布局',
         link: '/componentDocs/layout.md',
       },
-
-      {
-        text: 'radio 单选',
-        link: '/componentDocs/radio.md',
-      },
-      {
-        text: 'checkbox 多选',
-        link: '/componentDocs/checkbox.md',
-      },
-      {
-        text: 'input 输入框',
-        link: '/componentDocs/input.md',
-      },
       {
         text: 'inputNumber 计数器',
         link: '/componentDocs/inputNumber.md',
@@ -37,6 +24,18 @@ module.exports = {
       {
         text: 'tree 树形控件',
         link: '/componentDocs/tree.md',
+      },
+      {
+        text: 'input 输入框',
+        link: '/componentDocs/input.md',
+      },
+      {
+        text: 'radio 单选',
+        link: '/componentDocs/radio.md',
+      },
+      {
+        text: 'checkbox 多选',
+        link: '/componentDocs/checkbox.md',
       },
       {
         text: 'button 按钮',

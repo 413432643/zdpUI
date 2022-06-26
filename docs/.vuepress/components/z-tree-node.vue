@@ -14,7 +14,7 @@
                 <span v-else class="icon-dxwx"></span>
             </span>
             <!-- icon -->
-
+            
 
             <!-- 文本 -->
             <div style="padding-left:10px">{{ items[labelF] }}</div>
@@ -118,7 +118,7 @@ const updateParent = (nodeKey) => {
     if (selectedL == 0) {
         parent.checked = false
 
-        // 子节点部分选中
+        // 选中子节点的父节点部分选中
         const _allL = parent.children.length
         const _selectedL = parent.children.filter(item => item.partChecked).length
         if (_selectedL > 0 && _selectedL <= _allL) {
@@ -148,6 +148,7 @@ const NodeClick = (item) => {
     updateChild(item)
 }
 
+//默认选中
 const defaultChecked = () => {
     if (props.defaultCheckedNodes && props.defaultCheckedNodes.length) {
         props.options.forEach(item => {

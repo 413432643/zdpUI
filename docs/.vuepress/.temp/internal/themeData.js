@@ -11,24 +11,24 @@ export const themeData = {
       "link": "/componentDocs/layout.md"
     },
     {
-      "text": "radio 单选",
-      "link": "/componentDocs/radio.md"
-    },
-    {
-      "text": "checkbox 多选",
-      "link": "/componentDocs/checkbox.md"
-    },
-    {
-      "text": "input 输入框",
-      "link": "/componentDocs/input.md"
-    },
-    {
       "text": "inputNumber 计数器",
       "link": "/componentDocs/inputNumber.md"
     },
     {
       "text": "tree 树形控件",
       "link": "/componentDocs/tree.md"
+    },
+    {
+      "text": "input 输入框",
+      "link": "/componentDocs/input.md"
+    },
+    {
+      "text": "radio 单选",
+      "link": "/componentDocs/radio.md"
+    },
+    {
+      "text": "checkbox 多选",
+      "link": "/componentDocs/checkbox.md"
     },
     {
       "text": "button 按钮",
