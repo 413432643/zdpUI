@@ -263,7 +263,7 @@ const { checkOptions } = state;
 |     inline     |  	Boolean  | 	是否垂直排列    |   true/false               |   false            |
 |     size     |  	尺寸  | 	String   |   small/large             |   -              |
 
-### Options API
+### Options 配置项
 
 
 |    参数      |       说明      |     类型       |  可选值               |     默认值     |

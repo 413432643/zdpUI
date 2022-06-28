@@ -1,34 +1,37 @@
 <template>
     <div>
         <div class="z-tree-label">
-            <!-- 箭头 -->
-            <div v-if="items[childrenF] && items[childrenF].length">
-                <div @click.stop="isOpen(items)"
-                    :class="[{ 'icon-youjiantou-click': items.isOpen }, 'iconfont', 'icon-youjiantou']">
+            <div>
+                <!-- 箭头 -->
+                <div v-if="items[childrenF] && items[childrenF].length">
+                    <div @click.stop="isOpen(items)"
+                        :class="[{ 'icon-youjiantou-click': items.isOpen }, 'iconfont', 'icon-youjiantou']">
+                    </div>
                 </div>
+                <!-- 多选框 -->
+                <span v-if="checkbox" :class="'z-tree-checkbox iconfont'" @click.stop="NodeClick(items)">
+                    <span v-if="items.checked" class="icon-dxxz"></span>
+                    <span v-else-if="items.partChecked" class="icon-dxbf"></span>
+                    <span v-else class="icon-dxwx"></span>
+                </span>
+                <!-- icon -->
+                
+
+                <!-- 文本 -->
+                <div style="padding-left:10px">{{ items[labelF] }}</div>
             </div>
-            <!-- 多选框 -->
-            <span v-if="checkbox" :class="'z-tree-checkbox iconfont'" @click.stop="NodeClick(items)">
-                <span v-if="items.checked" class="icon-dxxz"></span>
-                <span v-else-if="items.partChecked" class="icon-dxbf"></span>
-                <span v-else class="icon-dxwx"></span>
-            </span>
-            <!-- icon -->
 
-
-            <!-- 文本 -->
-            <div style="padding-left:10px">{{ items[labelF] }}</div>
 
 
             <!-- 自定义节点 -->
-            <slot name="customNode" :data="items" :node='1'></slot>
+            <slot name="customNode" :data="items" :flatTree="options"></slot>
         </div>
         <div v-if="items.isOpen && items[childrenF] && items[childrenF].length" style="padding-left:20px">
             <z-tree-node v-for="item in items[childrenF]" :key="item.id" :items="item" :options="options"
                 :childrenF="childrenF" :labelF="labelF" :checkbox="checkbox" :defaultOpenNodes="defaultOpenNodes"
                 :defaultCheckedNodes="defaultCheckedNodes">
-                <template #customNode="{data:data,node:node}">
-                    <slot name="customNode" :data="data" :node="node"></slot>
+                <template #customNode="{ data: data, flatTree: flatTree }">
+                    <slot name="customNode" :data="data" :flatTree="flatTree"></slot>
                 </template>
             </z-tree-node>
 
@@ -146,6 +149,11 @@ const updateParent = (nodeKey) => {
 // 勾选节点
 const NodeClick = (item) => {
     item.checked = !item.checked
+    // if (item.nodeKey) {
+    //     updateParent(item.nodeKey)
+    // }else {
+    //     updateParent(item.parent.nodeKey)
+    // }
     updateParent(item.nodeKey)
     updateChild(item)
 }
@@ -174,7 +182,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .z-tree-label {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     div {
         display: inline-block;
@@ -182,7 +192,7 @@ onMounted(() => {
 
     &:hover {
         background-color: #f5f5f5;
-        
+
     }
 }
 

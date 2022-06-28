@@ -369,7 +369,7 @@ const radioVal = ref("1");
 
 
 
-### Options API
+### Options 配置项
 
 
 |    参数      |       说明      |     类型       |  可选值               |     默认值     |

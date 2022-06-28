@@ -44,8 +44,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "Options API",
-      "slug": "options-api",
+      "title": "Options 配置项",
+      "slug": "options-配置项",
       "children": []
     },
     {

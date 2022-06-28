@@ -8,9 +8,9 @@
 
 <z-tree :options="options"></z-tree>
 
-
+watch
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive ,watch } from "vue";
 
 
 
@@ -343,25 +343,106 @@ const state4 = reactive({
     ]
 
 })
-// const input = ref('')
 const { options: options4 } = state4
+
+
 let id = 1000
 const append = (data) => {
-    const newChild = { id: id++, label: 'test', children: [] }
+    const newChild = { id: id++, label: 'test', children: [], parent: data, isOpen: true }
     if (!data.children) {
         data.children = []
     }
     data.children.push(newChild)
-    // options4.value = [...options4.value]
 }
-const remove = (node, data) => {
-    console.log(node)
-    console.log(data)
-    // const parent = node.parent
-    // const children = parent.data.children || parent.data
-    // const index = children.findIndex((d) => d.id === data.id)
-    // children.splice(index, 1)
-    // dataSource.value = [...dataSource.value]
+
+const remove = (data, node) => {
+    let parent, children
+    if (data.parent) {
+        parent = data.parent
+        children = parent.children
+    } else {
+        node.forEach(item => {
+            if (item.nodeKey != data.nodeKey) return
+            if (item.parent || item.parent == 0) {
+                parent = node[item.parent]
+                children = parent.node.children
+            } else {
+                children = options4
+            }
+        })
+    }
+    const index = children.findIndex((item) => item.id == data.id)
+    children.splice(index, 1)
+}
+
+
+
+const state5 = reactive({
+    options: [
+        {
+            id: 1,
+            label: '1',
+            children: [
+                {
+                    id: 4,
+                    label: '1-1',
+                    children: [
+                        {
+                            id: 9,
+                            label: '1-1-1',
+                        },
+                        {
+                            id: 10,
+                            label: '1-1-2',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            id: 2,
+            label: '2',
+            children: [
+                {
+                    id: 5,
+                    label: '2-1',
+                },
+                {
+                    id: 6,
+                    label: '2-2',
+                },
+            ],
+        },
+        {
+            id: 3,
+            label: '3',
+            children: [
+                {
+                    id: 7,
+                    label: '3-1',
+                },
+                {
+                    id: 8,
+                    label: '3-2',
+                },
+            ],
+        },
+    ]
+
+})
+const { options:options5 } = state5
+
+const filterText = ref('')
+
+const treeRef = ref()
+
+watch(filterText, (val) => {
+  treeRef.value.filter(val)
+})
+
+const filterNode = (value, data) => {
+  if (!value) return true
+  return data.label.includes(value)
 }
 
 </script>
@@ -438,9 +519,9 @@ const { options } = state
 :::
 
 
-### 自定义节点名
+### 自定义节点和节点文本字段名
 
-通过`childrenF`，`labelF`属性，自定义`label`，`children`节点名
+通过`childrenF` ，`labelF`属性，自定义`children` ，`label`节点和节点文本字段名
 
 <z-tree :options="options1" childrenF="son" labelF="title"></z-tree>
 
@@ -694,39 +775,50 @@ const { options } = state
 ```
 :::
 
-### 树节点过滤
+### 自定义节点
 
-<!-- <z-input v-model="input" placeholder="树节点过滤"></z-input> -->
 
-<z-tree :options="options4" checkbox openAll >
-    <template #customNode="{node,data}" >
-        <span class="custom-tree-node">
-          <!-- <span>{{ node.label }}</span> -->
-            <span @click="append(data)"> Append </span>
-            <span @click="remove(node, data)"> Delete </span>
-          </span>
-      </template>
+<z-tree :options="options4" openAll >
+    <template #customNode="{ flatTree, data }" >
+        <div class="custom-tree-node">
+            <a @click="append(data)"> Append </a>
+            <a @click="remove(data, flatTree)"> Delete </a>
+          </div>
+    </template>
 </z-tree>
 
 <style>
 .custom-tree-node {
-    position: relative;
-    left:450px
+    /* position: relative;
+    left: 450px */
+    
+    display: flex;
+    justify-content: right;
+    
+    
 }
 </style>
 
 ::: details 点击查看代码
 ```vue
 
-<z-tree :options="options4" checkbox openAll></z-tree>
+<z-tree :options="options" openAll>
+    <template #customNode="{ flatTree, data }">
+        <span class="custom-tree-node">
+            <span @click="append(data)"> Append </span>
+            <span @click="remove(data, flatTree)"> Delete </span>
+          </span>
+    </template> 
+</z-tree>
 
 <script setup>
+
 const state = reactive({
     options: [
         {
             id: 1,
             label: '1',
-            
+
             children: [
                 {
                     id: 4,
@@ -735,7 +827,6 @@ const state = reactive({
                         {
                             id: 10,
                             label: '1-1-1',
-
                         },
                         {
                             id: 11,
@@ -790,13 +881,63 @@ const state = reactive({
     ]
 
 })
+const { options: options } = state
 
-const { options } = state
+
+let id = 1000
+const append = (data) => {
+    const newChild = { id: id++, label: 'test', children: [], parent: data, isOpen: true }
+    if (!data.children) {
+        data.children = []
+    }
+    data.children.push(newChild)
+}
+
+const remove = (data, flatTree) => {
+    let parent, children
+    if (data.parent) {
+        parent = data.parent
+        children = parent.children
+    } else {
+        flatTree.forEach(item => {
+            if (item.nodeKey != data.nodeKey) return
+            if (item.parent || item.parent == 0) {
+                parent = flatTree[item.parent]
+                children = parent.flatTree.children
+            } else {
+                children = options
+            }
+        })
+    }
+    const index = children.findIndex((item) => item.id == data.id)
+    children.splice(index, 1)
+}
 
 </script>
 
+<style>
+.custom-tree-node {
+    display: flex;
+    justify-content: right;
+}
+</style>
+
 ```
 :::
+
+
+
+
+
+
+
+
+### 树节点过滤
+
+<z-input v-model="filterText" placeholder="树节点过滤"/>
+
+<z-tree ref="treeRef" :options="options5"  openAll></z-tree>
+
 
 ### tree 属性   
 
@@ -809,10 +950,24 @@ const { options } = state
 |    openAll      |       展开全部节点      |     Boolean       |  -       |     false     |
 
 
-### Options API 
+### tree 方法
+
+|    方法      |       描述      |     参数       |
+|:------------:|:--------------:|:--------------:|
+|    remove      |       删除 Tree 中的一个节点，使用此方法必须设置 id 属性      |     (data) 要删除的节点的 data 或者 flatTree     | 
+|    append      |       为 Tree 中的一个节点追加一个子节点      |     类型       | (data) 1. 要追加的子节点的 data  | 
+
+
+### Options 配置项 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
 |    label      |       节点内容      |     String       |  -             |     label     |
 |    children   |       子节点      |     String       |  -              |     children   |
 |    isOpen      |       展开子节点      |     Boolean       |  可选值     |     false     |
 |    id      |       该字段在整棵树中是唯一的      |     String       |  -      |     -     |
+
+
+### 插槽
+|    插槽名      |       说明      |
+|:------------:|:--------------:|
+|    customNode      |       自定义树节点的内容， 自定义树节点的内容， 参数为  { data, flatTree }  |

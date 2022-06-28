@@ -14,8 +14,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "自定义节点名",
-      "slug": "自定义节点名",
+      "title": "自定义节点和节点文本字段名",
+      "slug": "自定义节点和节点文本字段名",
       "children": []
     },
     {
@@ -32,6 +32,12 @@ export const data = {
     },
     {
       "level": 3,
+      "title": "自定义节点",
+      "slug": "自定义节点",
+      "children": []
+    },
+    {
+      "level": 3,
       "title": "树节点过滤",
       "slug": "树节点过滤",
       "children": []
@@ -44,8 +50,20 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "Options API",
-      "slug": "options-api",
+      "title": "tree 方法",
+      "slug": "tree-方法",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "Options 配置项",
+      "slug": "options-配置项",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "插槽",
+      "slug": "插槽",
       "children": []
     }
   ],

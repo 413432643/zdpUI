@@ -2,11 +2,10 @@
     <z-tree-node v-for="item in options" :key="item.id" :items="item" :options="flatTree" :childrenF="childrenF"
         :labelF="labelF" :checkbox="checkbox" :openAll="openAll" :defaultOpenNodes="defaultOpenNodes"
         :defaultCheckedNodes="defaultCheckedNodes">
-        <template #customNode="{ data,node}">
-            <slot name="customNode" :data="data" :node="node"></slot>
+        <template #customNode="{ data, flatTree }">
+            <slot name="customNode" :data="data" :flatTree="flatTree"></slot>
         </template>
     </z-tree-node>
-
 </template>
 
 
@@ -129,4 +128,5 @@ const treeDate = compileTreeData(props.options)
 
 
 <style lang="scss" scoped>
+    
 </style>

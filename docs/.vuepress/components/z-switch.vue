@@ -1,5 +1,5 @@
 <template>
-    <slot name="controlNodes"></slot>
+    <div></div>
 </template>
 
 

@@ -185,7 +185,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="options-api" tabindex="-1"><a class="header-anchor" href="#options-api" aria-hidden="true">#</a> Options API</h3>
+<h3 id="options-配置项" tabindex="-1"><a class="header-anchor" href="#options-配置项" aria-hidden="true">#</a> Options 配置项</h3>
 <table>
 <thead>
 <tr>
