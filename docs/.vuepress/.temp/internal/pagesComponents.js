@@ -27,4 +27,6 @@ export const pagesComponents = {
   "v-46a5b7e8": defineAsyncComponent(() => import(/* webpackChunkName: "v-46a5b7e8" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/upload.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/404.html.vue")),
+  // path: /componentDocs/message.html
+  "v-39ca627c": defineAsyncComponent(() => import(/* webpackChunkName: "v-39ca627c" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/message.html.vue")),
 }

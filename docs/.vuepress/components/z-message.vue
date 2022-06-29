@@ -1,13 +1,13 @@
 <template>
     <div>
-        <input type="file" class="file-input"/>
+        4
     </div>
 </template>
 
 
 <script>
 export default {
-    name: 'ZUpload',
+    name: 'ZMessage',
 };
 
 </script>

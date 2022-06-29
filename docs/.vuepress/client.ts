@@ -15,7 +15,8 @@ import ZTreeNode from './components/z-tree-node.vue'
 import ZSelect from './components/z-select.vue'
 import ZCarousel from './components/z-carousel.vue'
 import ZUpload from './components/z-upload.vue'
-import Pagination from './components/z-pagination.vue'
+import ZPagination from './components/z-pagination.vue'
+import ZMessage from './components/z-message.vue'
 
 import './styles/iconfont/iconfont.css'
 
@@ -34,7 +35,8 @@ export default defineClientConfig({
     app.component('z-select',ZSelect)
     app.component('z-carousel',ZCarousel)
     app.component('z-upload',ZUpload)
-    app.component('z-pagination',Pagination)
+    app.component('z-pagination',ZPagination)
+    app.component('z-message',ZMessage)
   },
 
 })

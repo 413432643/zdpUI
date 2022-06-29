@@ -49,6 +49,10 @@ export const themeData = {
     {
       "text": "pagination 分页",
       "link": "/componentDocs/pagination.md"
+    },
+    {
+      "text": "message 消息提示",
+      "link": "/componentDocs/message.md"
     }
   ],
   "locales": {

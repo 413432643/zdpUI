@@ -14,6 +14,7 @@ const routeItems = [
   ["v-20c3a86b","/componentDocs/tree.html",{"title":"tree 树形控件"},["/componentDocs/tree","/componentDocs/tree.md"]],
   ["v-46a5b7e8","/componentDocs/upload.html",{"title":"upload 上传"},["/componentDocs/upload","/componentDocs/upload.md"]],
   ["v-3706649a","/404.html",{"title":""},["/404"]],
+  ["v-39ca627c","/componentDocs/message.html",{"title":"message 消息提示"},["/componentDocs/message","/componentDocs/message.md"]],
 ]
 
 export const pagesRoutes = routeItems.reduce(

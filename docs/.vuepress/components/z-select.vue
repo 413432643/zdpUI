@@ -148,7 +148,7 @@ watch(() => props.modelValue, (newName, oldName) => {
 
 .z-box {
     width: 100%;
-    max-height: 202px;
+    max-height: 162px;
     overflow-y: scroll;
     position: absolute;
     border: 1px solid #d4d3d3;
