@@ -1,11 +1,11 @@
 <template>
-    <div></div>
+    <div>2</div>
 </template>
 
 
 <script>
 export default {
-    name: 'ZSelect',
+    name: 'ZPagination',
 };
 
 </script>

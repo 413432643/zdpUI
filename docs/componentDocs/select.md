@@ -124,30 +124,55 @@ const value3 = ref('')
 const state4 = reactive({
     options: [
         {
-            label: '选项1',
+            label: '选项1555',
             value: 1
         },
         {
-            label: '选项2',
+            label: '选项2111',
             value: 2
         },
         {
-            label: '选项3',
+            label: '选项3444',
             value: 3,
         },
         {
-            label: '选项4',
+            label: '选项4111',
             value: 4
         },
         {
-            label: '选项5',
+            label: '选项5333',
             value: 5,
+        },
+        {
+            label: '选项6222',
+            value: 6
+        },
+        {
+            label: '选项7111',
+            value: 7,
+        },
+        {
+            label: '选项822',
+            value: 8
+        },
+        {
+            label: '选项911',
+            value: 9,
         },
     ]
 })
 
 const { options: options4 } = state4
 const value4 = ref('')
+
+const input = (val) => {
+    console.log(val)
+}
+
+const change = (item) => {
+    console.log(item)
+}
+
 </script>
 
 ::: details 点击查看代码
@@ -282,7 +307,7 @@ const { options } = state
 
 ::: details 点击查看代码
 ```vue
-<z-select v-model='value' :options="options2"  placeholder='select' labelF="text" valueF="num"></z-select>
+<z-select v-model='value' :options="options"  placeholder='select' labelF="text" valueF="num"></z-select>
 
 <script setup>
 import {ref, reactive } from 'vue'
@@ -326,7 +351,7 @@ const { options } = state
 
 ::: details 点击查看代码
 ```vue
-<z-select v-model='value' :options="options2"  placeholder='select' clearable></z-select>
+<z-select v-model='value' :options="options"  placeholder='select' clearable></z-select>
 
 <script setup>
 import {ref, reactive } from 'vue'
@@ -365,14 +390,79 @@ const { options } = state
 
 
 ### 搜索选项
+为 `z-select` 添加 `filterable` 属性即可启用筛选功能
+
+<z-select v-model='value4' :options="options4" placeholder='select' filterable @input="input" @change="change"></z-select>
+
+::: details 点击查看代码
+```vue
+<z-select v-model='value' :options="options"  placeholder='select' filterable @input="input" @change="change"></z-select>
+
+<script setup>
+import {ref, reactive } from 'vue'
+const value = ref('')
+const state = reactive({
+    options: [
+        {
+            label: '选项1555',
+            value: 1
+        },
+        {
+            label: '选项2111',
+            value: 2
+        },
+        {
+            label: '选项3444',
+            value: 3,
+        },
+        {
+            label: '选项4111',
+            value: 4
+        },
+        {
+            label: '选项5333',
+            value: 5,
+        },
+        {
+            label: '选项6222',
+            value: 6
+        },
+        {
+            label: '选项7111',
+            value: 7,
+        },
+        {
+            label: '选项822',
+            value: 8
+        },
+        {
+            label: '选项9123',
+            value: 9,
+        },
+    ]
+})
+
+const { options } = state
+
+const input = (val) => {
+    console.log(val)
+}
+
+const change = (item) => {
+    console.log(item)
+}
+</script>
+```
+:::
 
 
-<z-select v-model='value4' :options="options4" placeholder='select' filterable></z-select>
+<!-- 
+### 多选 
+
+<z-select v-model='value4' :options="options4" placeholder='select'>111</z-select> -->
 
 
-
-
-### tree 属性
+### Select 属性
 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
@@ -382,7 +472,14 @@ const { options } = state
 |    valueF      |       选项值的名称      |     String       |           |     value     |
 |    placeholder      |       占位文本      |     String       |           |     -     |
 |    clearable       |       	是否可以清空选项      |     boolean       |           |     false     |
+|    filterable       |       	Select 组件是否可筛选      |     boolean       |           |     false     |
 
+
+### Select 事件
+|    事件名      |       说明      |     回调参数       |
+|:------------:|:--------------:|:--------------:|
+|    input      |     input值发生变化时触发    |     	val,当前值      |
+|    click      |     选中值发生变化时触发    |     	当前选中项      |
 
 ### Options 配置项 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |

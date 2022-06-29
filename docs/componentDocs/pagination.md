@@ -1,8 +1,13 @@
-# switch 开关
+# Carousel 走马灯
 
 ### 基础用法
 
-<z-switch>111</z-switch>
+<z-carousel></z-carousel>
+
+<script>
+
+    
+</script>
 
 ::: details 点击查看代码
 ```

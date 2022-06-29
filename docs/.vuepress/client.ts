@@ -13,7 +13,9 @@ import ZInputNumber from './components/z-input-number.vue'
 import ZTree from './components/z-tree.vue'
 import ZTreeNode from './components/z-tree-node.vue'
 import ZSelect from './components/z-select.vue'
-import ZSwitch from './components/z-switch.vue'
+import ZCarousel from './components/z-carousel.vue'
+import ZUpload from './components/z-upload.vue'
+import Pagination from './components/z-pagination.vue'
 
 import './styles/iconfont/iconfont.css'
 
@@ -30,7 +32,9 @@ export default defineClientConfig({
     app.component('z-tree',ZTree)
     app.component('z-tree-node',ZTreeNode)
     app.component('z-select',ZSelect)
-    app.component('z-switch',ZSwitch)
+    app.component('z-carousel',ZCarousel)
+    app.component('z-upload',ZUpload)
+    app.component('z-pagination',Pagination)
   },
 
 })

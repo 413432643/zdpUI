@@ -1,16 +1,16 @@
 <template>
     <div class="z-select" v-upDown>
-        <div class="z-select-input" @onmouseover="clear">
+        <div class="z-select-input">
             <input type="text" :readonly="!filterable" :value="modelValue" :class="{ 'z-input-focus': boxShow }"
-                :disabled='disabled' :placeholder="placeholder" @input="input">
+                :disabled='disabled' :placeholder="placeholder" @input="input" />
             <i :class="iClass" @click="clearSelect"></i>
         </div>
 
         <div class="z-box" v-if="boxShow">
-            <div v-for="(item, index) in options" :key="index"
-                :class="['z-box-label', { 'z-box-label-disabled': item.disabled }, { 'z-box-label-selected': item[labelF] == modelValue }]"
-                @click="labelClick(item)">
+            <div v-for="(item, index) in _options" :key="index" @click="labelClick(item)"
+                :class="['z-box-label', { 'z-box-label-disabled': item.disabled }, { 'z-box-label-selected': item[labelF] == modelValue }]">
                 {{ item[labelF] }}</div>
+            <div class="notData" v-if="notData">not Data</div>
         </div>
     </div>
 </template>
@@ -24,10 +24,8 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed } from 'vue';
-const emit = defineEmits(['update:modelValue', 'change', 'input'])
-
-
+import { ref, computed, watch } from 'vue';
+const emit = defineEmits(['update:modelValue', 'change', 'input',])
 const props = defineProps({
     modelValue: String | Number,
     options: {
@@ -46,7 +44,6 @@ const props = defineProps({
         type: String,
         default: ''
     },
-
     clearable: {
         type: Boolean,
         default: false
@@ -59,6 +56,10 @@ const props = defineProps({
 })
 
 const boxShow = ref(false)
+const _options = ref(props.options || '')
+
+const notData = ref(false)
+
 
 const iClass = computed(() => {
     return [
@@ -74,7 +75,6 @@ const vUpDown = {
         let hander = (e) => {
             if (props.disabled) return
             if (!el.contains(e.target)) return boxShow.value = false
-
             boxShow.value = !boxShow.value
         }
         document.addEventListener('click', hander)
@@ -90,15 +90,33 @@ const clearSelect = () => {
 const labelClick = (item) => {
     if (item.disabled) return
     emit('update:modelValue', item[props.labelF])
+    emit('change', item)
     boxShow.value = false
 }
 
 
 const input = (e) => {
-
     emit('update:modelValue', e.target.value)
-    emit('input', e.target.value)
+    emit('input', { val: e.target.value })
 }
+
+// 筛选
+
+watch(() => props.modelValue, (newName, oldName) => {
+    if (!props.filterable) return
+    if (newName == '') {
+        _options.value = props.options
+    } else {
+        let arr = []
+        props.options.forEach(item => {
+            if (item.label.indexOf(newName) == -1) return
+            arr.push(item)
+        });
+        _options.value = arr
+        _options.value.length == 0 ? notData.value = true : notData.value = false
+    }
+});
+
 
 </script>
 
@@ -130,8 +148,8 @@ const input = (e) => {
 
 .z-box {
     width: 100%;
-    overflow: hidden;
-    height: auto;
+    max-height: 202px;
+    overflow-y: scroll;
     position: absolute;
     border: 1px solid #d4d3d3;
     top: 40px;
@@ -139,6 +157,23 @@ const input = (e) => {
     box-sizing: border-box;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     z-index: 999;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 1px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: 4px;
+
+        background: #E5E5E5;
+    }
+
+    &::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        background: #ffffff;
+    }
 
     div {
         height: 40px;
@@ -175,6 +210,10 @@ const input = (e) => {
     transition: transform .5s;
 }
 
+.icon-arrow-down-active {
+    transform: rotate(180deg);
+}
+
 .icon-close1 {
     position: absolute;
     padding: 8px;
@@ -182,7 +221,10 @@ const input = (e) => {
     color: #d4d3d3;
 }
 
-.icon-arrow-down-active {
-    transform: rotate(180deg);
+.notData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a8abb2;
 }
 </style>

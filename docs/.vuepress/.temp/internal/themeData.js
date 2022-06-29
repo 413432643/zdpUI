@@ -11,12 +11,16 @@ export const themeData = {
       "link": "/componentDocs/layout.md"
     },
     {
-      "text": "inputNumber 计数器",
-      "link": "/componentDocs/inputNumber.md"
-    },
-    {
       "text": "tree 树形控件",
       "link": "/componentDocs/tree.md"
+    },
+    {
+      "text": "select 下拉框",
+      "link": "/componentDocs/select.md"
+    },
+    {
+      "text": "inputNumber 计数器",
+      "link": "/componentDocs/inputNumber.md"
     },
     {
       "text": "input 输入框",
@@ -35,12 +39,16 @@ export const themeData = {
       "link": "/componentDocs/button.md"
     },
     {
-      "text": "select 下拉框",
-      "link": "/componentDocs/select.md"
+      "text": "carousel 走马灯",
+      "link": "/componentDocs/carousel.md"
     },
     {
-      "text": "switch 开关",
-      "link": "/componentDocs/switch.md"
+      "text": "upload 上传",
+      "link": "/componentDocs/upload.md"
+    },
+    {
+      "text": "pagination 分页",
+      "link": "/componentDocs/pagination.md"
     }
   ],
   "locales": {

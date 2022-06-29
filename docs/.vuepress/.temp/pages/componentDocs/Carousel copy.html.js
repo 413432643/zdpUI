@@ -1,7 +1,7 @@
 export const data = {
-  "key": "v-18a1b785",
-  "path": "/componentDocs/switch%20copy.html",
-  "title": "switch 开关",
+  "key": "v-1f768fd1",
+  "path": "/componentDocs/Carousel%20copy.html",
+  "title": "Carousel 走马灯",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -14,7 +14,7 @@ export const data = {
     }
   ],
   "git": {},
-  "filePathRelative": "componentDocs/switch copy.md"
+  "filePathRelative": "componentDocs/Carousel copy.md"
 }
 
 if (import.meta.webpackHot) {

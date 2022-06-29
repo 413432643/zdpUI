@@ -1,7 +1,7 @@
 export const data = {
-  "key": "v-18a1b785",
-  "path": "/componentDocs/switch%20copy.html",
-  "title": "switch 开关",
+  "key": "v-46a5b7e8",
+  "path": "/componentDocs/upload.html",
+  "title": "upload 上传",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
@@ -14,7 +14,7 @@ export const data = {
     }
   ],
   "git": {},
-  "filePathRelative": "componentDocs/switch copy.md"
+  "filePathRelative": "componentDocs/upload.md"
 }
 
 if (import.meta.webpackHot) {

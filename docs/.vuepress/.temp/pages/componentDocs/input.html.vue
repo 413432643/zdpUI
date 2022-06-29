@@ -148,7 +148,7 @@
 <tr>
 <td style="text-align:center">input</td>
 <td style="text-align:center">输入框输入事件</td>
-<td style="text-align:center">(value: string /number)</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">focus</td>

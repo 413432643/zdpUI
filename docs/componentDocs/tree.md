@@ -437,7 +437,7 @@ const filterText = ref('')
 const treeRef = ref()
 
 watch(filterText, (val) => {
-  treeRef.value.filter(val)
+    console.log(val);
 })
 
 const filterNode = (value, data) => {
@@ -776,7 +776,7 @@ const { options } = state
 :::
 
 ### 自定义节点
-
+节点的内容支持自定义，可以在节点区添加按钮或图标等内容和功能
 
 <z-tree :options="options4" openAll >
     <template #customNode="{ flatTree, data }" >
