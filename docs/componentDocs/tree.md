@@ -8,7 +8,6 @@
 
 <z-tree :options="options"></z-tree>
 
-watch
 <script setup>
 import { ref, reactive ,watch } from "vue";
 

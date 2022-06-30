@@ -1,4 +1,17 @@
 <template>
+
+    <!-- 图片预览 -->
+
+    <!-- 浏览器遮罩 -->
+    <div :class="{ 'mask': globalShade }">
+        <div v-if="globalShade" class="previewPic">
+            <i class="iconfont icon-close closeShade" @click="closeShade"></i>
+            <img :src="windowURL.createObjectURL(showPic)" alt="">
+        </div>
+    </div>
+
+
+
     <input type="file" class="file-input" ref="inpRef" @change="inpChange" :multiple="multiple">
 
     <!-- 托拽 -->
@@ -8,18 +21,16 @@
     </div>
 
 
-
-    <!-- 预览图片 -->
+    <!-- 图墙 -->
     <div v-else-if="pic" class="file-pic">
         <div v-for="(item, index) in fileList" :key="index" @mouseenter="enterPic(index)" @mouseleave='leavePic(index)'>
             <div v-if="shadeIndex == index" class='file-pic-shade'>
-                <i class="iconfont icon-search" @click="previewImg(index)"></i>
+                <i class="iconfont icon-search" @click="previewImg(item)"></i>
                 <i class="iconfont icon-ashbin" @click="clearImg(index)"></i>
             </div>
             <img :src="windowURL.createObjectURL(item)" />
 
         </div>
-
         <div class="pic-box" @click="fileChange">
             <i class="iconfont icon-add-select"></i>
         </div>
@@ -82,11 +93,16 @@ const inpRef = ref(null)
 const areaRef = ref(null)
 
 const activeArea = ref(false)
+// 删除照片
+const clearIndex = ref(-1)
+// 局部遮罩
+const shadeIndex = ref(-1)
+// 全局遮罩
+const globalShade = ref(false)
+// 滚动条位置
+const pageLocation = ref('');
 
-const clearIndex = ref('-1')
-
-const shadeIndex = ref('-1')
-
+const showPic = ref('')
 
 const fileChange = () => {
     inpRef.value.click()
@@ -106,20 +122,31 @@ const enterFile = (index) => {
 const leaveFile = (index) => {
     clearIndex.value = -1
 }
-
 const enterPic = (index) => {
     shadeIndex.value = index
 }
 const leavePic = (index) => {
     shadeIndex.value = -1
 }
-
-const previewImg = () => {
-
+const previewImg = (item) => {
+    // showPic.value=''
+    showPic.value = item
+    let scrollTop = window.scrollY;//滚动的高度；
+    pageLocation.value = scrollTop;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + scrollTop + 'px';
+    globalShade.value = true
 }
 const clearImg = (index) => {
     fileList.splice(index, 1)
 }
+
+const closeShade = () => {
+    document.body.style.position = 'static';
+    window.scrollTo(0, pageLocation.value);
+    globalShade.value = false
+}
+
 
 onMounted(() => {
     if (!props.drag) return
@@ -189,7 +216,7 @@ onMounted(() => {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    z-index: 99;
+    z-index: 9;
 
     &:hover {
         border: 1px dashed #409EFF;
@@ -253,6 +280,7 @@ onMounted(() => {
         height: 100px;
         margin: 10px;
         border-radius: 10px;
+        object-fit: contain;
     }
 
     .file-pic-shade {
@@ -262,7 +290,7 @@ onMounted(() => {
         line-height: 100px;
 
         i {
-            z-index: 999;
+            z-index: 99;
             font-size: 20px;
             color: rgba($color: #fff, $alpha: .9);
         }
@@ -271,7 +299,37 @@ onMounted(() => {
             padding-left: 5px;
         }
     }
+}
 
+.mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 99;
+    display: flex;
 
+    .previewPic {
+        margin: auto;
+        width: 50%;
+        background: #fff;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        img {
+            padding: 30px;
+            width: 200%;
+            object-fit: cover;
+        }
+
+        .closeShade {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    }
 }
 </style>

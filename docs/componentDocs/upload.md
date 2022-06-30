@@ -10,7 +10,8 @@
 <z-upload multiple name="上传文件" ></z-upload>
 ```
 :::
-### 预览图片上传
+### 图片预览上传
+通过 `pic` 属性可以上传并预览图片。
 
 <z-upload multiple pic></z-upload>
 

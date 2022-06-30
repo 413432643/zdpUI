@@ -3,7 +3,7 @@
         <div class="z-select-input">
             <input type="text" :readonly="!filterable" :value="modelValue" :class="{ 'z-input-focus': boxShow }"
                 :disabled='disabled' :placeholder="placeholder" @input="input" />
-            <i class="iClass" @click="clearSelect"></i>
+            <i :class="iClass" @click="clearSelect"></i>
         </div>
 
         <div class="z-box" v-if="boxShow">

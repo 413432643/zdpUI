@@ -5,7 +5,8 @@
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-upload</span> <span class="token attr-name">multiple</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>上传文件<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-upload</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></details>
-<h3 id="预览图片上传" tabindex="-1"><a class="header-anchor" href="#预览图片上传" aria-hidden="true">#</a> 预览图片上传</h3>
+<h3 id="图片预览上传" tabindex="-1"><a class="header-anchor" href="#图片预览上传" aria-hidden="true">#</a> 图片预览上传</h3>
+<p>通过 <code v-pre>pic</code> 属性可以上传并预览图片。</p>
 <z-upload multiple pic></z-upload>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-upload</span> <span class="token attr-name">multiple</span> <span class="token attr-name">pic</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-upload</span><span class="token punctuation">></span></span>

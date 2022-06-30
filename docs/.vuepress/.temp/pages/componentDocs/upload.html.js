@@ -14,8 +14,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "预览图片上传",
-      "slug": "预览图片上传",
+      "title": "图片预览上传",
+      "slug": "图片预览上传",
       "children": []
     },
     {
