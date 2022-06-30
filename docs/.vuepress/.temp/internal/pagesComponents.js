@@ -15,6 +15,8 @@ export const pagesComponents = {
   "v-4760d296": defineAsyncComponent(() => import(/* webpackChunkName: "v-4760d296" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/inputNumber.html.vue")),
   // path: /componentDocs/layout.html
   "v-7f119c5f": defineAsyncComponent(() => import(/* webpackChunkName: "v-7f119c5f" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/layout.html.vue")),
+  // path: /componentDocs/message.html
+  "v-39ca627c": defineAsyncComponent(() => import(/* webpackChunkName: "v-39ca627c" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/message.html.vue")),
   // path: /componentDocs/pagination.html
   "v-530bedef": defineAsyncComponent(() => import(/* webpackChunkName: "v-530bedef" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/pagination.html.vue")),
   // path: /componentDocs/radio.html
@@ -27,6 +29,4 @@ export const pagesComponents = {
   "v-46a5b7e8": defineAsyncComponent(() => import(/* webpackChunkName: "v-46a5b7e8" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/upload.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/404.html.vue")),
-  // path: /componentDocs/message.html
-  "v-39ca627c": defineAsyncComponent(() => import(/* webpackChunkName: "v-39ca627c" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/message.html.vue")),
 }

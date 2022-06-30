@@ -6,7 +6,7 @@
             @change="change" :style="{ height: tHeight }"></textarea>
         <input v-else class="z-input__inner" :value="modelValue" :placeholder="placeholder" :disabled='disabled'
             :type="type" :clearable='clearable' @input="input" @focus="focus" @blur="blur" @change="change" />
-        <span @click="clear" class="iconfont icon-close"></span>
+        <span @click="clear" class="iconfont icon-shanchu"></span>
         <i :class="[{ rightIcon: !rightIcon }, 'iconfont', rightIcon]"></i>
     </div>
 
@@ -156,7 +156,7 @@ const change = (e) => {
     border: 1px solid #409eff !important;
 }
 
-// 清除按钮
+
 .iconfont {
     padding-top: 10px;
     padding-right: 10px;
@@ -166,6 +166,10 @@ const change = (e) => {
     span {
         display: none;
     }
+}
+
+.icon-shanchu{
+    color:#c0c4cc;
 }
 
 // 左侧图标

@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1655959980890') format('truetype');
+  src: url('iconfont.ttf?t=1656566267110') format('truetype');
 }
 
 .iconfont {
@@ -122,4 +122,12 @@
 .icon-duoxuanbufenxuanzhong:before {
   content: "\e608";
 }
-
+.icon-shanchu:before {
+  content: "\e725";
+}
+.icon-wc:before {
+  content: "\e8e4";
+}
+.icon-upload:before {
+  content: "\f0020";
+}

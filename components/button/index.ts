@@ -1,4 +1,4 @@
-import zButton from './index1.vue'
+import zButton from './index.vue'
 zButton.install = (app:any) => {
     app.component(zButton.name, zButton)
 }

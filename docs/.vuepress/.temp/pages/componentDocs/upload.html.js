@@ -11,6 +11,18 @@ export const data = {
       "title": "基础用法",
       "slug": "基础用法",
       "children": []
+    },
+    {
+      "level": 3,
+      "title": "预览图片上传",
+      "slug": "预览图片上传",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "拖拽上传",
+      "slug": "拖拽上传",
+      "children": []
     }
   ],
   "git": {},

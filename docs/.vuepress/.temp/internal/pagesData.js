@@ -13,6 +13,8 @@ export const pagesData = {
   "v-4760d296": () => import(/* webpackChunkName: "v-4760d296" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/inputNumber.html.js").then(({ data }) => data),
   // path: /componentDocs/layout.html
   "v-7f119c5f": () => import(/* webpackChunkName: "v-7f119c5f" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/layout.html.js").then(({ data }) => data),
+  // path: /componentDocs/message.html
+  "v-39ca627c": () => import(/* webpackChunkName: "v-39ca627c" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/message.html.js").then(({ data }) => data),
   // path: /componentDocs/pagination.html
   "v-530bedef": () => import(/* webpackChunkName: "v-530bedef" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/pagination.html.js").then(({ data }) => data),
   // path: /componentDocs/radio.html
@@ -25,6 +27,4 @@ export const pagesData = {
   "v-46a5b7e8": () => import(/* webpackChunkName: "v-46a5b7e8" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/upload.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
-  // path: /componentDocs/message.html
-  "v-39ca627c": () => import(/* webpackChunkName: "v-39ca627c" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/message.html.js").then(({ data }) => data),
 }

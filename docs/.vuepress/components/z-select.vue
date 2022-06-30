@@ -3,7 +3,7 @@
         <div class="z-select-input">
             <input type="text" :readonly="!filterable" :value="modelValue" :class="{ 'z-input-focus': boxShow }"
                 :disabled='disabled' :placeholder="placeholder" @input="input" />
-            <i :class="iClass" @click="clearSelect"></i>
+            <i class="iClass" @click="clearSelect"></i>
         </div>
 
         <div class="z-box" v-if="boxShow">
@@ -64,7 +64,7 @@ const notData = ref(false)
 const iClass = computed(() => {
     return [
         'iconfont',
-        props.modelValue == '' ? 'icon-arrow-down' : (props.clearable ? 'icon-close1' : 'icon-arrow-down'),
+        props.modelValue == '' ? 'icon-arrow-down' : (props.clearable ? 'icon-shanchu' : 'icon-arrow-down'),
         boxShow.value ? 'icon-arrow-down-active' : ''
     ]
 })
@@ -214,7 +214,7 @@ watch(() => props.modelValue, (newName, oldName) => {
     transform: rotate(180deg);
 }
 
-.icon-close1 {
+.icon-shanchu {
     position: absolute;
     padding: 8px;
     right: 0;
