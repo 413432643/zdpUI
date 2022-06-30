@@ -20,6 +20,12 @@ export const data = {
     },
     {
       "level": 3,
+      "title": "图片列表缩略图",
+      "slug": "图片列表缩略图",
+      "children": []
+    },
+    {
+      "level": 3,
       "title": "拖拽上传",
       "slug": "拖拽上传",
       "children": []

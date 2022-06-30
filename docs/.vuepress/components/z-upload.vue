@@ -44,10 +44,20 @@
     </button>
 
     <!-- 文件显示 -->
-    <div v-if="!pic">
+    <div v-if="!pic && !picture">
         <div v-for="(item, index) in fileList" :key="index" class="fileList" @mouseenter="enterFile(index)"
             @mouseleave='leaveFile(index)'>
             {{ item.name }}
+            <i :class="['iconfont', clearIndex == index ? 'icon-shanchu' : 'icon-wc']" @click="del(index)"></i>
+        </div>
+    </div>
+
+    <!-- 图片列表 -->
+
+    <div v-if="picture">
+        <div v-for="(item, index) in fileList" :key="index" class="imgList" @mouseenter="enterFile(index)"
+            @mouseleave='leaveFile(index)'>
+            <img :src="windowURL.createObjectURL(item)" />
             <i :class="['iconfont', clearIndex == index ? 'icon-shanchu' : 'icon-wc']" @click="del(index)"></i>
         </div>
     </div>
@@ -80,6 +90,10 @@ const props = defineProps({
         default: false
     },
     pic: {
+        type: Boolean,
+        default: false
+    },
+    picture: {
         type: Boolean,
         default: false
     }
@@ -128,8 +142,8 @@ const enterPic = (index) => {
 const leavePic = (index) => {
     shadeIndex.value = -1
 }
+// 打开遮罩记录高度
 const previewImg = (item) => {
-    // showPic.value=''
     showPic.value = item
     let scrollTop = window.scrollY;//滚动的高度；
     pageLocation.value = scrollTop;
@@ -137,10 +151,11 @@ const previewImg = (item) => {
     document.body.style.top = '-' + scrollTop + 'px';
     globalShade.value = true
 }
+
 const clearImg = (index) => {
     fileList.splice(index, 1)
 }
-
+// 关闭遮罩
 const closeShade = () => {
     document.body.style.position = 'static';
     window.scrollTo(0, pageLocation.value);
@@ -331,5 +346,27 @@ onMounted(() => {
             top: 10px;
         }
     }
+}
+
+.imgList {
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+
+    img {
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
+    i{
+        padding-right: 10px;
+    }
+
 }
 </style>

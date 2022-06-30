@@ -12,6 +12,12 @@
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-upload</span> <span class="token attr-name">multiple</span> <span class="token attr-name">pic</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-upload</span><span class="token punctuation">></span></span>
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<h3 id="图片列表缩略图" tabindex="-1"><a class="header-anchor" href="#图片列表缩略图" aria-hidden="true">#</a> 图片列表缩略图</h3>
+<p>通过 <code v-pre>picture</code> 属性可以改变列表样式。</p>
+<z-upload multiple picture></z-upload>
+<details class="custom-container details"><summary>点击查看代码</summary>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-upload</span> <span class="token attr-name">multiple</span> <span class="token attr-name">picture</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-upload</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></details>
 <h3 id="拖拽上传" tabindex="-1"><a class="header-anchor" href="#拖拽上传" aria-hidden="true">#</a> 拖拽上传</h3>
 <p>通过 <code v-pre>drag</code> 属性可以将文件拖拽到特定区域以进行上传。</p>
 <z-upload multiple drag></z-upload>
@@ -53,6 +59,13 @@
 <tr>
 <td style="text-align:center">pic</td>
 <td style="text-align:center">可预览上传图片</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:center">true/false</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">picture</td>
+<td style="text-align:center">图片列表缩略图</td>
 <td style="text-align:center">Boolean</td>
 <td style="text-align:center">true/false</td>
 <td style="text-align:center">false</td>
