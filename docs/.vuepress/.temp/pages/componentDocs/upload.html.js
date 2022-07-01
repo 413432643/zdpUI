@@ -29,6 +29,24 @@ export const data = {
       "title": "拖拽上传",
       "slug": "拖拽上传",
       "children": []
+    },
+    {
+      "level": 3,
+      "title": "upload属性",
+      "slug": "upload属性",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "插槽",
+      "slug": "插槽",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "事件",
+      "slug": "事件",
+      "children": []
     }
   ],
   "git": {},

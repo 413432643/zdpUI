@@ -1,18 +1,13 @@
 <template>
-
-    <!-- 图片预览 -->
-
     <!-- 浏览器遮罩 -->
     <div :class="{ 'mask': globalShade }">
         <div v-if="globalShade" class="previewPic">
             <i class="iconfont icon-close closeShade" @click="closeShade"></i>
-            <img :src="windowURL.createObjectURL(showPic)" alt="">
+            <img :src="windowURL.createObjectURL(showPic)">
         </div>
     </div>
 
-
-
-    <input type="file" class="file-input" ref="inpRef" @change="inpChange" :multiple="multiple">
+    <input type="file" class="file-input" ref="inpRef" @change="inpChange" :multiple="multiple" :accept="accept">
 
     <!-- 托拽 -->
     <div v-if="drag" :class="['area-box', { 'activeArea': activeArea }]" @click="fileChange" ref="areaRef">
@@ -29,13 +24,11 @@
                 <i class="iconfont icon-ashbin" @click="clearImg(index)"></i>
             </div>
             <img :src="windowURL.createObjectURL(item)" />
-
         </div>
         <div class="pic-box" @click="fileChange">
             <i class="iconfont icon-add-select"></i>
         </div>
     </div>
-
 
     <!-- 默认 -->
     <button v-else class="file-btn" @click="fileChange">
@@ -43,27 +36,28 @@
         {{ name }}
     </button>
 
+    <!-- 	提示说明文字 -->
+    <slot name="tip"></slot>
+
     <!-- 文件显示 -->
     <div v-if="!pic && !picture">
         <div v-for="(item, index) in fileList" :key="index" class="fileList" @mouseenter="enterFile(index)"
             @mouseleave='leaveFile(index)'>
             {{ item.name }}
-            <i :class="['iconfont', clearIndex == index ? 'icon-shanchu' : 'icon-wc']" @click="del(index)"></i>
+            <i :class="['iconfont', clearIndex == index ? 'icon-shanchu' : '']" @click="del(index)"></i>
         </div>
     </div>
 
     <!-- 图片列表 -->
-
     <div v-if="picture">
         <div v-for="(item, index) in fileList" :key="index" class="imgList" @mouseenter="enterFile(index)"
             @mouseleave='leaveFile(index)'>
             <img :src="windowURL.createObjectURL(item)" />
-            <i :class="['iconfont', clearIndex == index ? 'icon-shanchu' : 'icon-wc']" @click="del(index)"></i>
+            <i :class="['iconfont', clearIndex == index ? 'icon-shanchu' : '']" @click="del(index)"></i>
         </div>
     </div>
-
-
 </template>
+
 
 
 <script>
@@ -96,7 +90,20 @@ const props = defineProps({
     picture: {
         type: Boolean,
         default: false
+    },
+    maxSize: {
+        type: Number,
+        default: 10
+    },
+    limit: {
+        type: Number,
+        default: 10
+    },
+    accept: {
+        type: String,
+        default: '',
     }
+
 })
 const windowURL = typeof window !== 'undefined' ? window.URL || window.webkitURL : '';
 
@@ -115,18 +122,42 @@ const shadeIndex = ref(-1)
 const globalShade = ref(false)
 // 滚动条位置
 const pageLocation = ref('');
-
+// 预览图片
 const showPic = ref('')
 
 const fileChange = () => {
     inpRef.value.click()
 }
-
+// 图片格式
+const formatPic = ref(['jp2', 'jpe', 'jpeg', 'jpg', 'dwg', 'dxf', 'gif', 'tif', 'svf', 'tiff', 'png'])
 const inpChange = (e) => {
-    console.log(e)
-    fileList.unshift(...e.target.files)
+    let files = e.target.files
+    let arr = []
+    for (let i = 0; i < files.length; i++) {
+        // 格式
+        let size = files[i].size / (1024 * 1024)
+        let lastNum = files[i].name.indexOf('.')
+        let format = files[i].name.substr(lastNum + 1)
+        if (formatPic.value.indexOf(format) == -1 && props.accept=='image/*') return alert('该文件格式.' + format + '不是图片无法上传')
+        
+        // 文件大小
+        if (size <= props.maxSize) {
+            arr.push(files[i])
+        } else {
+            alert('当前上传文件大小' + size.toFixed(2) + 'M超过上传上限' + props.maxSize + 'M')
+        }
+    }
+
+    // 文件个数
+    if (arr.length + fileList.length <= props.limit) {
+        fileList.unshift(...arr)
+    } else {
+        alert('当前上传文件数' + (arr.length + fileList.length) + '个超过上传上限' + props.limit + '个')
+    }
     emit('change', fileList)
 }
+
+
 const del = (index) => {
     fileList.splice(index, 1)
 }
@@ -161,7 +192,6 @@ const closeShade = () => {
     window.scrollTo(0, pageLocation.value);
     globalShade.value = false
 }
-
 
 onMounted(() => {
     if (!props.drag) return
@@ -364,7 +394,8 @@ onMounted(() => {
         height: 60px;
         object-fit: contain;
     }
-    i{
+
+    i {
         padding-right: 10px;
     }
 

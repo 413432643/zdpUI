@@ -26,6 +26,10 @@ module.exports = {
         link: '/componentDocs/select.md',
       },
       {
+        text: 'upload 上传',
+        link: '/componentDocs/upload.md',
+      },
+      {
         text: 'inputNumber 计数器',
         link: '/componentDocs/inputNumber.md',
       },
@@ -51,10 +55,6 @@ module.exports = {
         link: '/componentDocs/carousel.md',
       },
       {
-        text: 'upload 上传',
-        link: '/componentDocs/upload.md',
-      },
-      {
         text: 'pagination 分页',
         link: '/componentDocs/pagination.md',
       },
@@ -62,8 +62,6 @@ module.exports = {
         text: 'message 消息提示',
         link: '/componentDocs/message.md',
       },
-
-   
     ],
   }),
 }

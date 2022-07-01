@@ -19,6 +19,10 @@ export const themeData = {
       "link": "/componentDocs/select.md"
     },
     {
+      "text": "upload 上传",
+      "link": "/componentDocs/upload.md"
+    },
+    {
       "text": "inputNumber 计数器",
       "link": "/componentDocs/inputNumber.md"
     },
@@ -41,10 +45,6 @@ export const themeData = {
     {
       "text": "carousel 走马灯",
       "link": "/componentDocs/carousel.md"
-    },
-    {
-      "text": "upload 上传",
-      "link": "/componentDocs/upload.md"
     },
     {
       "text": "pagination 分页",
