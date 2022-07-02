@@ -2,8 +2,11 @@
 循环播放同一类型的图片、文字等内容
 
 ### 基础用法
+通过 `z-carousel` 标签就得到了一个走马灯。  
+使用`urlF` `valueF`属性可以自定义options格式  
+使用`width` `height` 属性可自定义容器的宽高   
 
-<z-carousel  :options="options" showPointer></z-carousel>
+<z-carousel v-model="initIndex"  :options="options" showPointer></z-carousel>
 
 <script setup>
 import { ref, computed, reactive } from 'vue';
@@ -34,13 +37,18 @@ const state = reactive({
     ]
 })
 const { options } = state
+
+const initIndex=ref(2)
 </script>
 
 ::: details 点击查看代码
 ```vue
 <z-carousel :options="options"></z-carousel>
 
+
 <script setup>
+
+
 import { ref, computed, reactive } from 'vue';
 
 
@@ -69,11 +77,13 @@ const state = reactive({
     ]
 })
 const { options } = state
+const initIndex=ref(2)
 </script>
 ```
 :::
 
 ### 自动播放
+通过 `auto` 属性设置是否自动播放，通过 `autoItem` 属性设置时间间隔
 <z-carousel :options="options" showPointer auto :autoItem="2000" ></z-carousel>
 
 
@@ -109,13 +119,16 @@ const state = reactive({
     ]
 })
 const { options } = state
+
 </script>
 ```
 :::
 
 
 ### 垂直滚动
+通过 `vertical` 属性设置垂直滚动
 <z-carousel :options="options" showPointer auto :autoItem="3000" vertical></z-carousel>
+
 
 ::: details 点击查看代码
 ```vue
@@ -157,6 +170,7 @@ const { options } = state
 ### carousel 属性
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
+|    v-model      |       当前绑定值     |     string       |  -               |     0     |
 |    width      |       主体宽度     |     string       |  -               |     300     |
 |    height      |       主体高度     |     string       |  -               |     200     |
 |    urlF      |       自定义url的字段名      |     string       |  -               |     url     |

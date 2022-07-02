@@ -35,6 +35,7 @@ export default {
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 const emit = defineEmits(['update:modelValue', 'change'])
 const props = defineProps({
+    modelValue:Number,
     options: {
         type: Array,
         default: () => []
@@ -74,13 +75,15 @@ const props = defineProps({
 })
 
 // 当前图片索引
-const imgIndex = ref(0);
+const imgIndex = ref(props.modelValue || 0);
 
 // 方向
 const direction = ref(false)
 
 let t = null
 
+
+// 样式
 const swipeStyle = {
     width: props.width + 'px',
     height: props.height + 'px',
@@ -97,24 +100,22 @@ const pointerStyle = {
 const boxClass = computed(() => {
     return [
         'swipe-item',
-        props.vertical ? (direction.value ? 'downActive' : 'topActive') : (direction.value ? 'leftActive' : 'rightActive'),
+        props.vertical ?
+            (direction.value ? 'downActive' : 'topActive') :
+            (direction.value ? 'leftActive' : 'rightActive'),
     ]
 })
 
-const mouseEnter = () => {
-    clearInterval(t)
-    t = null
-}
-const mouseLeave = () => {
-    auto()
-}
+
 
 
 // 左按钮
 
 const leftBtn = () => {
     let length = props.options.length
-    imgIndex.value > 0 ? imgIndex.value-- : imgIndex.value = length - 1
+    imgIndex.value > 0 ?
+        imgIndex.value-- :
+        imgIndex.value = length - 1
     direction.value = true
 }
 
@@ -123,14 +124,18 @@ const leftBtn = () => {
 // 右按钮
 const rightBtn = () => {
     let length = props.options.length
-    imgIndex.value < length - 1 ? imgIndex.value++ : imgIndex.value = 0
+    imgIndex.value < length - 1 ?
+        imgIndex.value++ :
+        imgIndex.value = 0
     direction.value = false
 }
 
 
 // 小圆点
 const pointerClick = (i) => {
-    imgIndex.value > i ? direction.value = true : direction.value = false
+    imgIndex.value > i ?
+        direction.value = true :
+        direction.value = false
     imgIndex.value = i
 }
 
@@ -140,10 +145,21 @@ const auto = () => {
     if (!props.auto) return
     t = setInterval(() => {
         let length = props.options.length
-        imgIndex.value < length - 1 ? imgIndex.value++ : imgIndex.value = 0
+        imgIndex.value < length - 1 ?
+            imgIndex.value++ :
+            imgIndex.value = 0
     }, props.autoItem)
     direction.value = false
 }
+
+const mouseEnter = () => {
+    clearInterval(t)
+    t = null
+}
+const mouseLeave = () => {
+    auto()
+}
+
 
 onMounted(() => {
     auto()
