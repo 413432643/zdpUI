@@ -3,6 +3,7 @@
         width: width + 'px',
         height: height + 'px',
     }">
+        <!-- 左按钮 -->
         <div class="leftBtn" :style="{
             top: height / 2 - 18 + 'px'
         }" @click="leftBtn">
@@ -16,15 +17,19 @@
                 <img :src="item[urlF]">
             </div>
         </div>
+        <!-- 右按钮 -->
         <div class="rightBtn" :style="{
             top: height / 2 - 18 + 'px'
         }" @click="rightBtn">
             <i class="iconfont icon-arrow-right"></i>
         </div>
-        <div class="pointer" :style="{
+        <!-- 小圆点 -->
+        <div v-if="showPointer" class="pointer" :style="{
             left: width / 2 - 10 * options.length + 'px'
-        }" @click="pointerClick">
-            <div v-for="(item, index) in options" :key="index"></div>
+        }">
+            <div v-for="(n, i) in options" :key="i" @click="pointerClick(i)"
+                :class="{ 'pointerActive': imgIndex == i }">
+            </div>
         </div>
     </div>
 </template>
@@ -60,39 +65,65 @@ const props = defineProps({
     valueF: {
         type: String,
         default: 'value'
+    },
+    auto: {
+        type: Boolean,
+        default: false
+    },
+    showPointer:{
+        type: Boolean,
+        default: false
+    },
+    autoItem: {
+        type: Number,
+        default: 1000
     }
 })
 
 // 当前图片索引
 const imgIndex = ref(0);
 
-let pointerLeft = ref(0)
-pointerLeft.value
 
 // 左按钮
 const leftBtn = () => {
-    let length = props.options.length
-    if (imgIndex.value < length - 1) {
-        imgIndex.value++
-    } else {
-        imgIndex.value = 0
-    }
-}
-
-// 右按钮
-const rightBtn = () => {
     let length = props.options.length
     if (imgIndex.value > 0) {
         imgIndex.value--
     } else {
         imgIndex.value = length - 1
     }
+    clearInterval(auto)
 }
+
+// 右按钮
+const rightBtn = () => {
+    let length = props.options.length
+    if (imgIndex.value < length - 1) {
+        imgIndex.value++
+    } else {
+        imgIndex.value = 0
+    }
+    clearInterval(auto)
+}
+
 
 // 小圆点
-const pointerClick = () => {
-
+const pointerClick = (i) => {
+    imgIndex.value = i
+    clearInterval(auto)
 }
+
+// 自动播放
+const auto = setInterval(() => {
+    if (!props.auto) return
+    let length = props.options.length
+    if (imgIndex.value < length - 1) {
+        imgIndex.value++
+    } else {
+        imgIndex.value = 0
+    }
+}, props.autoItem);
+
 
 </script>
 
@@ -103,18 +134,31 @@ const pointerClick = () => {
     overflow: hidden;
     position: relative;
 
+    &:hover {
+
+        .leftBtn,
+        .rightBtn {
+            opacity: 1;
+        }
+    }
+
     .leftBtn,
     .rightBtn {
         width: 36px;
         height: 36px;
-        position: absolute;
         z-index: 5;
         border-radius: 50%;
-        cursor: pointer;
         background: rgba(31, 45, 61, .11);
+        position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+
+        &:hover {
+            background: rgba(31, 45, 61, .23);
+        }
     }
 
     .leftBtn {
@@ -128,6 +172,7 @@ const pointerClick = () => {
     &-box {
         position: absolute;
         display: block;
+        transition: left 1s;
 
         &-item {
             float: left;
@@ -146,7 +191,12 @@ const pointerClick = () => {
         border-radius: 100%;
         margin: 0 5px;
         background: rgba(255, 255, 255, .3);
+
     }
+}
+
+.pointerActive {
+    background: rgba(255, 255, 255, .8) !important;
 }
 
 .icon-arrow-left,

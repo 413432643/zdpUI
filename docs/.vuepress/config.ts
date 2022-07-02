@@ -30,6 +30,10 @@ module.exports = {
         link: '/componentDocs/upload.md',
       },
       {
+        text: 'carousel 走马灯',
+        link: '/componentDocs/carousel.md',
+      },
+      {
         text: 'inputNumber 计数器',
         link: '/componentDocs/inputNumber.md',
       },
@@ -48,11 +52,6 @@ module.exports = {
       {
         text: 'button 按钮',
         link: '/componentDocs/button.md',
-      },
-
-      {
-        text: 'carousel 走马灯',
-        link: '/componentDocs/carousel.md',
       },
       {
         text: 'pagination 分页',

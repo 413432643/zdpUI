@@ -11,6 +11,30 @@ export const data = {
       "title": "基础用法",
       "slug": "基础用法",
       "children": []
+    },
+    {
+      "level": 3,
+      "title": "自动播放",
+      "slug": "自动播放",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "垂直布局",
+      "slug": "垂直布局",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "carousel 属性",
+      "slug": "carousel-属性",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "options",
+      "slug": "options",
+      "children": []
     }
   ],
   "git": {},
