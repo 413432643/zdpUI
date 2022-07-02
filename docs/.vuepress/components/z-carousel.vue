@@ -1,18 +1,14 @@
 <template>
-    <div class="swipe" :style="swipeStyle">
+    <div class="swipe" :style="swipeStyle" @mouseenter="mouseEnter" @mouseleave="mouseLeave">
         <!-- 左按钮 -->
         <div class="leftBtn" :style="btnStyle" @click="leftBtn">
             <i class="iconfont icon-arrow-left"></i>
         </div>
-        <div class="swipe-box" :style="{
-            width: vertical ? '' : options.length * width + 'px',
-            left: vertical ? '' : -imgIndex * width + 'px',
-            height: vertical ? options.length * height + 'px' : '',
-            top: vertical ? -imgIndex * height + 'px' : '',
-        }">
-            <div class="swipe-box-item" v-for="(item, index) in options" :key="index" :style="swipeBoxItemStyle">
-                <img :src="item[urlF]">
-            </div>
+        <!-- 容器 -->
+        <div :class="boxClass" v-for="(item, index) in options" :key="item[valueF]">
+            <transition>
+                <img v-if="index === imgIndex" :src="item[urlF]">
+            </transition>
         </div>
         <!-- 右按钮 -->
         <div class="rightBtn" :style="btnStyle" @click="rightBtn">
@@ -20,7 +16,7 @@
         </div>
         <!-- 小圆点 -->
         <div v-if="showPointer" class="pointer" :style="pointerStyle">
-            <div v-for="(n, i) in options" :key="i" @click="pointerClick(i)"
+            <div v-for="(n, i) in options" :key="n[valueF]" @click="pointerClick(i)"
                 :class="{ 'pointerActive': imgIndex == i }">
             </div>
         </div>
@@ -36,7 +32,7 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 const emit = defineEmits(['update:modelValue', 'change'])
 const props = defineProps({
     options: {
@@ -80,35 +76,46 @@ const props = defineProps({
 // 当前图片索引
 const imgIndex = ref(0);
 
+// 方向
+const direction = ref(false)
+
+let t = null
 
 const swipeStyle = {
     width: props.width + 'px',
-    height: props.height + 'px',
-}
-const swipeBoxItemStyle = {
     height: props.height + 'px',
 }
 
 const btnStyle = {
     top: props.height / 2 - 18 + 'px'
 }
+
 const pointerStyle = {
     left: props.width / 2 - 10 * props.options.length + 'px'
 }
 
+const boxClass = computed(() => {
+    return [
+        'swipe-item',
+        props.vertical ? (direction.value ? 'downActive' : 'topActive') : (direction.value ? 'leftActive' : 'rightActive'),
+    ]
+})
+
+const mouseEnter = () => {
+    clearInterval(t)
+    t = null
+}
+const mouseLeave = () => {
+    auto()
+}
 
 
 // 左按钮
 
-
 const leftBtn = () => {
     let length = props.options.length
-    if (imgIndex.value > 0) {
-        imgIndex.value--
-    } else {
-        imgIndex.value = length - 1
-    }
-    clearInterval(auto)
+    imgIndex.value > 0 ? imgIndex.value-- : imgIndex.value = length - 1
+    direction.value = true
 }
 
 
@@ -116,33 +123,36 @@ const leftBtn = () => {
 // 右按钮
 const rightBtn = () => {
     let length = props.options.length
-    if (imgIndex.value < length - 1) {
-        imgIndex.value++
-    } else {
-        imgIndex.value = 0
-    }
-    clearInterval(auto)
+    imgIndex.value < length - 1 ? imgIndex.value++ : imgIndex.value = 0
+    direction.value = false
 }
 
 
 // 小圆点
 const pointerClick = (i) => {
+    imgIndex.value > i ? direction.value = true : direction.value = false
     imgIndex.value = i
-    clearInterval(auto)
 }
 
 // 自动播放
-const auto = setInterval(() => {
+
+const auto = () => {
     if (!props.auto) return
-    let length = props.options.length
-    if (imgIndex.value < length - 1) {
-        imgIndex.value++
-    } else {
-        imgIndex.value = 0
-    }
-}, props.autoItem);
+    t = setInterval(() => {
+        let length = props.options.length
+        imgIndex.value < length - 1 ? imgIndex.value++ : imgIndex.value = 0
+    }, props.autoItem)
+    direction.value = false
+}
 
+onMounted(() => {
+    auto()
+})
 
+onBeforeUnmount(() => {
+    clearInterval(t)
+    t = null
+})
 </script>
 
 
@@ -187,17 +197,84 @@ const auto = setInterval(() => {
         right: 10px;
     }
 
-    &-box {
-        position: absolute;
-        display: block;
-        transition: 1s;
+}
 
-        &-item {
 
-            float: left;
-        }
+.swipe-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: all .3s linear;
+    }
+
+
+
+}
+
+.leftActive {
+    .v-enter-active {
+        transform: translateX(-100%);
+    }
+
+    .v-enter-to,
+    .v-leave-active {
+        transform: translateX(0);
+    }
+
+    .v-leave-to {
+        transform: translateX(100%);
     }
 }
+
+.rightActive {
+    .v-enter-active {
+        transform: translateX(100%);
+    }
+
+    .v-enter-to,
+    .v-leave-active {
+        transform: translateX(0);
+    }
+
+    .v-leave-to {
+        transform: translateX(-100%);
+    }
+}
+
+.topActive {
+    .v-enter-active {
+        transform: translateY(-100%);
+    }
+
+    .v-enter-to,
+    .v-leave-active {
+        transform: translateY(0);
+    }
+
+    .v-leave-to {
+        transform: translateY(100%);
+    }
+}
+
+.downActive {
+    .v-enter-active {
+        transform: translateY(100%);
+    }
+
+    .v-enter-to,
+    .v-leave-active {
+        transform: translateY(0);
+    }
+
+    .v-leave-to {
+        transform: translateY(-100%);
+    }
+}
+
+
 
 .pointer {
     position: absolute;
