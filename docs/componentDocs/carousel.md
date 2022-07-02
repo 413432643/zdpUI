@@ -57,12 +57,12 @@ const { options } = state
 :::
 
 
-### 垂直布局
-<z-carousel :options="options" showPointer auto :autoItem="2000"></z-carousel>
+### 垂直滚动
+<z-carousel :options="options" showPointer auto :autoItem="2000" vertical></z-carousel>
 
 ::: details 点击查看代码
 ```vue
-<z-carousel :options="options" showPointer auto :autoItem="2000"></z-carousel>
+<z-carousel :options="options" showPointer auto :autoItem="2000" vertical></z-carousel>
 ```
 :::
 
@@ -76,7 +76,9 @@ const { options } = state
 |    auto      |       自动播放    |     Boolean       |  -               |     false     |
 |    showPointer      |       是否显示圆点指示器    |     Boolean       |  -               |     false     |
 |    valueF      |       播放时间间隔      |     Number       |  -               |     1000     |
+|    vertical      |       垂直滚动      |     Boolean       |  -               |     false     |
 
 ### options
 |    url     |       展示图片地址      |     string       |  -               |     url     |
+|:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
 |    value      |      默认值       |     string       |  -               |     value     |

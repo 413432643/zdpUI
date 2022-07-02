@@ -1,32 +1,25 @@
 <template>
-    <div class="swipe" :style="{
-        width: width + 'px',
-        height: height + 'px',
-    }">
+    <div class="swipe" :style="swipeStyle">
         <!-- 左按钮 -->
-        <div class="leftBtn" :style="{
-            top: height / 2 - 18 + 'px'
-        }" @click="leftBtn">
+        <div class="leftBtn" :style="btnStyle" @click="leftBtn">
             <i class="iconfont icon-arrow-left"></i>
         </div>
         <div class="swipe-box" :style="{
-            width: options.length * width + 'px',
-            left: -imgIndex * width + 'px'
+            width: vertical ? '' : options.length * width + 'px',
+            left: vertical ? '' : -imgIndex * width + 'px',
+            height: vertical ? options.length * height + 'px' : '',
+            top: vertical ? -imgIndex * height + 'px' : '',
         }">
-            <div class="swipe-box-item" v-for="(item, index) in options" :key="index">
+            <div class="swipe-box-item" v-for="(item, index) in options" :key="index" :style="swipeBoxItemStyle">
                 <img :src="item[urlF]">
             </div>
         </div>
         <!-- 右按钮 -->
-        <div class="rightBtn" :style="{
-            top: height / 2 - 18 + 'px'
-        }" @click="rightBtn">
+        <div class="rightBtn" :style="btnStyle" @click="rightBtn">
             <i class="iconfont icon-arrow-right"></i>
         </div>
         <!-- 小圆点 -->
-        <div v-if="showPointer" class="pointer" :style="{
-            left: width / 2 - 10 * options.length + 'px'
-        }">
+        <div v-if="showPointer" class="pointer" :style="pointerStyle">
             <div v-for="(n, i) in options" :key="i" @click="pointerClick(i)"
                 :class="{ 'pointerActive': imgIndex == i }">
             </div>
@@ -66,17 +59,21 @@ const props = defineProps({
         type: String,
         default: 'value'
     },
-    auto: {
+    auto: {//自动滚动
         type: Boolean,
         default: false
     },
-    showPointer:{
+    showPointer: {//显示小圆点
         type: Boolean,
         default: false
     },
-    autoItem: {
+    autoItem: {//控制滚动时间
         type: Number,
         default: 1000
+    },
+    vertical: {//垂直布局
+        type: Boolean,
+        default: false
     }
 })
 
@@ -84,7 +81,26 @@ const props = defineProps({
 const imgIndex = ref(0);
 
 
+const swipeStyle = {
+    width: props.width + 'px',
+    height: props.height + 'px',
+}
+const swipeBoxItemStyle = {
+    height: props.height + 'px',
+}
+
+const btnStyle = {
+    top: props.height / 2 - 18 + 'px'
+}
+const pointerStyle = {
+    left: props.width / 2 - 10 * props.options.length + 'px'
+}
+
+
+
 // 左按钮
+
+
 const leftBtn = () => {
     let length = props.options.length
     if (imgIndex.value > 0) {
@@ -94,6 +110,8 @@ const leftBtn = () => {
     }
     clearInterval(auto)
 }
+
+
 
 // 右按钮
 const rightBtn = () => {
@@ -172,9 +190,10 @@ const auto = setInterval(() => {
     &-box {
         position: absolute;
         display: block;
-        transition: left 1s;
+        transition: 1s;
 
         &-item {
+
             float: left;
         }
     }
@@ -182,14 +201,14 @@ const auto = setInterval(() => {
 
 .pointer {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
 
     div {
         float: left;
         width: 10px;
         height: 10px;
         border-radius: 100%;
-        margin: 0 5px;
+        margin: 5px;
         background: rgba(255, 255, 255, .3);
 
     }

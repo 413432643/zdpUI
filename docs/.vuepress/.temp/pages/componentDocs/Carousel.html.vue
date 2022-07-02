@@ -10,10 +10,10 @@
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-carousel</span> <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span> <span class="token attr-name">showPointer</span> <span class="token attr-name">auto</span> <span class="token attr-name">:autoItem</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2000<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-carousel</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></details>
-<h3 id="垂直布局" tabindex="-1"><a class="header-anchor" href="#垂直布局" aria-hidden="true">#</a> 垂直布局</h3>
-<z-carousel :options="options" showPointer auto :autoItem="2000"></z-carousel>
+<h3 id="垂直滚动" tabindex="-1"><a class="header-anchor" href="#垂直滚动" aria-hidden="true">#</a> 垂直滚动</h3>
+<z-carousel :options="options" showPointer auto :autoItem="2000" vertical></z-carousel>
 <details class="custom-container details"><summary>点击查看代码</summary>
-<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-carousel</span> <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span> <span class="token attr-name">showPointer</span> <span class="token attr-name">auto</span> <span class="token attr-name">:autoItem</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2000<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-carousel</span><span class="token punctuation">></span></span>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-carousel</span> <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span> <span class="token attr-name">showPointer</span> <span class="token attr-name">auto</span> <span class="token attr-name">:autoItem</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2000<span class="token punctuation">"</span></span> <span class="token attr-name">vertical</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-carousel</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></details>
 <h3 id="carousel-属性" tabindex="-1"><a class="header-anchor" href="#carousel-属性" aria-hidden="true">#</a> carousel 属性</h3>
 <table>
@@ -76,11 +76,36 @@
 <td style="text-align:center">-</td>
 <td style="text-align:center">1000</td>
 </tr>
+<tr>
+<td style="text-align:center">vertical</td>
+<td style="text-align:center">垂直滚动</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">false</td>
+</tr>
 </tbody>
 </table>
 <h3 id="options" tabindex="-1"><a class="header-anchor" href="#options" aria-hidden="true">#</a> options</h3>
-<p>|    url     |       展示图片地址      |     string       |  -               |     url     |
-|    value      |      默认值       |     string       |  -               |     value     |</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">url</th>
+<th style="text-align:center">展示图片地址</th>
+<th style="text-align:center">string</th>
+<th style="text-align:center">-</th>
+<th style="text-align:center">url</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">value</td>
+<td style="text-align:center">默认值</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">value</td>
+</tr>
+</tbody>
+</table>
 </div></template>
 
 <script setup>

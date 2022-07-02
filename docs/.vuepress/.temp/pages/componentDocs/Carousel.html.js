@@ -20,8 +20,8 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "垂直布局",
-      "slug": "垂直布局",
+      "title": "垂直滚动",
+      "slug": "垂直滚动",
       "children": []
     },
     {
