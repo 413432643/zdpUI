@@ -1,4 +1,4 @@
-# Carousel 走马灯
+# pagination 分页
 
 ### 基础用法
 

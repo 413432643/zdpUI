@@ -1,7 +1,7 @@
 export const data = {
   "key": "v-530bedef",
   "path": "/componentDocs/pagination.html",
-  "title": "Carousel 走马灯",
+  "title": "pagination 分页",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",

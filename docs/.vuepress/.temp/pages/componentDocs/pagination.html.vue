@@ -1,4 +1,4 @@
-<template><div><h1 id="carousel-走马灯" tabindex="-1"><a class="header-anchor" href="#carousel-走马灯" aria-hidden="true">#</a> Carousel 走马灯</h1>
+<template><div><h1 id="pagination-分页" tabindex="-1"><a class="header-anchor" href="#pagination-分页" aria-hidden="true">#</a> pagination 分页</h1>
 <h3 id="基础用法" tabindex="-1"><a class="header-anchor" href="#基础用法" aria-hidden="true">#</a> 基础用法</h3>
 <z-pagination></z-pagination>
 <details class="custom-container details"><summary>点击查看代码</summary>

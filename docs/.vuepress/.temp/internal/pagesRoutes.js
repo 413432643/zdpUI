@@ -9,7 +9,7 @@ const routeItems = [
   ["v-4760d296","/componentDocs/inputNumber.html",{"title":"InputNumber 计数器"},["/componentDocs/inputNumber","/componentDocs/inputNumber.md"]],
   ["v-7f119c5f","/componentDocs/layout.html",{"title":"layout 布局"},["/componentDocs/layout","/componentDocs/layout.md"]],
   ["v-39ca627c","/componentDocs/message.html",{"title":"message 消息提示"},["/componentDocs/message","/componentDocs/message.md"]],
-  ["v-530bedef","/componentDocs/pagination.html",{"title":"Carousel 走马灯"},["/componentDocs/pagination","/componentDocs/pagination.md"]],
+  ["v-530bedef","/componentDocs/pagination.html",{"title":"pagination 分页"},["/componentDocs/pagination","/componentDocs/pagination.md"]],
   ["v-0dff374e","/componentDocs/radio.html",{"title":"radio 单选"},["/componentDocs/radio","/componentDocs/radio.md"]],
   ["v-1402b5cd","/componentDocs/select.html",{"title":"select 选择器"},["/componentDocs/select","/componentDocs/select.md"]],
   ["v-20c3a86b","/componentDocs/tree.html",{"title":"tree 树形控件"},["/componentDocs/tree","/componentDocs/tree.md"]],
