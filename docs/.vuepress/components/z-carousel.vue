@@ -35,7 +35,7 @@ export default {
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 const emit = defineEmits(['update:modelValue', 'change'])
 const props = defineProps({
-    modelValue:Number,
+    modelValue: Number,
     options: {
         type: Array,
         default: () => []
@@ -117,6 +117,7 @@ const leftBtn = () => {
         imgIndex.value-- :
         imgIndex.value = length - 1
     direction.value = true
+    emit('change', imgIndex.value)
 }
 
 
@@ -128,6 +129,7 @@ const rightBtn = () => {
         imgIndex.value++ :
         imgIndex.value = 0
     direction.value = false
+    emit('change', imgIndex.value)
 }
 
 
@@ -137,6 +139,7 @@ const pointerClick = (i) => {
         direction.value = true :
         direction.value = false
     imgIndex.value = i
+    emit('change', imgIndex.value)
 }
 
 // 自动播放
@@ -150,7 +153,9 @@ const auto = () => {
             imgIndex.value = 0
     }, props.autoItem)
     direction.value = false
+    emit('change', imgIndex.value)
 }
+
 
 const mouseEnter = () => {
     clearInterval(t)

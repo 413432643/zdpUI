@@ -2,7 +2,7 @@
 
 ### 基础用法
 
-<z-carousel></z-carousel>
+<z-pagination></z-pagination>
 
 <script>
 

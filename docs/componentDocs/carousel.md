@@ -6,7 +6,7 @@
 使用`urlF` `valueF`属性可以自定义options格式  
 使用`width` `height` 属性可自定义容器的宽高   
 
-<z-carousel v-model="initIndex"  :options="options" showPointer></z-carousel>
+<z-carousel v-model="initIndex"  :options="options" showPointer @change="change"></z-carousel>
 
 <script setup>
 import { ref, computed, reactive } from 'vue';
@@ -37,6 +37,9 @@ const state = reactive({
     ]
 })
 const { options } = state
+const change=(index)=>{
+    console.log(index)
+}
 
 const initIndex=ref(2)
 </script>
@@ -186,3 +189,8 @@ const { options } = state
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
 |    url     |       展示图片地址      |     string       |  -               |     url     |
 |    value      |      默认值       |     string       |  -               |     value     |
+
+### carousel 事件
+|    事件名      |       说明      |     返回值       |
+|:------------:|:--------------:|:--------------:|
+|    change      |       幻灯片切换时触发      |     当前幻灯片value值       |

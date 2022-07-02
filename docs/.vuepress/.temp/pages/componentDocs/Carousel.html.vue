@@ -4,7 +4,7 @@
 <p>通过 <code v-pre>z-carousel</code> 标签就得到了一个走马灯。<br>
 使用<code v-pre>urlF</code> <code v-pre>valueF</code>属性可以自定义options格式<br>
 使用<code v-pre>width</code> <code v-pre>height</code> 属性可自定义容器的宽高</p>
-<z-carousel v-model="initIndex"  :options="options" showPointer></z-carousel>
+<z-carousel v-model="initIndex"  :options="options" showPointer @change="change"></z-carousel>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-carousel</span> <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-carousel</span><span class="token punctuation">></span></span>
 
@@ -222,6 +222,23 @@
 </tr>
 </tbody>
 </table>
+<h3 id="carousel-事件" tabindex="-1"><a class="header-anchor" href="#carousel-事件" aria-hidden="true">#</a> carousel 事件</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">事件名</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">change</td>
+<td style="text-align:center">幻灯片切换时触发</td>
+<td style="text-align:center">当前幻灯片value值</td>
+</tr>
+</tbody>
+</table>
 </div></template>
 
 <script setup>
@@ -253,6 +270,9 @@ const state = reactive({
     ]
 })
 const { options } = state
+const change=(index)=>{
+    console.log(index)
+}
 
 const initIndex=ref(2)
 </script>

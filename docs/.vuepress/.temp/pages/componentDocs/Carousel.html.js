@@ -35,6 +35,12 @@ export const data = {
       "title": "options",
       "slug": "options",
       "children": []
+    },
+    {
+      "level": 3,
+      "title": "carousel 事件",
+      "slug": "carousel-事件",
+      "children": []
     }
   ],
   "git": {},
