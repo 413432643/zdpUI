@@ -80,7 +80,7 @@ const state = reactive({
     ]
 })
 const { options } = state
-const initIndex=ref(2)
+const initIndex=ref(6)
 </script>
 ```
 :::
