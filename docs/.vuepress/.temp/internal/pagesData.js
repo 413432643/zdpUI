@@ -7,6 +7,8 @@ export const pagesData = {
   "v-f667682e": () => import(/* webpackChunkName: "v-f667682e" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/carousel.html.js").then(({ data }) => data),
   // path: /componentDocs/checkbox.html
   "v-2c719766": () => import(/* webpackChunkName: "v-2c719766" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/checkbox.html.js").then(({ data }) => data),
+  // path: /componentDocs/date.html
+  "v-1006365b": () => import(/* webpackChunkName: "v-1006365b" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/date.html.js").then(({ data }) => data),
   // path: /componentDocs/input.html
   "v-60c4fcdf": () => import(/* webpackChunkName: "v-60c4fcdf" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/input.html.js").then(({ data }) => data),
   // path: /componentDocs/inputNumber.html

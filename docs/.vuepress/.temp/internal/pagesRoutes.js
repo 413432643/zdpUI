@@ -5,6 +5,7 @@ const routeItems = [
   ["v-c3669552","/componentDocs/button.html",{"title":"button 按钮"},["/componentDocs/button","/componentDocs/button.md"]],
   ["v-f667682e","/componentDocs/carousel.html",{"title":"Carousel 走马灯"},["/componentDocs/carousel","/componentDocs/carousel.md"]],
   ["v-2c719766","/componentDocs/checkbox.html",{"title":"checkbox 多选"},["/componentDocs/checkbox","/componentDocs/checkbox.md"]],
+  ["v-1006365b","/componentDocs/date.html",{"title":"date 日期"},["/componentDocs/date","/componentDocs/date.md"]],
   ["v-60c4fcdf","/componentDocs/input.html",{"title":"input 输入框"},["/componentDocs/input","/componentDocs/input.md"]],
   ["v-4760d296","/componentDocs/inputNumber.html",{"title":"InputNumber 计数器"},["/componentDocs/inputNumber","/componentDocs/inputNumber.md"]],
   ["v-7f119c5f","/componentDocs/layout.html",{"title":"layout 布局"},["/componentDocs/layout","/componentDocs/layout.md"]],

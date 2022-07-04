@@ -38,6 +38,10 @@ module.exports = {
         link: '/componentDocs/inputNumber.md',
       },
       {
+        text: 'pagination 分页',
+        link: '/componentDocs/pagination.md',
+      },
+      {
         text: 'input 输入框',
         link: '/componentDocs/input.md',
       },
@@ -53,13 +57,14 @@ module.exports = {
         text: 'button 按钮',
         link: '/componentDocs/button.md',
       },
-      {
-        text: 'pagination 分页',
-        link: '/componentDocs/pagination.md',
-      },
+      
       {
         text: 'message 消息提示',
         link: '/componentDocs/message.md',
+      },
+      {
+        text: 'date 日期',
+        link: '/componentDocs/date.md',
       },
     ],
   }),
