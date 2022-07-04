@@ -217,7 +217,6 @@ const input = (e) => {
         }
 
         &.active {
-
             color: var(--selectColor);
             background: var(--bgActive)
         }
