@@ -90,7 +90,7 @@ const swipeStyle = {
 }
 
 const btnStyle = {
-    top: props.height / 2 - 18 + 'px'
+    top: props.height / 2 - 18 + 'px',
 }
 
 const pointerStyle = {

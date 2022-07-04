@@ -1,26 +1,22 @@
 <template>
     <div class="container">
-
         <div class="pagination">
-
-            <div :class="nextClass" @click="first"><i class="iconfont icon-L2"></i></div>
-            <div :class="nextClass" @click="next">
+            <div :class="nextClass" @click="first" :style="style"><i class="iconfont icon-L2"></i></div>
+            <div :class="nextClass" @click="next" :style="style">
                 <i class="iconfont icon-L"></i>
             </div>
-            <div v-if="currentPage > 3" @click="doubleNext">...</div>
-            <div @click="page(i)" v-for="i in pageList" :key="i" :class="{ active: currentPage === i }">{{ i }}</div>
-            <div v-if="currentPage < pages - 2" @click="doublePrev">...</div>
-            <div :class="prevClass" @click="prev">
+            <div v-if="currentPage > 5" @click="doubleNext" :style="style">...</div>
+            <div @click="page(i)" v-for="i in pageList" :key="i" :class="{ active: currentPage === i }" :style="style">
+                {{ i }}</div>
+            <div v-if="currentPage < pages - 4" @click="doublePrev" :style="style">...</div>
+            <div :class="prevClass" @click="prev" :style="style">
                 <i class="iconfont icon-R"></i>
             </div>
-            <div :class="prevClass" @click="last"><i class="iconfont icon-R2"></i></div>
-            <z-input @input="input" class="input" />
-
+            <div :class="prevClass" @click="last" :style="style"><i class="iconfont icon-R2"></i></div>
+            <z-input v-if="customPage" @input="input" class="input" />
         </div>
-        <z-select :options='pagesizeOption' v-model="pagesize" class="select"></z-select>
+        <z-select v-if="pagesizeOption.length" :options='pagesizeOption' v-model="pagesize" class="select"></z-select>
     </div>
-
-
 </template>
 
 
@@ -33,9 +29,9 @@ export default {
 <script setup>
 import { computed, ref } from 'vue'
 import ZInput from './z-input.vue'
-import ZSelect from './z-select.vue'
+
 import zSelect from './z-select.vue'
-const emit = defineEmits(['update:modelValue', 'change'])
+const emit = defineEmits(['update:modelValue', 'change','change-input'])
 const props = defineProps({
     modelValue: Number,
     total: { // 总条数
@@ -54,8 +50,30 @@ const props = defineProps({
         type: Array,
         default: () => []
     },
-    
+    customPage: {
+        type: Boolean,
+        default: false
+    },
+    selectColor: {
+        type: String,
+        default: '#409eff'
+    },
+    bgColor: {
+        type: String,
+        default: ''
+    },
+    bgActive: {
+        type: String,
+        default: ''
+    },
+    borderRadius: {
+        type: Number,
+        default: 0
+    }
+
 })
+
+
 
 
 const prevClass = computed(() => {
@@ -71,6 +89,12 @@ const nextClass = computed(() => {
 })
 
 
+const style = {
+    '--selectColor': props.selectColor,
+    '--bgColor': props.bgColor,
+    '--borderRadius': props.borderRadius + 'px',
+    '--bgActive': props.bgActive
+}
 
 
 const pages = computed(() => { // 总页数
@@ -147,7 +171,7 @@ const input = (e) => {
     } else {
         currentPage.value = Number(e)
     }
-    emit('change', currentPage.value)
+    emit('change-input', currentPage.value)
 }
 
 </script>
@@ -167,24 +191,35 @@ const input = (e) => {
     }
 }
 
-.pagination {
+.input {
+    width: 60px;    
+    border-radius: 4px !important;
+    ::v-deep .z-input__inner {
+        text-align: center;
+        padding: 0 !important;
+        
+    }
+}
 
+.pagination {
     display: flex;
 
     div {
         padding: 5px 10px;
-        border: 1px solid #e4e4e4;
-        border-radius: 4px;
         margin-right: 10px;
+        cursor: pointer;
+        background: var(--bgColor);
+        border-radius: var(--borderRadius);
 
         &:hover {
-            color: #eee;
+            color: var(--selectColor);
+
         }
 
         &.active {
-            background: #eee;
-            color: #fff;
-            border-color: #eee;
+
+            color: var(--selectColor);
+            background: var(--bgActive)
         }
 
         &.disabled {
@@ -192,20 +227,9 @@ const input = (e) => {
             opacity: 0.4;
 
             &:hover {
-                color: #333
+                color: #000
             }
         }
     }
-}
-
-.input {
-    width: 60px;
-
-    :global(.z-input__inner) {
-        padding: 0 !important;
-        text-align: center;
-    }
-
-
 }
 </style>
