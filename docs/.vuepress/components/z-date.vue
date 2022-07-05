@@ -1,25 +1,45 @@
-    <template>
+<template>
     <div class="date">
         <div class="date-header">
             <div><i class="iconfont icon-L2" @click="yearPrev"></i></div>
-            <div><i class="iconfont icon-L" @click="monthPrev"></i></div>
+            <div v-if="dayListV"><i class="iconfont icon-L" @click="monthPrev"></i></div>
             <div>
-                <span class="date-header-year">{{ year + '年' }}</span>
-                <span class="date-header-month">{{ month + 1 + '月' }}</span>
+                <!-- 年 -->
+                <span v-if="yearListV" class="date-header-year" @click="yearTitle">
+                    {{ (year - year % 10) + '-' + (year - year % 10 + 10) }}
+                </span>
+                <span v-else class="date-header-year" @click="yearTitle">{{ year }}</span>
+
+                <!-- 月 -->
+                <span v-if="dayListV" class="date-header-month" @click="monthTitle">
+                    {{ (month < 9 ? "0" : "") + (month + 1) }} </span>
             </div>
-            <div><i class="iconfont icon-R" @click="monthNext"></i></div>
+            <div v-if="dayListV"><i class="iconfont icon-R" @click="monthNext"></i></div>
             <div><i class="iconfont icon-R2" @click="yearNext"></i></div>
         </div>
         <div class="date-body">
-            <div class="date-body-top">
+            <!-- 星期 -->
+            <div v-if="dayListV" class="date-body-top">
                 <div v-for="i in weekData" :key="i">{{ i }}</div>
             </div>
-            <div class="date-body-content">
-                <div v-for="item in dateList" :key="item" @click="dayClick(item)"
-                    :class="[{ 'active': defaultDay == item.date  }, { 'disable': item.class == 'prevMonth' || item.class == 'nextMonth' }]">
-                    {{ item.day }}</div>
+            <!-- 天列表 -->
+            <div v-if="dayListV" class="date-body-content">
+                <div v-for="item in dateList" :key="item" @click="dayClick(item)" :class="[{ 'active': defaultDay == item.date },
+                { 'disable': item.class == 'prevMonth' || item.class == 'nextMonth' }]">
+                    {{ item.day }}
+                </div>
             </div>
+            <!-- 月列表 -->
+            <div v-if="monthListV" class="date-body-month">
+                <div v-for="j in 12" :key="j" @click="monthList(j)">{{ j + '月' }}</div>
+            </div>
+            <!-- 年列表 -->
+            <div v-if="yearListV" class="date-body-year">
+                <div v-for="k in 10" :key="k" @click="yearList(k)">{{ year - year % 10 + k - 1 }}</div>
+            </div>
+
         </div>
+
     </div>
 
 </template>
@@ -44,15 +64,18 @@ const year = ref(date.getFullYear())//年
 const month = ref(date.getMonth())//月
 const day = ref(date.getDate())//日
 
+const yearListV = ref(false)
+const monthListV = ref(false)
+const dayListV = ref(true)
+
 const weekData = ref(['日', '一', '二', '三', '四', '五', '六'])//每星期
 const MonthDayList = ref([31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]); //每月天数
-
-const currentDay = year.value + "-"
-    + (month.value < 9 ? "0" : "") + (month.value + 1) + "-"
-    + (day.value < 10 ? "0" : "") + day.value //当天
+const currentDay = year.value + "-" + (month.value < 9 ? "0" : "") + (month.value + 1) + "-" + (day.value < 10 ? "0" : "") + day.value //当天
 const defaultDay = ref(props.modelValue || currentDay)//选中天
 
-const dateList = computed(() => {//当前展示页面
+
+//当前展示页面
+const dateList = computed(() => {
     let monthDay = MonthDayList.value[month.value]; //本月天数
     let prevMonthDay = MonthDayList.value[month.value == 0 ? 11 : month.value - 1]//上月天数
 
@@ -62,12 +85,8 @@ const dateList = computed(() => {//当前展示页面
         }
     }
 
-    date.setDate(1)
-    let weekStar = date.getDay()//本月第一天星期几
-    date.setDate(monthDay)
-    let weekEnd = date.getDay()//本月最后一天星期几
-
-    const arr = []
+    let weekStar = new Date(year.value, month.value, 1).getDay();//本月第一天星期几
+    let arr = []
 
     //上月日期
     for (let i = prevMonthDay - weekStar; i < prevMonthDay; i++) {
@@ -91,11 +110,10 @@ const dateList = computed(() => {//当前展示页面
             day: j,
         };
         arr.push(obj);
-
     }
 
     //下月日期
-    for (var k = 1; k <= 6 - weekEnd; k++) {
+    for (var k = 1; k <= 42 - weekStar - monthDay; k++) {
         let obj = {
             date: year.value + "-"
                 + (month.value < 8 ? "0" : "") + (month.value + 2) + "-"
@@ -104,18 +122,24 @@ const dateList = computed(() => {//当前展示页面
             day: k,
         };
         arr.push(obj);
-
     }
-
     return arr
 })
 
 
-const yearPrev = () => {//上一年
-    year.value--
+const yearPrev = () => {
+    if (yearListV.value) {//上十年
+        year.value -= 10
+    } else {
+        year.value--//上一年
+    }
 }
-const yearNext = () => {//下一年
-    year.value++
+const yearNext = () => {
+    if (yearListV.value) {//下十年
+        year.value += 10
+    } else {
+        year.value++//下一年
+    }
 }
 
 const monthPrev = () => {//上一月
@@ -125,7 +149,6 @@ const monthPrev = () => {//上一月
     } else {
         month.value--
     }
-
 }
 const monthNext = () => {//下一月
     if (month.value == 11) {
@@ -134,8 +157,6 @@ const monthNext = () => {//下一月
     } else {
         month.value++
     }
-
-    console.log(dateList.value)
 }
 
 const dayClick = (item) => {//点击天
@@ -145,6 +166,29 @@ const dayClick = (item) => {//点击天
     if (currentDay == item.date) {
         defaultDay.value = currentDay
     }
+}
+
+const monthTitle = () => {
+    yearListV.value = false
+    monthListV.value = true
+    dayListV.value = false
+}
+
+const yearTitle = () => {
+    yearListV.value = true
+    monthListV.value = false
+    dayListV.value = false
+}
+const monthList = (v) => {
+    monthListV.value = false
+    dayListV.value = true
+    month.value = v - 1
+}
+
+const yearList = (v) => {
+    yearListV.value = false
+    monthListV.value = true
+    year.value = year.value - year.value % 10 + v - 1
 }
 
 
@@ -201,6 +245,22 @@ const dayClick = (item) => {//点击天
     &-content {
         flex-wrap: wrap;
         cursor: pointer;
+
+        :hover {
+            color: #409eff;
+        }
+    }
+
+    &-year,
+    &-month {
+        flex-wrap: wrap;
+        display: flex;
+
+        div {
+            width: 25%;
+            padding: 20px 0;
+            cursor: pointer;
+        }
 
         :hover {
             color: #409eff;
