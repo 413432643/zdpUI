@@ -31,7 +31,7 @@ import { computed, ref } from 'vue'
 import ZInput from './z-input.vue'
 
 import zSelect from './z-select.vue'
-const emit = defineEmits(['update:modelValue', 'change','change-input'])
+const emit = defineEmits(['update:modelValue', 'change', 'change-input'])
 const props = defineProps({
     modelValue: Number,
     total: { // 总条数
@@ -192,12 +192,13 @@ const input = (e) => {
 }
 
 .input {
-    width: 60px;    
+    width: 60px;
     border-radius: 4px !important;
+
     ::v-deep .z-input__inner {
         text-align: center;
         padding: 0 !important;
-        
+
     }
 }
 

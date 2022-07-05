@@ -58,7 +58,7 @@
 import { ref } from "vue";
 
 
-const day = ref(5)
+const day = ref('2022-07-07')
 const change = (...arg) => {
     console.log(arg)
 }
