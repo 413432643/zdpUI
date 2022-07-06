@@ -1,11 +1,12 @@
 <template>
-    <div :class="zClass">
+    <div :class="zClass"  @mouseenter="mouseenter" @mouseleave="mouseleave" >
         <i :class="[{ leftIcon: !leftIcon }, 'iconfont', leftIcon]" style="padding:10px 0 10px 10px"></i>
         <textarea v-if="type === 'textarea'" class="z-input__inner" :value="modelValue" :autosize='autosize'
             :rows='rows' :placeholder="placeholder" :disabled='disabled' @input="input" @focus="focus" @blur="blur"
             @change="change" :style="{ height: tHeight }"></textarea>
         <input v-else class="z-input__inner" :value="modelValue" :placeholder="placeholder" :disabled='disabled'
-            :type="type" :clearable='clearable' @input="input" @focus="focus" @blur="blur" @change="change" />
+            :type="type" :clearable='clearable' @input="input" @focus="focus" @blur="blur" @change="change"
+           />
         <span @click="clear" class="iconfont icon-shanchu"></span>
         <i :class="[{ rightIcon: !rightIcon }, 'iconfont', rightIcon]"></i>
     </div>
@@ -24,6 +25,8 @@ import { computed, ref } from 'vue';
 const focusValue = ref(false)
 
 const tHeight = ref('')
+
+const chear = ref(false)
 
 const emit = defineEmits(['update:modelValue', 'clear', 'change', 'focus', 'input', 'blur'])
 
@@ -67,14 +70,17 @@ const props = defineProps({
 
 })
 
+
 const zClass = computed(() => {
     return [
         'z-input',
         props.disabled ? 'z-input-disabled' : '',
         focusValue.value ? 'z-input-focus' : '',
-        props.clearable && props.modelValue ? '' : 'z-input-clearable',
+        props.clearable && props.modelValue && chear.value ? '' : 'z-input-clearable',
     ]
 })
+
+
 
 
 
@@ -103,6 +109,16 @@ const blur = (e) => {
 const change = (e) => {
     emit('change', e.target.value)
 }
+const mouseenter = () => {
+    if (props.clearable) {
+        chear.value = true
+    }
+}
+const mouseleave = () => {
+    if (props.clearable) {
+        chear.value = false
+    }
+}
 
 
 </script>
@@ -111,7 +127,7 @@ const change = (e) => {
 .z-input {
     display: flex;
     width: 100%;
-    border: 1px solid #dcdfe6f6;
+    border: 1px solid #dcdfe6;
     overflow: hidden;
     border-radius: 4px;
     transition: all .2s ease;
@@ -168,8 +184,8 @@ const change = (e) => {
     }
 }
 
-.icon-shanchu{
-    color:#c0c4cc;
+.icon-shanchu {
+    color: #dcdfe6;
 }
 
 // 左侧图标

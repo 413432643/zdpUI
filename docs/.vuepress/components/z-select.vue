@@ -1,16 +1,16 @@
 <template>
-    <div class="z-select" v-upDown>
-        <div class="z-select-input">
+    <div class="z-select" v-down>
+        <div class="z-select-input" @click="upbox" @mouseenter="mouseenter" @mouseleave="mouseleave">
             <input type="text" :readonly="!filterable" :value="modelValue" :class="{ 'z-input-focus': boxShow }"
                 :disabled='disabled' :placeholder="placeholder" @input="input" />
-            <i :class="iClass" @click="clearSelect"></i>
+            <i :class="iconClass" @click="clearSelect"></i>
         </div>
 
-        <div class="z-box" v-if="boxShow">
-            <div v-for="(item, index) in _options" :key="index" @click="labelClick(item)"
-                :class="['z-box-label', { 'z-box-label-disabled': item.disabled }, { 'z-box-label-selected': item[labelF] == modelValue }]">
+        <div class="z-box" :style="boxStyle" v-show="boxShow">
+            <div v-for="(item, index) in _options" :key="index" @click="labelClick(item)" :class="labelClass(item)">
                 {{ item[labelF] }}</div>
-            <div class="notData" v-if="notData">not Data</div>
+            <slot name="selectBox"></slot>
+            <div class="notData" v-show="notData">not Data</div>
         </div>
     </div>
 </template>
@@ -52,33 +52,60 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+    widthBox: {
+        type: String,
+        default: '100%'
+    },
+    maxHeightBox: {
+        type: String,
+        default: '162px'
+    },
     disabled: Boolean,
 })
 
-const boxShow = ref(false)
-const _options = ref(props.options || '')
+const boxShow = ref(props.boxShow)
 
 const notData = ref(false)
 
+const _options = ref(props.options || '')
 
-const iClass = computed(() => {
+const clear =ref(false)
+
+
+const boxStyle = {
+    '--width': props.widthBox,
+    '--maxHeight': props.maxHeightBox
+}
+
+const iconClass = computed(() => {
     return [
         'iconfont',
-        props.modelValue == '' ? 'icon-arrow-down' : (props.clearable ? 'icon-shanchu' : 'icon-arrow-down'),
+        props.clearable && clear.value && props.modelValue ? 'icon-shanchu' : 'icon-arrow-down',
         boxShow.value ? 'icon-arrow-down-active' : ''
+    ]
+})
+const labelClass = computed(() => (item) => {
+    return [
+        'z-box-label',
+        item.disabled ? 'z-box-label-disabled' : '',
+        item[props.labelF] == props.modelValue ? 'z-box-label-selected' : ''
     ]
 })
 
 
-const vUpDown = {
+const vDown = {
     beforeMount(el) {
         let hander = (e) => {
             if (props.disabled) return
-            if (!el.contains(e.target)) return boxShow.value = false
-            boxShow.value = !boxShow.value
+            if(!el.contains(e.target)) return boxShow.value = false
         }
         document.addEventListener('click', hander)
     }
+}
+
+const upbox=()=>{
+    if (props.disabled) return
+    boxShow.value = true
 }
 
 const clearSelect = () => {
@@ -97,8 +124,16 @@ const labelClick = (item) => {
 
 const input = (e) => {
     emit('update:modelValue', e.target.value)
-    emit('input', { val: e.target.value })
+    emit('input', e.target.value)
 }
+
+const mouseenter =()=>{
+    clear.value=true
+}
+const mouseleave =()=>{
+     clear.value=false
+}
+
 
 // 筛选
 
@@ -147,16 +182,18 @@ watch(() => props.modelValue, (newName, oldName) => {
 }
 
 .z-box {
-    width: 100%;
-    max-height: 162px;
+    width: var(--width);
+    max-height: var(--maxHeight);
+    
     overflow-y: scroll;
     position: absolute;
     border: 1px solid #d4d3d3;
-    top: 40px;
+    background: #fff;
     border-radius: 4px;
     box-sizing: border-box;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     z-index: 999;
+    top: 40px;
 
     &::-webkit-scrollbar {
         width: 5px;

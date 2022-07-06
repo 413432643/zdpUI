@@ -539,12 +539,12 @@ const state4 = reactive({
 const { options: options4 } = state4
 const value4 = ref('')
 
-const input = (val) => {
-    console.log(val)
+const input = (e) => {
+    console.log(e)
 }
 
-const change = (item) => {
-    console.log(item)
+const change = (e) => {
+    console.log(e)
 }
 
 </script>

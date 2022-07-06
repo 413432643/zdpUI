@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1656757618940') format('truetype');
+  src: url('iconfont.ttf?t=1657073031112') format('truetype');
 }
 
 .iconfont {
@@ -10,7 +10,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .icon-close:before {
   content: "\e69a";
 }
@@ -145,4 +144,7 @@
 
 .icon-L:before {
   content: "\e613";
+}
+.icon-rili:before {
+  content: "\e915";
 }
