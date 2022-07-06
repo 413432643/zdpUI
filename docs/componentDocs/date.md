@@ -4,7 +4,7 @@
 ### 基础用法
 
 
-<z-date v-model="day" type="date" currentSign placeholder="选择日期"></z-date>
+<z-date v-model="day"  currentSign placeholder="选择日期"></z-date>
 
 <script setup>
 import { ref } from "vue";
@@ -17,7 +17,7 @@ const day = ref('2022-07-03')
 
 ::: details 点击查看代码
 ```vue
-<z-date v-model="day" type="date" currentSign placeholder="选择日期"></z-date>
+<z-date v-model="day"  currentSign placeholder="选择日期"></z-date>
 
 <script setup>
 import { ref } from "vue";
@@ -39,10 +39,8 @@ const day = ref('2022-07-03')
 
 <z-date type="dates" placeholder="选择多个日期"></z-date>
 
-
 ::: details 点击查看代码
 ```vue
-<z-date v-model="day" ></z-date>
 
 <z-date  type="month" placeholder="选择月份"></z-date>
 
@@ -76,5 +74,5 @@ const day = ref('2022-07-07')
 |    v-model      |       当前绑定值 (格式yyyy-mm-dd)     |     String       |   -       |     -     |
 |    placeholder      |       占位文本      |     String       |  -               |     -     |
 |    currentSign      |       标记当天      |      Boolean     |  -               |     -     |
-|    type      |       显示类型      |     String       |  date/month/year/dates              |     date     |
+|    type      |       显示类型      |     String       |  date/month/year/dates     |     date     |
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |

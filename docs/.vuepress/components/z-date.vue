@@ -96,7 +96,7 @@
 
 <script>
 export default {
-    components: { zSelect },
+    components: { zInput },
     name: 'ZDate',
 };
 
@@ -104,7 +104,7 @@ export default {
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import zSelect from './z-input.vue';
+import zInput from './z-input.vue';
 
 const emit = defineEmits(['update:modelValue', 'change', 'click'])
 const props = defineProps({
@@ -238,6 +238,7 @@ const yearNext = () => {
     }
 }
 
+
 const monthPrev = () => {//上一月
     if (month.value == 0) {
         month.value = 11
@@ -255,12 +256,12 @@ const monthNext = () => {//下一月
     }
 }
 
+
 const monthTitle = () => {// 点击月标题
     yearListV.value = false
     monthListV.value = true
     dayListV.value = false
 }
-
 const yearTitle = () => {// 点击年标题
     yearListV.value = true
     monthListV.value = false
@@ -290,8 +291,9 @@ const dayClick = (item) => {//点击天
 
 }
 const monthList = (v) => {// 点击月
+    let currentMonth = year.value + '-' + (v < 9 ? "0" : "") + v
     if (props.type == 'month') {
-        defaultDay.value = year.value + '-' + (v < 9 ? "0" : "") + v
+        defaultDay.value = currentMonth
         dateShow.value = false
     } else {
         monthListV.value = false
@@ -299,7 +301,6 @@ const monthList = (v) => {// 点击月
         month.value = v - 1
     }
 }
-
 const yearList = (v) => {// 点击年
     let yearV = year.value - year.value % 10 + v - 1
     if (props.type == 'year') {
@@ -313,13 +314,9 @@ const yearList = (v) => {// 点击年
 }
 
 
-
-
-
 const focus = () => { //元素获得焦点打开
     dateShow.value = true
 }
-
 const vDown = { //元素外收起
     beforeMount(el) {
         let hander = (e) => {
@@ -334,7 +331,6 @@ const vDown = { //元素外收起
 const ok = () => { //完成按钮
     dateShow.value = false
 }
-
 
 </script>
 
