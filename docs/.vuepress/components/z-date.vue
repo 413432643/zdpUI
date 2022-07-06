@@ -1,8 +1,11 @@
 <template>
     <div class="container" v-down>
         <z-input v-model="defaultDay" class="input" leftIcon="icon-rili" :placeholder="placeholder" @focus="focus"
-            clearable />
+            :clearable="clearable" />
+            
         <div v-show="dateShow" class="date">
+            <!-- 插槽 -->
+            <slot name="dateTop"></slot>
             <!-- 选择日期 -->
             <div class="date-header" v-if="type == 'date' || type == 'dates'">
                 <div><i class="iconfont icon-L2" @click="yearPrev"></i></div>
@@ -106,7 +109,7 @@ export default {
 import { ref, computed, onMounted } from 'vue';
 import zInput from './z-input.vue';
 
-const emit = defineEmits(['update:modelValue', 'change', 'click'])
+const emit = defineEmits(['update:modelValue', 'change'])
 const props = defineProps({
     modelValue: String,
     placeholder: {
@@ -114,6 +117,11 @@ const props = defineProps({
         default: ''
     },
     currentSign: {
+        type: Boolean,
+        default: false
+    }
+    ,
+    clearable: {
         type: Boolean,
         default: false
     },
@@ -136,9 +144,7 @@ const dayListV = ref(true)
 
 const weekData = ref(['日', '一', '二', '三', '四', '五', '六'])//每星期
 const MonthDayList = ref([31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]); //每月天数
-const currentDay = year.value + "-"
-    + (month.value < 9 ? "0" : "") + (month.value + 1) + "-"
-    + (day.value < 10 ? "0" : "") + day.value //当天
+const currentDay = year.value + "-" + (month.value < 9 ? "0" : "") + (month.value + 1) + "-" + (day.value < 10 ? "0" : "") + day.value //当天
 const defaultDay = ref(props.modelValue || '')//选中天
 
 
@@ -288,7 +294,7 @@ const dayClick = (item) => {//点击天
         item.select = !item.select
         item.select ? defaultDay.value += currentDay + ' ' : defaultDay.value = defaultDay.value.replace(currentDay + ' ', '')
     }
-
+    emit('change', defaultDay.value)
 }
 const monthList = (v) => {// 点击月
     let currentMonth = year.value + '-' + (v < 9 ? "0" : "") + v
@@ -300,6 +306,7 @@ const monthList = (v) => {// 点击月
         dayListV.value = true
         month.value = v - 1
     }
+    emit('change', defaultDay.value)
 }
 const yearList = (v) => {// 点击年
     let yearV = year.value - year.value % 10 + v - 1
@@ -311,6 +318,7 @@ const yearList = (v) => {// 点击年
         monthListV.value = true
         year.value = yearV
     }
+    emit('change', defaultDay.value)
 }
 
 
@@ -331,7 +339,6 @@ const vDown = { //元素外收起
 const ok = () => { //完成按钮
     dateShow.value = false
 }
-
 </script>
 
 

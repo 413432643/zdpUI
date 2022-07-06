@@ -8,20 +8,44 @@ export const data = {
   "headers": [
     {
       "level": 3,
-      "title": "基础用法",
-      "slug": "基础用法",
+      "title": "选择日期",
+      "slug": "选择日期",
       "children": []
     },
     {
       "level": 3,
-      "title": "其他日期单位",
-      "slug": "其他日期单位",
+      "title": "选择月份",
+      "slug": "选择月份",
       "children": []
     },
     {
       "level": 3,
-      "title": "选择一段时间",
-      "slug": "选择一段时间",
+      "title": "选择年份",
+      "slug": "选择年份",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "选择多个日期",
+      "slug": "选择多个日期",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "Data属性",
+      "slug": "data属性",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "Data事件",
+      "slug": "data事件",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "插槽",
+      "slug": "插槽",
       "children": []
     }
   ],

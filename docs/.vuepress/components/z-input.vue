@@ -1,12 +1,11 @@
 <template>
-    <div :class="zClass"  @mouseenter="mouseenter" @mouseleave="mouseleave" >
+    <div :class="zClass" @mouseenter="mouseenter" @mouseleave="mouseleave">
         <i :class="[{ leftIcon: !leftIcon }, 'iconfont', leftIcon]" style="padding:10px 0 10px 10px"></i>
         <textarea v-if="type === 'textarea'" class="z-input__inner" :value="modelValue" :autosize='autosize'
             :rows='rows' :placeholder="placeholder" :disabled='disabled' @input="input" @focus="focus" @blur="blur"
             @change="change" :style="{ height: tHeight }"></textarea>
         <input v-else class="z-input__inner" :value="modelValue" :placeholder="placeholder" :disabled='disabled'
-            :type="type" :clearable='clearable' @input="input" @focus="focus" @blur="blur" @change="change"
-           />
+            :type="type" :clearable='clearable' @input="input" @focus="focus" @blur="blur" @change="change" />
         <span @click="clear" class="iconfont icon-shanchu"></span>
         <i :class="[{ rightIcon: !rightIcon }, 'iconfont', rightIcon]"></i>
     </div>
