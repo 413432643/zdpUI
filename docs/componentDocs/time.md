@@ -2,7 +2,7 @@
 
 ### 基础用法
 
-<z-tiem></z-tiem>
+<z-time></z-tiem>
 
 ::: details 点击查看代码
 ```

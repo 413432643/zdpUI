@@ -200,7 +200,7 @@ const input = (e) => {
         padding: 0 !important;
     }
 }
-
+    
 .pagination {
     display: flex;
 
