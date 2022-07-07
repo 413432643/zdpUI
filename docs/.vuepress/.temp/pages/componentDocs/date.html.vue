@@ -1,4 +1,4 @@
-<template><div><h1 id="date-日期" tabindex="-1"><a class="header-anchor" href="#date-日期" aria-hidden="true">#</a> date 日期</h1>
+<template><div><h1 id="date-日期选择器" tabindex="-1"><a class="header-anchor" href="#date-日期选择器" aria-hidden="true">#</a> date 日期选择器</h1>
 <p>用于选择或输入日期</p>
 <h3 id="选择日期" tabindex="-1"><a class="header-anchor" href="#选择日期" aria-hidden="true">#</a> 选择日期</h3>
 <z-date v-model="day" currentSign placeholder="选择日期" clearable @change="change"></z-date>

@@ -1,7 +1,7 @@
 export const data = {
   "key": "v-1006365b",
   "path": "/componentDocs/date.html",
-  "title": "date 日期",
+  "title": "date 日期选择器",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",

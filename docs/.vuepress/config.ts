@@ -63,11 +63,11 @@ module.exports = {
         link: '/componentDocs/message.md',
       },
       {
-        text: 'date 日期',
+        text: 'date 日期选择器',
         link: '/componentDocs/date.md',
       },
       {
-        text: 'time 时间',
+        text: 'time 时间选择器',
         link: '/componentDocs/time.md',
       },
     ],
