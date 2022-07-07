@@ -1,5 +1,7 @@
 <template><div><h1 id="time-时间选择器" tabindex="-1"><a class="header-anchor" href="#time-时间选择器" aria-hidden="true">#</a> time 时间选择器</h1>
+<p>用于选择或输入日期</p>
 <h3 id="基础用法" tabindex="-1"><a class="header-anchor" href="#基础用法" aria-hidden="true">#</a> 基础用法</h3>
+<p>可以选择任意时间</p>
 <z-time></z-time>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code>

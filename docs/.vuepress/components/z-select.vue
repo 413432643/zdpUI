@@ -184,7 +184,6 @@ watch(() => props.modelValue, (newName, oldName) => {
 .z-box {
     width: var(--width);
     max-height: var(--maxHeight);
-    
     overflow-y: scroll;
     position: absolute;
     border: 1px solid #d4d3d3;

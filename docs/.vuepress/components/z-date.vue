@@ -365,7 +365,6 @@ const ok = () => { //完成按钮
 <style lang="scss" scoped>
 .container {
     width: 160px;
-
 }
 
 .input {
