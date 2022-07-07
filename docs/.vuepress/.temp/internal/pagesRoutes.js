@@ -13,7 +13,7 @@ const routeItems = [
   ["v-530bedef","/componentDocs/pagination.html",{"title":"pagination 分页"},["/componentDocs/pagination","/componentDocs/pagination.md"]],
   ["v-0dff374e","/componentDocs/radio.html",{"title":"radio 单选"},["/componentDocs/radio","/componentDocs/radio.md"]],
   ["v-1402b5cd","/componentDocs/select.html",{"title":"select 选择器"},["/componentDocs/select","/componentDocs/select.md"]],
-  ["v-210aee9c","/componentDocs/time.html",{"title":"tiem 时间"},["/componentDocs/time","/componentDocs/time.md"]],
+  ["v-210aee9c","/componentDocs/time.html",{"title":"time 时间"},["/componentDocs/time","/componentDocs/time.md"]],
   ["v-20c3a86b","/componentDocs/tree.html",{"title":"tree 树形控件"},["/componentDocs/tree","/componentDocs/tree.md"]],
   ["v-46a5b7e8","/componentDocs/upload.html",{"title":"upload 上传"},["/componentDocs/upload","/componentDocs/upload.md"]],
   ["v-3706649a","/404.html",{"title":""},["/404"]],

@@ -1,11 +1,11 @@
-# tiem 时间
+# time 时间
 
 ### 基础用法
 
-<z-time></z-tiem>
+<z-time></z-time>
 
 ::: details 点击查看代码
-```
+```vue
 
 ```
 :::

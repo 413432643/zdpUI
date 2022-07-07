@@ -1,7 +1,7 @@
 export const data = {
   "key": "v-210aee9c",
   "path": "/componentDocs/time.html",
-  "title": "tiem 时间",
+  "title": "time 时间",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
