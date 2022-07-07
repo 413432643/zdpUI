@@ -373,6 +373,7 @@ const ok = () => { //完成按钮
 }
 
 .date {
+    padding:0 10px;
     position: absolute;
     width: 280px;
     border: 1px solid #d4d3d3;
@@ -462,6 +463,10 @@ const ok = () => { //完成按钮
         border: 1px solid #eee;
         cursor: pointer;
         border-radius: 4px;
+    }
+    :hover {
+        border: 1px solid #409eff;
+        color: #409eff;
     }
 }
 

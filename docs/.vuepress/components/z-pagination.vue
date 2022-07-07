@@ -195,10 +195,9 @@ const input = (e) => {
     width: 60px;
     border-radius: 4px !important;
 
-    ::v-deep .z-input__inner {
+    ::v-deep(.z-input__inner) {
         text-align: center;
         padding: 0 !important;
-
     }
 }
 
