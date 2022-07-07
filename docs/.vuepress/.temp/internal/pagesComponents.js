@@ -25,6 +25,8 @@ export const pagesComponents = {
   "v-0dff374e": defineAsyncComponent(() => import(/* webpackChunkName: "v-0dff374e" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/radio.html.vue")),
   // path: /componentDocs/select.html
   "v-1402b5cd": defineAsyncComponent(() => import(/* webpackChunkName: "v-1402b5cd" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/select.html.vue")),
+  // path: /componentDocs/time.html
+  "v-210aee9c": defineAsyncComponent(() => import(/* webpackChunkName: "v-210aee9c" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/time.html.vue")),
   // path: /componentDocs/tree.html
   "v-20c3a86b": defineAsyncComponent(() => import(/* webpackChunkName: "v-20c3a86b" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/tree.html.vue")),
   // path: /componentDocs/upload.html

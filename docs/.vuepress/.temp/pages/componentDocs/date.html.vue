@@ -38,6 +38,24 @@
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-date</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dates<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>选择多个日期<span class="token punctuation">"</span></span> <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>change<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-date</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<h3 id="限制选择范围" tabindex="-1"><a class="header-anchor" href="#限制选择范围" aria-hidden="true">#</a> 限制选择范围</h3>
+<p>通过设置属性 <code v-pre>disabledDate</code> 传入 <code v-pre>[起始日期(格式:yyyy-mm-dd),结束日期(格式:yyyy-mm-dd)]</code>限制选择范围</p>
+<z-date type="dates" placeholder="限制选择范围" @change="change" :disabledDate="disabledDate"></z-date>
+<details class="custom-container details"><summary>点击查看代码</summary>
+<div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-date</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dates<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>限制选择范围<span class="token punctuation">"</span></span> <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>change<span class="token punctuation">"</span></span> <span class="token attr-name">:disabledDate</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>disabledDate<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-date</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">const</span> <span class="token function-variable function">change</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> disabledDate <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'2022-07-20'</span><span class="token punctuation">,</span> <span class="token string">'2022-08-30'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="data属性" tabindex="-1"><a class="header-anchor" href="#data属性" aria-hidden="true">#</a> Data属性</h3>
 <table>
 <thead>
@@ -52,7 +70,7 @@
 <tbody>
 <tr>
 <td style="text-align:center">v-model</td>
-<td style="text-align:center">当前绑定值 (格式yyyy-mm-dd)</td>
+<td style="text-align:center">当前绑定值 (格式：yyyy-mm-dd)</td>
 <td style="text-align:center">String</td>
 <td style="text-align:center">-</td>
 <td style="text-align:center">-</td>
@@ -85,6 +103,13 @@
 <td style="text-align:center">-</td>
 <td style="text-align:center">-</td>
 </tr>
+<tr>
+<td style="text-align:center">disabledDate</td>
+<td style="text-align:center">限制选择范围(格式：[yyyy-mm-dd,yyyy-mm-dd])</td>
+<td style="text-align:center">array</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
 </tbody>
 </table>
 <h3 id="data事件" tabindex="-1"><a class="header-anchor" href="#data事件" aria-hidden="true">#</a> Data事件</h3>
@@ -100,7 +125,7 @@
 <tr>
 <td style="text-align:center">change</td>
 <td style="text-align:center">绑定值发生改变时触发</td>
-<td style="text-align:center">返回值</td>
+<td style="text-align:center">返回当前选中日期</td>
 </tr>
 </tbody>
 </table>
@@ -129,5 +154,7 @@ const day = ref('2022-07-03')
 const change = (e) => {
     console.log(e)
 }
+
+const disabledDate = ref(['2022-07-20', '2022-08-30'])
 
 </script>

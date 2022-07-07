@@ -17,6 +17,7 @@ import ZCarousel from './components/z-carousel.vue'
 import ZUpload from './components/z-upload.vue'
 import ZPagination from './components/z-pagination.vue'
 import ZDate from './components/z-date.vue'
+import ZTime from './components/z-time.vue'
 import ZMessage from './components/z-message.vue'
 
 import './styles/iconfont/iconfont.css'
@@ -38,6 +39,7 @@ export default defineClientConfig({
     app.component('z-upload', ZUpload)
     app.component('z-pagination', ZPagination)
     app.component('z-date', ZDate)
+    app.component('z-time', ZTime)
     app.component('z-message', ZMessage)
   },
 })

@@ -23,6 +23,8 @@ export const pagesData = {
   "v-0dff374e": () => import(/* webpackChunkName: "v-0dff374e" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/radio.html.js").then(({ data }) => data),
   // path: /componentDocs/select.html
   "v-1402b5cd": () => import(/* webpackChunkName: "v-1402b5cd" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/select.html.js").then(({ data }) => data),
+  // path: /componentDocs/time.html
+  "v-210aee9c": () => import(/* webpackChunkName: "v-210aee9c" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/time.html.js").then(({ data }) => data),
   // path: /componentDocs/tree.html
   "v-20c3a86b": () => import(/* webpackChunkName: "v-20c3a86b" */"C:/Users/111/Desktop/zdp-ui/docs/.vuepress/.temp/pages/componentDocs/tree.html.js").then(({ data }) => data),
   // path: /componentDocs/upload.html

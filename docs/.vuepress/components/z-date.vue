@@ -2,7 +2,7 @@
     <div class="container" v-down>
         <z-input v-model="defaultDay" class="input" leftIcon="icon-rili" :placeholder="placeholder" @focus="focus"
             :clearable="clearable" />
-            
+
         <div v-show="dateShow" class="date">
             <!-- 插槽 -->
             <slot name="dateTop"></slot>
@@ -128,6 +128,12 @@ const props = defineProps({
     type: {
         type: String,
         default: 'date'
+    },
+    disabledDate: {
+        type: Array,
+        default: () => {
+            return []
+        }
     }
 })
 
@@ -153,6 +159,7 @@ const dayListClass = computed(() => (item) => {// 天列表样式
         currentDay == item.date && props.currentSign && item.class == 'currentMonth' ? 'currentDay' : '',
         defaultDay.value.indexOf(item.date) != -1 && item.class == 'currentMonth' ? 'active' : '',
         item.class == 'prevMonth' || item.class == 'nextMonth' ? 'disable' : '',
+        item.disabled ? 'disableDay' : ''
     ]
 })
 
@@ -192,10 +199,11 @@ const dateList = computed(() => {
             class: ["prevMonth"],
             date: completeDate,
             day: i + 1,
-            select: false
+            select: false,
+            disabled: false
         };
+        disabledRange(obj, completeDate)
         arr.push(obj);
-
     }
 
     // 当月日期
@@ -207,8 +215,11 @@ const dateList = computed(() => {
             class: ["currentMonth"],
             date: completeDate,
             day: j,
-            select: false
+            select: false,
+            disabled: false
         };
+
+        disabledRange(obj, completeDate)
         arr.push(obj);
     }
 
@@ -221,12 +232,20 @@ const dateList = computed(() => {
             class: ["nextMonth"],
             date: completeDate,
             day: k,
-            select: false
+            select: false,
+            disabled: false
         };
+        disabledRange(obj, completeDate)
         arr.push(obj);
     }
     return arr
 })
+
+const disabledRange = (obj, day) => { //限制范围
+    if (Date.parse(day) > Date.parse(props.disabledDate[0]) && Date.parse(day) < Date.parse(props.disabledDate[1])) {
+        obj.disabled = true
+    }
+}
 
 
 const yearPrev = () => {
@@ -260,6 +279,7 @@ const monthNext = () => {//下一月
     } else {
         month.value++
     }
+
 }
 
 
@@ -390,7 +410,6 @@ const ok = () => { //完成按钮
     &-content {
         display: flex;
 
-
         div {
             width: 24px;
             height: 24px;
@@ -456,13 +475,18 @@ const ok = () => { //完成按钮
     }
 }
 
-.disable {
+.disable,
+.disableDay {
     color: #a8abb2;
     cursor: not-allowed;
 
     &:hover {
         color: #a8abb2;
     }
+}
+
+.disableDay {
+    background: #eee;
 }
 
 .currentDay {

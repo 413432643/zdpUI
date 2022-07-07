@@ -57,6 +57,10 @@ export const themeData = {
     {
       "text": "date 日期",
       "link": "/componentDocs/date.md"
+    },
+    {
+      "text": "time 时间",
+      "link": "/componentDocs/time.md"
     }
   ],
   "locales": {
