@@ -10,7 +10,7 @@
     ></z-input>
     <div class="time" v-show="timeShow">
       <div class="time-body" @scroll="scroll">
-        <div class="hour" id="hour" @scroll="itemScroll">
+        <div class="hour" :id="'hour' + props.id" @scroll="itemScroll">
           <div
             v-for="(item, h) in 24"
             :key="h"
@@ -20,7 +20,7 @@
             {{ (h < 10 ? "0" : "") + h }}
           </div>
         </div>
-        <div class="minute" id="minute" @scroll="itemScroll">
+        <div class="minute" :id="'minute' + props.id" @scroll="itemScroll">
           <div
             v-for="(item, m) in 60"
             :key="m"
@@ -30,7 +30,7 @@
             {{ (m < 10 ? "0" : "") + m }}
           </div>
         </div>
-        <div class="second" id="second" @scroll="itemScroll">
+        <div class="second" :id="'second'+ props.id" @scroll="itemScroll">
           <div
             v-for="(item, s) in 60"
             :key="s"
@@ -63,6 +63,10 @@ import ZInput from "./z-input.vue";
 const emit = defineEmits(["update:modelValue", "change"]);
 const props = defineProps({
   modelValue: String,
+  id: {
+    type: String,
+    default:'',
+  },
 });
 
 // // 默认日期
@@ -111,7 +115,6 @@ const sClass = computed(() => (s) => {
 const itemScroll = (e) => {
   //滚动事件
   let t = null;
-
   return (function () {
     if (t != null) clearTimeout(t);
     t = setTimeout(() => {
@@ -153,9 +156,9 @@ const timeChanged = () => {
     6,
     defaultTime.value.lastIndexOf(":")
   );
-  document.getElementById("hour").scrollTop = defaultHour * 30;
-  document.getElementById("minute").scrollTop = defaultMinute * 30;
-  document.getElementById("second").scrollTop = defaultSecond * 30;
+  document.getElementById("hour" + props.id).scrollTop = defaultHour * 30;
+  document.getElementById("minute" + props.id).scrollTop = defaultMinute * 30;
+  document.getElementById("second" + props.id).scrollTop = defaultSecond * 30;
 
   emit("update:modelValue", defaultTime.value);
 };
