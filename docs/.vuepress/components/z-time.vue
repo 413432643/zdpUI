@@ -86,7 +86,7 @@ const focus = () => {
   timeShow.value = true;
   setTimeout(() => {
     timeChanged();
-  }, 100);
+  }, 1);
 };
 
 const vDown = {
@@ -169,9 +169,10 @@ const timeClick = (h, e) => {
 };
 //输入框
 const input = (e) => {
+  console.log(e)
   setTimeout(() => {
     timeChanged();
-  }, 100);
+  }, 1);
   emit("update:modelValue", e);
 };
 //此刻
@@ -179,7 +180,7 @@ const now = () => {
   defaultTime.value = thisMoment;
   setTimeout(() => {
     timeChanged();
-  }, 100);
+  }, 1);
   emit("update:modelValue", defaultTime.value);
 };
 // 完成

@@ -133,6 +133,13 @@
 <td style="text-align:center">-</td>
 <td style="text-align:center">-</td>
 </tr>
+<tr>
+<td style="text-align:center">interval</td>
+<td style="text-align:center">输入框输入间隔时长(单位ms)</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">500</td>
+</tr>
 </tbody>
 </table>
 <h3 id="input-事件" tabindex="-1"><a class="header-anchor" href="#input-事件" aria-hidden="true">#</a> Input 事件</h3>

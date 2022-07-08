@@ -66,7 +66,10 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
-
+    interval:{
+        type:Number,
+        default:500
+    }
 })
 
 
@@ -84,12 +87,18 @@ const zClass = computed(() => {
 
 
 const input = (e) => {
-    emit('update:modelValue', e.target.value)
-    emit('input', e.target.value)
-    if (props.type === 'textarea' && props.autosize) {
-        tHeight.value = e.target.scrollHeight + 'px'
-    }
+    let t = null;
+    return function(){
+        if (t != null) clearTimeout(t);
+        t = setTimeout(()=>{
+        emit('update:modelValue', e.target.value)
+        emit('input', e.target.value)
+        if (props.type === 'textarea' && props.autosize) {
+            tHeight.value = e.target.scrollHeight + 'px'
+        }},props.interval)
+    }()
 }
+
 const clear = () => {
     emit('update:modelValue', '')
     focusValue.value = true
