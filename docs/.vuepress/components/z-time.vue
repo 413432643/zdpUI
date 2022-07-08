@@ -108,7 +108,8 @@ const sClass = computed(() => (s) => {
   return [second.value == s ? "select" : ""];
 });
 
-const itemScroll = (e) => { //滚动事件
+const itemScroll = (e) => {
+  //滚动事件
   let t = null;
 
   return (function () {
@@ -138,47 +139,50 @@ const itemScroll = (e) => { //滚动事件
   })();
 };
 
-const timeClick = (h, e) => { //点击滚动
-  let parentTop = e.path[1].scrollTop;
-  e.path[1].scrollTop += h * 30 - parentTop;
-};
-
-const now = () => { //此刻
-  defaultTime.value = thisMoment;
-  setTimeout(() => {
-    timeChanged();
-  }, 100);
-  emit("update:modelValue", defaultTime.value);
-};
-
-const ok = () => { // 完成
-  timeShow.value = false;
-  emit(
-    "update:modelValue",
-    hour.value + ":" + minute.value + ":" + second.value
+// 时间改变时触发
+const timeChanged = () => {
+  const defaultHour = defaultTime.value.substr(
+    0,
+    defaultTime.value.indexOf(":")
   );
-};
-
-const timeChanged = () => { // 时间改变时触发
-
-  const defaultHour = defaultTime.value.substr(0, defaultTime.value.indexOf(":"));
-  const defaultMinute = defaultTime.value.substr(3,defaultTime.value.indexOf(":"));
-  const defaultSecond = defaultTime.value.substr(6,defaultTime.value.lastIndexOf(":"));
+  const defaultMinute = defaultTime.value.substr(
+    3,
+    defaultTime.value.indexOf(":")
+  );
+  const defaultSecond = defaultTime.value.substr(
+    6,
+    defaultTime.value.lastIndexOf(":")
+  );
   document.getElementById("hour").scrollTop = defaultHour * 30;
   document.getElementById("minute").scrollTop = defaultMinute * 30;
   document.getElementById("second").scrollTop = defaultSecond * 30;
 
   emit("update:modelValue", defaultTime.value);
-
 };
-
+//点击滚动
+const timeClick = (h, e) => {
+  let parentTop = e.path[1].scrollTop;
+  e.path[1].scrollTop += h * 30 - parentTop;
+};
+//输入框
 const input = (e) => {
   setTimeout(() => {
     timeChanged();
   }, 100);
   emit("update:modelValue", e);
 };
-
+//此刻
+const now = () => {
+  defaultTime.value = thisMoment;
+  setTimeout(() => {
+    timeChanged();
+  }, 100);
+  emit("update:modelValue", defaultTime.value);
+};
+// 完成
+const ok = () => {
+  timeShow.value = false;
+};
 </script>
 
 <style lang="scss" scoped>

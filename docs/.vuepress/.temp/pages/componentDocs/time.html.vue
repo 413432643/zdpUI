@@ -16,6 +16,15 @@
 <th style="text-align:center">默认值</th>
 </tr>
 </thead>
+<tbody>
+<tr>
+<td style="text-align:center">v-model</td>
+<td style="text-align:center">绑定默认值(格式:hh:mm:ss)</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">当前时间</td>
+</tr>
+</tbody>
 </table>
 </div></template>
 
