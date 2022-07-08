@@ -2,7 +2,12 @@
 
 ### 基础用法
 
-<z-message></z-message>
+<z-message v-model="time"></z-message>
+
+<script setup>
+import { ref } from 'vue'
+const time = ref('2012/11/12 10:15:20')
+</script>
 
 ::: details 点击查看代码
 ```

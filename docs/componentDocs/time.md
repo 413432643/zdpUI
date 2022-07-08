@@ -5,13 +5,19 @@
 
 可以选择任意时间
 
-<z-time></z-time>
+<z-time v-model="time" ></z-time>
+
+<script setup>
+import { ref, reactive } from "vue";
+const time = ref('11:59:59')
+</script>
 
 ::: details 点击查看代码
 ```vue
 
 ```
 :::
+
 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
