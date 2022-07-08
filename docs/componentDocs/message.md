@@ -2,7 +2,7 @@
 
 ### 基础用法
 
-<z-message v-model="time"></z-message>
+<z-message></z-message>
 
 <script setup>
 import { ref } from 'vue'
