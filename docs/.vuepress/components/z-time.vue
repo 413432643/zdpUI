@@ -12,7 +12,7 @@
     ></z-input>
     <div class="time" v-show="timeShow">
       <div class="time-body" @scroll="scroll">
-        <div class="hour" :id="'hour' + props.id" @scroll="itemScroll">
+        <div class="hour" :id="'hour' + props.id" @scroll="hScroll">
           <div
             v-for="(item, h) in 24"
             :key="h"
@@ -22,7 +22,7 @@
             {{ (h < 10 ? "0" : "") + h }}
           </div>
         </div>
-        <div class="minute" :id="'minute' + props.id" @scroll="itemScroll">
+        <div class="minute" :id="'minute' + props.id" @scroll="mScroll">
           <div
             v-for="(item, m) in 60"
             :key="m"
@@ -32,7 +32,7 @@
             {{ (m < 10 ? "0" : "") + m }}
           </div>
         </div>
-        <div class="second" :id="'second' + props.id" @scroll="itemScroll">
+        <div class="second" :id="'second' + props.id" @scroll="sScroll">
           <div
             v-for="(item, s) in 60"
             :key="s"
@@ -83,11 +83,9 @@ const props = defineProps({
   },
   scrollInterval: {
     type: Number,
-    default: 700,
+    default: 200,
   },
 });
-
-// // 默认日期
 
 const date = new Date();
 const hour = ref((date.getHours() < 10 ? "0" : "") + date.getHours());
@@ -103,12 +101,11 @@ const defaultTime = ref(props.modelValue || thisMoment);
 const focus = () => {
   timeShow.value = true;
   setTimeout(() => {
-    timeChanged();
+    timeChanged(defaultTime.value);
   }, 1);
 };
-
+//元素外收起
 const vDown = {
-  //元素外收起
   beforeMount(el) {
     let hander = (e) => {
       if (props.disabled) return;
@@ -130,51 +127,73 @@ const sClass = computed(() => (s) => {
   return [second.value == s ? "select" : ""];
 });
 
-const itemScroll = (e) => {
-  //滚动事件
-  let t = null;
+//滚动事件
+let h = null;
+let m = null;
+let s = null;
+
+const debounce = (fn, ms) => {
   return (function () {
-    if (t != null) clearTimeout(t);
-    t = setTimeout(() => {
-      // 滚动30的倍数
-      let top = e.target.scrollTop;
-      e.target.scrollTop = top - (top % 30);
-      // 指定高度的元素
-      let className = e.path[0].className;
-      let length = e.path[0].children.length;
-      for (let i = 0; i < length; i++) {
-        let childrenTop = 30 * i;
-        if (top == childrenTop) {
-          if (
-            className == "hour" ||
-            className == "minute" ||
-            className == "second"
-          ) {
-            eval(className).value = (i < 10 ? "0" : "") + i;
-            defaultTime.value =
-              hour.value + ":" + minute.value + ":" + second.value;
-            emit("update:modelValue", defaultTime.value);
-          }
-        }
-      }
+    if (h != null) clearTimeout(h);
+    h = setTimeout(() => {
+      fn;
+    }, ms);
+  })();
+};
+
+const hScroll = (e) => {
+  return (function () {
+    if (h != null) clearTimeout(h);
+    h = setTimeout(() => {
+      scroll(e);
     }, props.scrollInterval);
   })();
 };
 
+const mScroll = (e) => {
+  return (function () {
+    if (m != null) clearTimeout(m);
+    m = setTimeout(() => {
+      scroll(e);
+    }, props.scrollInterval);
+  })();
+};
+
+const sScroll = (e) => {
+  return (function () {
+    if (s != null) clearTimeout(s);
+    s = setTimeout(() => {
+      scroll(e);
+    }, props.scrollInterval);
+  })();
+};
+
+const scroll = (e) => {
+  // 滚动30的倍数
+  let top = e.target.scrollTop;
+  e.target.scrollTop = top - (top % 30);
+
+  // 处理指定高度元素
+  let className = e.path[0].className;
+  let length = e.path[0].children.length;
+
+  for (let j = 0; j < length; j++) {
+    if (top == 30 * j) {
+      eval(className).value = (j < 10 ? "0" : "") + j;
+      defaultTime.value = hour.value + ":" + minute.value + ":" + second.value;
+    }
+  }
+};
+
 // 时间改变时触发
-const timeChanged = () => {
-  const defaultHour =
-    defaultTime.value.substr(0, defaultTime.value.indexOf(":")) * 30;
-  const defaultMinute =
-    defaultTime.value.substr(3, defaultTime.value.indexOf(":")) * 30;
-  const defaultSecond =
-    defaultTime.value.substr(6, defaultTime.value.lastIndexOf(":")) * 30;
+const timeChanged = (value) => {
+  const defaultHour = value.substr(0, value.indexOf(":"));
+  const defaultMinute = value.substr(3, value.indexOf(":"));
+  const defaultSecond = value.substr(6, value.lastIndexOf(":"));
 
-  document.getElementById("hour" + props.id).scrollTop = defaultHour;
-  document.getElementById("minute" + props.id).scrollTop = defaultMinute;
-  document.getElementById("second" + props.id).scrollTop = defaultSecond;
-
-  emit("update:modelValue", defaultTime.value);
+  document.getElementById("hour" + props.id).scrollTop = defaultHour * 30;
+  document.getElementById("minute" + props.id).scrollTop = defaultMinute * 30;
+  document.getElementById("second" + props.id).scrollTop = defaultSecond * 30;
 };
 //点击滚动
 const timeClick = (h, e) => {
@@ -183,18 +202,11 @@ const timeClick = (h, e) => {
 };
 //输入框
 const input = (e) => {
-  setTimeout(() => {
-    timeChanged();
-  }, 1);
-  emit("update:modelValue", e);
+  timeChanged(e);
 };
 //此刻
 const now = () => {
-  defaultTime.value = thisMoment;
-  setTimeout(() => {
-    timeChanged();
-  }, 1);
-  emit("update:modelValue", defaultTime.value);
+  timeChanged(thisMoment);
 };
 // 完成
 const ok = () => {

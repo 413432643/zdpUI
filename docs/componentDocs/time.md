@@ -5,21 +5,21 @@
 
 可以选择任意时间
 
-<z-time v-model="time" placeholder="选择时间" clearable></z-time>
+<z-time  placeholder="选择时间" clearable></z-time>
 
 <script setup>
 import { ref, reactive } from "vue";
-const time = ref('06:30:59')
+const time = ref('06:30:40')
 </script>
 
 ::: details 点击查看代码
 ```vue
 
-<z-time v-model="time" placeholder="选择时间" clearable></z-time>
+<z-time  placeholder="选择时间" clearable></z-time>
 
 <script setup>
 import { ref, reactive } from "vue";
-const time = ref('06:30:59')
+const time = ref('06:30:40')
 </script>
 
 ```
@@ -27,7 +27,7 @@ const time = ref('06:30:59')
 
 ### 限制选择范围
 
-<z-time id='1' placeholder="限制选择范围" clearable></z-time>
+<z-time id='1' v-model="time" placeholder="限制选择范围" clearable></z-time>
 
 ::: details 点击查看代码
 ```vue
