@@ -4,7 +4,9 @@
       v-model="defaultTime"
       class="input"
       leftIcon="icon-time"
-      clearable
+      :clearable="clearable"
+      :placeholder="placeholder"
+      :interval="interval"
       @focus="focus"
       @input="input"
     ></z-input>
@@ -30,7 +32,7 @@
             {{ (m < 10 ? "0" : "") + m }}
           </div>
         </div>
-        <div class="second" :id="'second'+ props.id" @scroll="itemScroll">
+        <div class="second" :id="'second' + props.id" @scroll="itemScroll">
           <div
             v-for="(item, s) in 60"
             :key="s"
@@ -58,14 +60,30 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed, watch, onMounted } from "vue";
+import { ref, computed } from "vue";
 import ZInput from "./z-input.vue";
 const emit = defineEmits(["update:modelValue", "change"]);
 const props = defineProps({
   modelValue: String,
   id: {
     type: String,
-    default:'',
+    default: "",
+  },
+  clearable: {
+    type: Boolean,
+    default: false,
+  },
+  placeholder: {
+    type: String,
+    default: "",
+  },
+  interval: {
+    type: Number,
+    default: 500,
+  },
+  scrollInterval: {
+    type: Number,
+    default: 700,
   },
 });
 
@@ -135,30 +153,26 @@ const itemScroll = (e) => {
             eval(className).value = (i < 10 ? "0" : "") + i;
             defaultTime.value =
               hour.value + ":" + minute.value + ":" + second.value;
+            emit("update:modelValue", defaultTime.value);
           }
         }
       }
-    }, 700);
+    }, props.scrollInterval);
   })();
 };
 
 // 时间改变时触发
 const timeChanged = () => {
-  const defaultHour = defaultTime.value.substr(
-    0,
-    defaultTime.value.indexOf(":")
-  );
-  const defaultMinute = defaultTime.value.substr(
-    3,
-    defaultTime.value.indexOf(":")
-  );
-  const defaultSecond = defaultTime.value.substr(
-    6,
-    defaultTime.value.lastIndexOf(":")
-  );
-  document.getElementById("hour" + props.id).scrollTop = defaultHour * 30;
-  document.getElementById("minute" + props.id).scrollTop = defaultMinute * 30;
-  document.getElementById("second" + props.id).scrollTop = defaultSecond * 30;
+  const defaultHour =
+    defaultTime.value.substr(0, defaultTime.value.indexOf(":")) * 30;
+  const defaultMinute =
+    defaultTime.value.substr(3, defaultTime.value.indexOf(":")) * 30;
+  const defaultSecond =
+    defaultTime.value.substr(6, defaultTime.value.lastIndexOf(":")) * 30;
+
+  document.getElementById("hour" + props.id).scrollTop = defaultHour;
+  document.getElementById("minute" + props.id).scrollTop = defaultMinute;
+  document.getElementById("second" + props.id).scrollTop = defaultSecond;
 
   emit("update:modelValue", defaultTime.value);
 };
@@ -169,7 +183,6 @@ const timeClick = (h, e) => {
 };
 //输入框
 const input = (e) => {
-  console.log(e)
   setTimeout(() => {
     timeChanged();
   }, 1);

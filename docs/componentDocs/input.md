@@ -130,7 +130,7 @@ const input = ref('')
 | rightIcon   | 右侧图标  | string         | -                    |-                 |
 | rows   | 文本域行数(只在type='textarea'生效)  | number         | -                    |-                 |
 | autosize   | 文本域是否自适应高度(只在type='textarea'生效)  | boolean         | -                    |-                 |
-| interval   | 输入框输入间隔时长(单位ms)  | number         | -                    |500         |
+| interval   | 输入框间隔时长(单位ms)  | number         | -                    |500         |
 
 
 

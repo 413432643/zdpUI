@@ -135,7 +135,7 @@
 </tr>
 <tr>
 <td style="text-align:center">interval</td>
-<td style="text-align:center">输入框输入间隔时长(单位ms)</td>
+<td style="text-align:center">输入框间隔时长(单位ms)</td>
 <td style="text-align:center">number</td>
 <td style="text-align:center">-</td>
 <td style="text-align:center">500</td>
