@@ -14,32 +14,32 @@
       <div class="time-body" @scroll="scroll">
         <div class="hour" :id="'hour' + props.id" @scroll="hScroll">
           <div
-            v-for="(item, h) in 24"
-            :key="h"
-            :class="hClass(h)"
-            @click="timeClick(h, $event)"
+            v-for="item in hourList[0]"
+            :key="item.hour"
+            :class="hClass(item)"
+            @click="timeClick(item.hour, $event)"
           >
-            {{ (h < 10 ? "0" : "") + h }}
+            {{ item.hour }}
           </div>
         </div>
         <div class="minute" :id="'minute' + props.id" @scroll="mScroll">
           <div
-            v-for="(item, m) in 60"
-            :key="m"
-            :class="mClass(m)"
-            @click="timeClick(m, $event)"
+            v-for="item in minuteList[0]"
+            :key="item.minute"
+            :class="mClass(item)"
+            @click="timeClick(item.minute, $event)"
           >
-            {{ (m < 10 ? "0" : "") + m }}
+            {{ item.minute }}
           </div>
         </div>
         <div class="second" :id="'second' + props.id" @scroll="sScroll">
           <div
-            v-for="(item, s) in 60"
-            :key="s"
-            :class="sClass(s)"
-            @click="timeClick(s, $event)"
+            v-for="item in secondList[0]"
+            :key="item.second"
+            :class="sClass(item)"
+            @click="timeClick(item.second, $event)"
           >
-            {{ (s < 10 ? "0" : "") + s }}
+            {{ item.second }}
           </div>
         </div>
       </div>
@@ -85,6 +85,18 @@ const props = defineProps({
     type: Number,
     default: 200,
   },
+  disabledHour: {
+    type: Function,
+    default: function () {},
+  },
+  disabledMinute: {
+    type: Function,
+    default: function () {},
+  },
+  disabledSecond: {
+    type: Function,
+    default: function () {},
+  },
 });
 
 const date = new Date();
@@ -93,9 +105,7 @@ const minute = ref((date.getMinutes() < 10 ? "0" : "") + date.getMinutes());
 const second = ref((date.getSeconds() < 10 ? "0" : "") + date.getSeconds());
 
 const timeShow = ref(false);
-
 const thisMoment = hour.value + ":" + minute.value + ":" + second.value;
-
 const defaultTime = ref(props.modelValue || thisMoment);
 
 const focus = () => {
@@ -117,29 +127,94 @@ const vDown = {
   },
 };
 
-const hClass = computed(() => (h) => {
-  return [hour.value == h ? "select" : ""];
+const hClass = computed(() => (item) => {
+  return [
+    hour.value == item.hour && !item.disabled ? "select" : "",
+    item.disabled ? "disabled" : "",
+  ];
 });
-const mClass = computed(() => (m) => {
-  return [minute.value == m ? "select" : ""];
+const mClass = computed(() => (item) => {
+  return [
+    minute.value == item.minute && !item.disabled ? "select" : "",
+    item.disabled ? "disabled" : "",
+  ];
 });
-const sClass = computed(() => (s) => {
-  return [second.value == s ? "select" : ""];
+const sClass = computed(() => (item) => {
+  return [
+    second.value == item.second && !item.disabled ? "select" : "",
+    item.disabled ? "disabled" : "",
+  ];
+});
+
+const hourList = computed(() => {
+  let arr = [];
+  let selectArr = [];
+  for (let i = 0; i < 24; i++) {
+    let obj = {
+      hour: (i < 10 ? "0" : "") + i,
+      disabled: false,
+      top: i * 30,
+    };
+    if (props.disabledHour() && props.disabledHour().indexOf(i) != -1) {
+      obj.disabled = true;
+    }
+    if (obj.disabled == false) {
+      selectArr.push(i);
+    }
+
+    arr.push(obj);
+  }
+  return [arr, selectArr];
+});
+const minuteList = computed(() => {
+  let arr = [];
+  let selectArr = [];
+  for (let i = 0; i < 60; i++) {
+    let obj = {
+      minute: (i < 10 ? "0" : "") + i,
+      disabled: false,
+      top: i * 30,
+    };
+    if (
+      props.disabledMinute(hour.value) &&
+      props.disabledMinute(hour.value).indexOf(i) != -1
+    ) {
+      obj.disabled = true;
+    }
+    if (obj.disabled == false) {
+      selectArr.push(i);
+    }
+    arr.push(obj);
+  }
+  return [arr, selectArr];
+});
+const secondList = computed(() => {
+  let arr = [];
+  let selectArr = [];
+  for (let i = 0; i < 60; i++) {
+    let obj = {
+      second: (i < 10 ? "0" : "") + i,
+      disabled: false,
+      top: i * 30,
+    };
+    if (
+      props.disabledSecond(hour.value, minute.value) &&
+      props.disabledSecond(hour.value, minute.value).indexOf(i) != -1
+    ) {
+      obj.disabled = true;
+    }
+    if (obj.disabled == false) {
+      selectArr.push(i);
+    }
+    arr.push(obj);
+  }
+  return [arr, selectArr];
 });
 
 //滚动事件
 let h = null;
 let m = null;
 let s = null;
-
-const debounce = (fn, ms) => {
-  return (function () {
-    if (h != null) clearTimeout(h);
-    h = setTimeout(() => {
-      fn;
-    }, ms);
-  })();
-};
 
 const hScroll = (e) => {
   return (function () {
@@ -149,7 +224,6 @@ const hScroll = (e) => {
     }, props.scrollInterval);
   })();
 };
-
 const mScroll = (e) => {
   return (function () {
     if (m != null) clearTimeout(m);
@@ -158,7 +232,6 @@ const mScroll = (e) => {
     }, props.scrollInterval);
   })();
 };
-
 const sScroll = (e) => {
   return (function () {
     if (s != null) clearTimeout(s);
@@ -168,21 +241,44 @@ const sScroll = (e) => {
   })();
 };
 
-const scroll = (e) => {
-  // 滚动30的倍数
-  let top = e.target.scrollTop;
-  e.target.scrollTop = top - (top % 30);
+// 限制滚动
+const findTop = (top, arr) => {
+  let _arr = [];
+  let min = 0;
+  for (let i = 0; i < arr.length; i++) {
+    _arr.push(Math.abs(top - arr[i]));
+    if (_arr[i] < _arr[min]) min = i;
+  }
+  return arr[min];
+};
 
-  // 处理指定高度元素
+const scroll = (e) => {
   let className = e.path[0].className;
   let length = e.path[0].children.length;
+  let top = e.target.scrollTop;
+  // 禁止范围
+  if (
+    props.disabledHour() ||
+    props.disabledMinute(hour.value) ||
+    props.disabledSecond(hour.value, minute.value)
+  ) {
+    if (
+      eval(className) &&
+      findTop(top / 30, eval(className + "List").value[1])
+    ) {
+      top = findTop(top / 30, eval(className + "List").value[1]) * 30;
+    }
+  }
 
-  for (let j = 0; j < length; j++) {
-    if (top == 30 * j) {
-      eval(className).value = (j < 10 ? "0" : "") + j;
+  // 指定高度元素赋值
+  for (let i = 0; i < length; i++) {
+    if (top == 30 * i) {
+      eval(className).value = (i < 10 ? "0" : "") + i;
       defaultTime.value = hour.value + ":" + minute.value + ":" + second.value;
     }
   }
+  // 滚动30的倍数
+  e.target.scrollTop = top - (top % 30);
 };
 
 // 时间改变时触发
@@ -194,6 +290,8 @@ const timeChanged = (value) => {
   document.getElementById("hour" + props.id).scrollTop = defaultHour * 30;
   document.getElementById("minute" + props.id).scrollTop = defaultMinute * 30;
   document.getElementById("second" + props.id).scrollTop = defaultSecond * 30;
+
+  emit("update:modelValue", value);
 };
 //点击滚动
 const timeClick = (h, e) => {
@@ -309,5 +407,10 @@ const ok = () => {
   height: 30px;
   width: 150px;
   margin: 0 15px;
+}
+
+.disabled {
+  cursor: not-allowed !important;
+  color: #eee !important;
 }
 </style>

@@ -124,7 +124,6 @@ const input = (e) => {
       if (props.type === "textarea" && props.autosize) {
         tHeight.value = e.target.scrollHeight + "px";
       }
-      console.log(e.target.value)
     }, props.interval);
   })();
 };

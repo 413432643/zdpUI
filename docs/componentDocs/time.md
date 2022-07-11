@@ -5,34 +5,59 @@
 
 可以选择任意时间
 
-<z-time  placeholder="选择时间" clearable></z-time>
+<z-time v-model="time"  placeholder="选择时间" clearable></z-time>
 
 <script setup>
 import { ref, reactive } from "vue";
-const time = ref('06:30:40')
+const time = ref('18:30:40')
+
+const makeRange = (start, end) => {
+    const result = []
+    for (let i = start; i <= end; i++) {
+        result.push(i)
+    }
+    return result
+}
+const disabledHour = () => {
+    return makeRange(5, 10).concat(makeRange(19, 23))
+}
+const disabledMinute = (hour) => {
+    if (hour == 17) {
+        return makeRange(0, 29)
+    }
+    if (hour == 18) {
+        return makeRange(31, 59)
+    }
+}
+const disabledSecond = (hour, minute) => {
+    if (hour == 18 && minute == 30) {
+        return makeRange(0, 30)
+    }
+}
+
 </script>
 
 ::: details 点击查看代码
 ```vue
 
-<z-time  placeholder="选择时间" clearable></z-time>
+<z-time  v-model="time" placeholder="选择时间" clearable></z-time>
 
 <script setup>
 import { ref, reactive } from "vue";
 const time = ref('06:30:40')
-</script>
 
+</script>
 ```
 :::
 
 ### 限制选择范围
 
-<z-time id='1' v-model="time" placeholder="限制选择范围" clearable></z-time>
+<z-time id='1'  placeholder="限制选择范围" clearable :disabledHour="disabledHour" :disabledMinute='disabledMinute' :disabledSecond="disabledSecond"></z-time>
 
 ::: details 点击查看代码
 ```vue
 
-<z-time id='1' placeholder="限制选择范围" clearable></z-time>
+<z-time id='1' placeholder="限制选择范围" clearable :disabledHour="disabledHour" :disabledMinute='disabledMinute' :disabledSecond="disabledSecond"></z-time>
 
 
 ```

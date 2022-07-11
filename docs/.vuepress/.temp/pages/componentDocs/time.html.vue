@@ -2,22 +2,22 @@
 <p>用于选择或输入日期</p>
 <h3 id="基础用法" tabindex="-1"><a class="header-anchor" href="#基础用法" aria-hidden="true">#</a> 基础用法</h3>
 <p>可以选择任意时间</p>
-<z-time  placeholder="选择时间" clearable></z-time>
+<z-time v-model="time"  placeholder="选择时间" clearable></z-time>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-time</span>  <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>选择时间<span class="token punctuation">"</span></span> <span class="token attr-name">clearable</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-time</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-time</span>  <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>time<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>选择时间<span class="token punctuation">"</span></span> <span class="token attr-name">clearable</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-time</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
 <span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> reactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> time <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'06:30:40'</span><span class="token punctuation">)</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
 <h3 id="限制选择范围" tabindex="-1"><a class="header-anchor" href="#限制选择范围" aria-hidden="true">#</a> 限制选择范围</h3>
-<z-time id='1' v-model="time" placeholder="限制选择范围" clearable></z-time>
+<z-time id='1'  placeholder="限制选择范围" clearable :disabledHour="disabledHour" :disabledMinute='disabledMinute' :disabledSecond="disabledSecond"></z-time>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-time</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>1<span class="token punctuation">'</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>限制选择范围<span class="token punctuation">"</span></span> <span class="token attr-name">clearable</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-time</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-time</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>1<span class="token punctuation">'</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>限制选择范围<span class="token punctuation">"</span></span> <span class="token attr-name">clearable</span> <span class="token attr-name">:disabledHour</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>disabledHour<span class="token punctuation">"</span></span> <span class="token attr-name">:disabledMinute</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>disabledMinute<span class="token punctuation">'</span></span> <span class="token attr-name">:disabledSecond</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>disabledSecond<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-time</span><span class="token punctuation">></span></span>
 
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
@@ -80,5 +80,30 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-const time = ref('06:30:40')
+const time = ref('18:30:40')
+
+const makeRange = (start, end) => {
+    const result = []
+    for (let i = start; i <= end; i++) {
+        result.push(i)
+    }
+    return result
+}
+const disabledHour = () => {
+    return makeRange(5, 10).concat(makeRange(19, 23))
+}
+const disabledMinute = (hour) => {
+    if (hour == 17) {
+        return makeRange(0, 29)
+    }
+    if (hour == 18) {
+        return makeRange(31, 59)
+    }
+}
+const disabledSecond = (hour, minute) => {
+    if (hour == 18 && minute == 30) {
+        return makeRange(0, 30)
+    }
+}
+
 </script>
