@@ -3,7 +3,7 @@
     <z-input
       v-model="defaultTime"
       class="input"
-      leftIcon="icon-time"
+      :leftIcon="leftIcon"
       :clearable="clearable"
       :placeholder="placeholder"
       :interval="interval"
@@ -84,6 +84,10 @@ const props = defineProps({
   scrollInterval: {
     type: Number,
     default: 200,
+  },
+  leftIcon:{
+    type: String,
+    default: "icon-time",
   },
   disabledHour: {
     type: Function,
@@ -267,6 +271,7 @@ const scroll = (e) => {
       findTop(top / 30, eval(className + "List").value[1])
     ) {
       top = findTop(top / 30, eval(className + "List").value[1]) * 30;
+      console.log(className)
     }
   }
 
