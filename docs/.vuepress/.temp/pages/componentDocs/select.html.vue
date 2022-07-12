@@ -318,6 +318,13 @@
 <td style="text-align:center"></td>
 <td style="text-align:center">false</td>
 </tr>
+<tr>
+<td style="text-align:center">interval</td>
+<td style="text-align:center">输入框输入间隔</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">500</td>
+</tr>
 </tbody>
 </table>
 <h3 id="select-事件" tabindex="-1"><a class="header-anchor" href="#select-事件" aria-hidden="true">#</a> Select 事件</h3>

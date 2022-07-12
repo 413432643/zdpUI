@@ -85,7 +85,7 @@ const props = defineProps({
     type: Number,
     default: 200,
   },
-  leftIcon:{
+  leftIcon: {
     type: String,
     default: "icon-time",
   },
@@ -112,6 +112,7 @@ const timeShow = ref(false);
 const thisMoment = hour.value + ":" + minute.value + ":" + second.value;
 const defaultTime = ref(props.modelValue || thisMoment);
 
+// 获取焦点
 const focus = () => {
   timeShow.value = true;
   setTimeout(() => {
@@ -271,7 +272,7 @@ const scroll = (e) => {
       findTop(top / 30, eval(className + "List").value[1])
     ) {
       top = findTop(top / 30, eval(className + "List").value[1]) * 30;
-      console.log(className)
+      console.log(className);
     }
   }
 

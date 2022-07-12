@@ -38,12 +38,6 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "树节点过滤",
-      "slug": "树节点过滤",
-      "children": []
-    },
-    {
-      "level": 3,
       "title": "tree 属性",
       "slug": "tree-属性",
       "children": []

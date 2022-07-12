@@ -930,12 +930,12 @@ const remove = (data, flatTree) => {
 
 
 
-
+<!-- 
 ### 树节点过滤
 
 <z-input v-model="filterText" placeholder="树节点过滤"/>
 
-<z-tree ref="treeRef" :options="options5"  openAll></z-tree>
+<z-tree ref="treeRef" :options="options5"  openAll></z-tree> -->
 
 
 ### tree 属性   

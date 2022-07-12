@@ -28,6 +28,7 @@ import { ref, computed, watch } from 'vue';
 const emit = defineEmits(['update:modelValue', 'change', 'input',])
 const props = defineProps({
     modelValue: String | Number,
+    disabled: Boolean,
     options: {
         type: Array,
         default: () => []
@@ -60,7 +61,11 @@ const props = defineProps({
         type: String,
         default: '162px'
     },
-    disabled: Boolean,
+    interval:{
+        type:Number,
+        default:500
+    }
+    
 })
 
 const boxShow = ref(props.boxShow)
@@ -122,10 +127,18 @@ const labelClick = (item) => {
 }
 
 
+
+
+let t = null;
 const input = (e) => {
-    emit('update:modelValue', e.target.value)
-    emit('input', e.target.value)
-}
+  return (function () {
+    if (t != null) clearTimeout(t);
+    t = setTimeout(() => {
+      emit("update:modelValue", e.target.value);
+      emit("input", e.target.value);
+    }, props.interval);
+  })();
+};
 
 const mouseenter =()=>{
     clear.value=true

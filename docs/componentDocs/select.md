@@ -473,7 +473,7 @@ const change = (item) => {
 |    placeholder      |       占位文本      |     String       |           |     -     |
 |    clearable       |       	是否可以清空选项      |     boolean       |           |     false     |
 |    filterable       |       	Select 组件是否可筛选      |     boolean       |           |     false     |
-
+|    interval      |       输入框输入间隔      |     number       |  -               |     500     |
 
 ### Select 事件
 |    事件名      |       说明      |     回调参数       |
