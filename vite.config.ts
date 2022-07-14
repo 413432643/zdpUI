@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     // 不需要的外部依赖
     rollupOptions: {
-      external: ["vue",'zdp-ui'],
+      external: ["vue","zdp-ui"],
       output: {
         globals: {
           vue: "Vue",
