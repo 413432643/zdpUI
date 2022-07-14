@@ -1,6 +1,6 @@
 <template>
   <div>
-    <z-button @click="Message({message:'message'})">message</z-button>
+    <z-button @click="Message({message:'message',isClose:true})">message</z-button>
     <z-button @click="Message({type:'success',message:'success'})">success</z-button>
     <z-button @click="Message({type:'warning',message:'warning'})">warning</z-button>
     <z-button @click="Message({type:'error',message:'error'})">error</z-button>
