@@ -3,20 +3,17 @@
         <div class="z-tree-label">
             <div>
                 <!-- 箭头 -->
-                <div v-if="items[childrenF] && items[childrenF].length">
+                <div v-if="items[childrenF] && items[childrenF].length" >
                     <div @click.stop="isOpen(items)"
-                        :class="[{ 'icon-youjiantou-click': items.isOpen }, 'iconfont', 'icon-youjiantou']">
+                        :class="arrowClass(items)">
                     </div>
                 </div>
                 <!-- 多选框 -->
-                <span v-if="checkbox" :class="'z-tree-checkbox iconfont'" @click.stop="NodeClick(items)">
+                <span v-if="checkbox" class="z-tree-checkbox iconfont" @click.stop="NodeClick(items)">
                     <span v-if="items.checked" class="icon-dxxz"></span>
                     <span v-else-if="items.partChecked" class="icon-dxbf"></span>
                     <span v-else class="icon-dxwx"></span>
                 </span>
-                <!-- icon -->
-                
-
                 <!-- 文本 -->
                 <div style="padding-left:10px">{{ items[labelF] }}</div>
             </div>
@@ -34,10 +31,7 @@
                     <slot name="customNode" :data="data" :flatTree="flatTree"></slot>
                 </template>
             </z-tree-node>
-
         </div>
-
-
     </div>
 </template>
 
@@ -89,6 +83,14 @@ const props = defineProps({
         type: Boolean,
         default: false
     },
+})
+const arrowClass=computed(()=>(items)=>{
+    return[
+        'iconfont', 
+        'icon-youjiantou',
+        items.isOpen ? 'icon-youjiantou-click' :""
+    ]
+    
 })
 
 
@@ -187,12 +189,12 @@ onMounted(() => {
     justify-content: space-between;
 
     div {
-        display: inline-block;
+        display: flex;
+        align-items: center;
     }
 
     &:hover {
         background-color: #f5f5f5;
-
     }
 }
 

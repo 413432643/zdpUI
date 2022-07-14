@@ -2,11 +2,16 @@
 
 ### 基础用法
 
-<z-message></z-message>
-
+<z-button  @click='instance.proxy.$message({type:"message",message:"this is a message"})' style='margin:10px'>message</z-button>
+<z-button @click='instance.proxy.$message({type:"success",message:"this is a success"})' type='success' style='margin:10px'>success</z-button>
+<z-button @click='instance.proxy.$message({type:"warning",message:"this is a warning"})' type='warning' style='margin:10px'>warning</z-button>
+<z-button @click='instance.proxy.$message({type:"error",message:"this is a error"})' type='danger' style='margin:10px'>error</z-button>
+    
 <script setup>
 import { ref } from 'vue'
-const time = ref('2012/11/12 10:15:20')
+import { getCurrentInstance } from "vue";
+const instance = getCurrentInstance();
+
 </script>
 
 ::: details 点击查看代码

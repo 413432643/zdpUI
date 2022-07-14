@@ -68,7 +68,7 @@ export default {
 </script>   
 
 <script setup>
-import { ref, computed, reactive, onMounted } from 'vue';
+import { ref, computed, reactive, onMounted ,getCurrentInstance} from 'vue';
 const emit = defineEmits(['update:files', 'change'])
 const props = defineProps({
     multiple: {
@@ -105,6 +105,8 @@ const props = defineProps({
     }
 
 })
+const instance = getCurrentInstance();
+
 const windowURL = typeof window !== 'undefined' ? window.URL || window.webkitURL : '';
 
 const fileList = reactive([])
@@ -138,13 +140,13 @@ const inpChange = (e) => {
         let size = files[i].size / (1024 * 1024)
         let lastNum = files[i].name.indexOf('.')
         let format = files[i].name.substr(lastNum + 1)
-        if (formatPic.value.indexOf(format) == -1 && props.accept=='image/*') return alert('该文件格式.' + format + '不是图片无法上传')
-        
+        if (formatPic.value.indexOf(format) == -1 && props.accept=='image/*') 
+        return instance.proxy.$message({type:"warning",message:'该文件格式.' + format + '不是图片无法上传'})
         // 文件大小
         if (size <= props.maxSize) {
             arr.push(files[i])
         } else {
-            alert('当前上传文件大小' + size.toFixed(2) + 'M超过上传上限' + props.maxSize + 'M')
+            instance.proxy.$message({type:"warning",message:'当前上传文件大小' + size.toFixed(2) + 'M超过上传上限' + props.maxSize + 'M'})
         }
     }
 
@@ -152,7 +154,7 @@ const inpChange = (e) => {
     if (arr.length + fileList.length <= props.limit) {
         fileList.unshift(...arr)
     } else {
-        alert('当前上传文件数' + (arr.length + fileList.length) + '个超过上传上限' + props.limit + '个')
+        instance.proxy.$message({type:"warning",message:'当前上传文件数' + (arr.length + fileList.length) + '个超过上传上限' + props.limit + '个'})
     }
     emit('change', fileList)
 }

@@ -1,6 +1,6 @@
 <template>
   <transition name="z-message-fade">
-    <div :class="styleClass">
+    <div :class="styleClass" v-show="state" :style="{ top: top + 'px' }">
       <i class="iconfont icon-seleted"></i>
       <div>{{ message }}</div>
     </div>
@@ -14,8 +14,12 @@ export default {
 </script>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, reactive, toRefs } from "vue";
 const emit = defineEmits(["update:modelValue", "change"]);
+let t = null;
+const state = ref(false);
+const top = ref(0);
+
 const props = defineProps({
   type: {
     type: String,
@@ -30,6 +34,29 @@ const props = defineProps({
     default: 3000,
   },
 });
+const show = (isShow) => {
+  state.value = isShow;
+  return new Promise((resolve) => {
+    t = setTimeout(() => {
+      clearTimeout(t);
+      t = null;
+      resolve("");
+    }, 300);
+  });
+};
+
+const setTop = (_top) => {
+  top.value = _top;
+  return top;
+};
+
+defineExpose({
+  show,
+  setTop,
+  height: 40,
+  margin: 20,
+});
+
 const styleClass = computed(() => {
   return ["z-message", props.type, props.align];
 });
@@ -37,21 +64,22 @@ const styleClass = computed(() => {
 
 <style lang="scss" scoped>
 .z-message {
-  position: flexd;
+  position: fixed;
   left: 50%;
   z-index: 9999;
   width: 380px;
   height: 40px;
+  margin-left: -190px;
   line-height: 40px;
-  margin-left: 190px;
   font-size: 14px;
   border-radius: 5px;
   text-align: center;
+  transition: top 0.3 ease-out;
   div {
     display: inline-block;
     padding-left: 10px;
   }
-  i{
+  i {
     font-size: 12px;
   }
   &.success {
@@ -72,17 +100,15 @@ const styleClass = computed(() => {
   }
 }
 
-.z-message-fade-enter-acitve{
-    transition: all .3s ease-in;
+.z-message-fade-enter-active {
+  transition: all 0.3s ease-in;
 }
-
-.z-message-fade-leave-acitve{
-    transition: all .3s ease-out;
+.z-message-fade-leave-active {
+  transition: all 0.3s ease-out;
 }
-
 .z-message-fade-enter-from,
-.z-message-fade-leave-to{
-    transform: translateY(-20px);
-    opacity: 0;
+.z-message-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 </style>

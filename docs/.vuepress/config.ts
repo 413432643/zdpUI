@@ -1,6 +1,5 @@
 const { defaultTheme } = require('@vuepress/theme-default')
 
-
 module.exports = {
   title: 'zdpUI',
   description: '描述：个人组件库',
@@ -57,7 +56,6 @@ module.exports = {
         text: 'button 按钮',
         link: '/componentDocs/button.md',
       },
-      
       {
         text: 'message 消息提示',
         link: '/componentDocs/message.md',

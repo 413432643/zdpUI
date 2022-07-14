@@ -311,8 +311,9 @@
 <z-tree :options="options4" openAll >
     <template #customNode="{ flatTree, data }" >
         <div class="custom-tree-node">
-            <a @click="append(data)"> Append </a>
-            <a @click="remove(data, flatTree)"> Delete </a>
+            <z-button  @click="append(data)"  size="small" style='margin:5px' type='success'> 添加 </z-button>
+            <z-button @click="remove(data, flatTree)" size="small" style='margin:5px' type='danger'> 删除 </z-button>
+            <!-- <z-button @click="edit(data)"  size="small" style='margin:5px' type='primary'> 编辑 </z-button> -->
           </div>
     </template>
 </z-tree>
@@ -919,6 +920,9 @@ const append = (data) => {
         data.children = []
     }
     data.children.push(newChild)
+}
+const edit =(data)=>{
+    console.log(data)
 }
 
 const remove = (data, node) => {

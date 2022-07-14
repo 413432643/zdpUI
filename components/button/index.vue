@@ -20,9 +20,18 @@ const props = defineProps({
         type: String,
         default: 'default'
     },
-    disabled: Boolean,
-    circle: Boolean,
-    round: Boolean,
+    disabled:{
+        type:Boolean,
+        default:false
+    } ,
+    circle:{
+        type:Boolean,
+        default:false
+    } ,
+    round:{
+        type:Boolean,
+        default:false
+    } ,
 
 })
 const zClass = computed(() => {
@@ -53,7 +62,6 @@ const zClass = computed(() => {
     display: inline-block;
     color: #333;
     border: 1px solid #dcdfe6;
-
     &:hover,
     &:focus {
         opacity: .8;
@@ -121,5 +129,6 @@ const zClass = computed(() => {
     }
 
 }
+
 </style>
     

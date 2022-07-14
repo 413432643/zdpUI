@@ -1,9 +1,9 @@
 import { defineClientConfig } from '@vuepress/client'
 
 
-// import ZUI from 'zdp-ui'
-// import "zdp-ui/dist/style.css"
-import ZButton from './components/z-button.vue'
+import ZUI from 'zdp-ui'
+import "../../node_modules/zdp-ui/dist/style.css"
+// import ZButton from './components/z-button.vue'
 import ZRow from './components/z-row.vue'
 import ZCol from './components/z-col.vue'
 import ZRadio from './components/z-radio.vue'
@@ -18,14 +18,16 @@ import ZUpload from './components/z-upload.vue'
 import ZPagination from './components/z-pagination.vue'
 import ZDate from './components/z-date.vue'
 import ZTime from './components/z-time.vue'
-import ZMessage from './components/z-message.vue'
+// import ZMessage from './components/z-message.vue'
+// import Message  from './components/z-message.js'
 
 import './styles/iconfont/iconfont.css'
 
+
 export default defineClientConfig({
   enhance({ app }) {
-    // app.use(ZUI)
-    app.component('z-button', ZButton)
+    app.use(ZUI)
+    // app.component('z-button', ZButton)
     app.component('z-row', ZRow)
     app.component('z-col', ZCol)
     app.component('z-radio', ZRadio)
@@ -40,7 +42,8 @@ export default defineClientConfig({
     app.component('z-pagination', ZPagination)
     app.component('z-date', ZDate)
     app.component('z-time', ZTime)
-    app.component('z-message', ZMessage)
+    // app.component('z-message', ZMessage)
+    // app.config.globalProperties.$message = Message
   },
 })
 
