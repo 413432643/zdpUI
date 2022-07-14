@@ -2,6 +2,7 @@
 
 ### 基础用法
 
+<z-button  @click='Message({type:"message",message:"this is a message"})' style='margin:10px'>message</z-button>
 <z-button  @click='instance.proxy.$message({type:"message",message:"this is a message"})' style='margin:10px'>message</z-button>
 <z-button @click='instance.proxy.$message({type:"success",message:"this is a success"})' type='success' style='margin:10px'>success</z-button>
 <z-button @click='instance.proxy.$message({type:"warning",message:"this is a warning"})' type='warning' style='margin:10px'>warning</z-button>

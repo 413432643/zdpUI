@@ -10,8 +10,7 @@ const Message = (options) => {
 
 const showMessage = (app, duration) => {
     const oFrag = document.createDocumentFragment()
-    console.log(oFrag);
-    // app.mount(oFrag)
+    app.mount(oFrag)
     document.body.appendChild(oFrag)
     hideMessage(app, duration)
 }

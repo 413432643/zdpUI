@@ -4,10 +4,9 @@ import {
   createApp,
   createBaseVNode,
   createBlock,
+  createCommentVNode,
   createElementBlock,
   openBlock,
-  popScopeId,
-  pushScopeId,
   ref,
   renderSlot,
   unref,
@@ -32,7 +31,7 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-var _hoisted_1$1 = ["disabled", "circle", "round"];
+var _hoisted_1 = ["disabled", "circle", "round"];
 var __default__$1 = {
   name: "ZButton"
 };
@@ -79,7 +78,7 @@ var _sfc_main$1 = Object.assign(__default__$1, {
         round: __props.round
       }, [
         renderSlot(_ctx.$slots, "default", {}, void 0, true)
-      ], 10, _hoisted_1$1);
+      ], 10, _hoisted_1);
     };
   }
 });
@@ -87,9 +86,7 @@ var zButton = _export_sfc(_sfc_main$1, [["__scopeId", "data-v-74a09a4a"]]);
 zButton.install = (app) => {
   app.component(zButton.name, zButton);
 };
-var index_vue_vue_type_style_index_0_scoped_true_lang = (() => ".z-message[data-v-dcbaa548]{position:fixed;left:50%;z-index:9999;width:380px;height:40px;margin-left:-190px;line-height:40px;font-size:14px;border-radius:5px;text-align:center;transition:top .3 ease-out}.z-message div[data-v-dcbaa548]{display:inline-block;padding-left:10px}.z-message i[data-v-dcbaa548]{font-size:12px}.z-message.success[data-v-dcbaa548]{background-color:#f0f9ed;color:#529b2e}.z-message.warning[data-v-dcbaa548]{background-color:#fdf6ec;color:#b88230}.z-message.message[data-v-dcbaa548]{background-color:#f4f4f5;color:#73767a}.z-message.error[data-v-dcbaa548]{background-color:#fef0f0;color:#c45656}.z-message-fade-enter-active[data-v-dcbaa548]{transition:all .3s ease-in}.z-message-fade-leave-active[data-v-dcbaa548]{transition:all .3s ease-out}.z-message-fade-enter-from[data-v-dcbaa548],.z-message-fade-leave-to[data-v-dcbaa548]{opacity:0;transform:translateY(-20px)}\n")();
-var _withScopeId = (n) => (pushScopeId("data-v-dcbaa548"), n = n(), popScopeId(), n);
-var _hoisted_1 = _withScopeId(() => createBaseVNode("i", { class: "iconfont icon-seleted" }, null, -1));
+var index_vue_vue_type_style_index_0_scoped_true_lang = (() => ".z-message[data-v-49856940]{position:fixed;left:50%;z-index:9999;width:380px;height:40px;margin-left:-190px;line-height:40px;font-size:14px;border-radius:5px;text-align:center;transition:top .3 ease-out}.z-message div[data-v-49856940]{display:inline-block;padding-left:10px}.z-message i[data-v-49856940]{font-size:12px}.z-message.success[data-v-49856940]{background-color:#f0f9ed;color:#529b2e}.z-message.warning[data-v-49856940]{background-color:#fdf6ec;color:#b88230}.z-message.message[data-v-49856940]{background-color:#f4f4f5;color:#73767a}.z-message.error[data-v-49856940]{background-color:#fef0f0;color:#c45656}.z-message-fade-enter-active[data-v-49856940]{transition:all .3s ease-in}.z-message-fade-leave-active[data-v-49856940]{transition:all .3s ease-out}.z-message-fade-enter-from[data-v-49856940],.z-message-fade-leave-to[data-v-49856940]{opacity:0;transform:translateY(-20px)}.icon-close[data-v-49856940]{position:absolute;right:15px;cursor:pointer}\n")();
 var __default__ = {
   name: "ZMessage"
 };
@@ -106,6 +103,14 @@ var _sfc_main = Object.assign(__default__, {
     duration: {
       type: Number,
       default: 3e3
+    },
+    leftIcon: {
+      type: String,
+      default: ""
+    },
+    isClose: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ["update:modelValue", "change"],
@@ -124,6 +129,9 @@ var _sfc_main = Object.assign(__default__, {
         }, 300);
       });
     };
+    const close = () => {
+      state.value = false;
+    };
     const setTop2 = (_top) => {
       top.value = _top;
       return top;
@@ -131,11 +139,18 @@ var _sfc_main = Object.assign(__default__, {
     expose({
       show,
       setTop: setTop2,
+      close,
       height: 40,
       margin: 20
     });
     const styleClass = computed(() => {
       return ["z-message", props.type, props.align];
+    });
+    const iconClass = computed(() => {
+      return [
+        "iconfont",
+        props.leftIcon ? props.leftIcon : props.type == "success" ? "icon-success" : props.type == "message" ? "icon-info" : props.type == "error" ? "icon-error" : props.type == "warning" ? "icon-warning" : ""
+      ];
     });
     return (_ctx, _cache) => {
       return openBlock(), createBlock(Transition, { name: "z-message-fade" }, {
@@ -144,8 +159,15 @@ var _sfc_main = Object.assign(__default__, {
             class: normalizeClass(unref(styleClass)),
             style: normalizeStyle({ top: top.value + "px" })
           }, [
-            _hoisted_1,
-            createBaseVNode("div", null, toDisplayString(__props.message), 1)
+            createBaseVNode("i", {
+              class: normalizeClass(unref(iconClass))
+            }, null, 2),
+            createBaseVNode("div", null, toDisplayString(__props.message), 1),
+            __props.isClose ? (openBlock(), createElementBlock("i", {
+              key: 0,
+              class: "iconfont icon-close",
+              onClick: close
+            })) : createCommentVNode("", true)
           ], 6), [
             [vShow, state.value]
           ])
@@ -155,7 +177,7 @@ var _sfc_main = Object.assign(__default__, {
     };
   }
 });
-var MessageComponent = _export_sfc(_sfc_main, [["__scopeId", "data-v-dcbaa548"]]);
+var MessageComponent = _export_sfc(_sfc_main, [["__scopeId", "data-v-49856940"]]);
 var messageArr = ref([]);
 var Message = (options) => {
   const messageApp = createApp(MessageComponent, options);
@@ -178,6 +200,7 @@ var hideMessage = (app, vm, duration) => {
     await vm.show(false);
     app.unmount();
     messageArr.value = messageArr.value.filter((item) => item !== vm);
+    console.log(messageArr.value);
     clearTimeout(vm.timer);
     vm.timer = null;
   }, duration || 3e3);

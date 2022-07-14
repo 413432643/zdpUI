@@ -26,7 +26,7 @@ import './styles/iconfont/iconfont.css'
 
 export default defineClientConfig({
   enhance({ app }) {
-    app.use(ZUI)
+    
     // app.component('z-button', ZButton)
     app.component('z-row', ZRow)
     app.component('z-col', ZCol)
@@ -44,6 +44,8 @@ export default defineClientConfig({
     app.component('z-time', ZTime)
     // app.component('z-message', ZMessage)
     // app.config.globalProperties.$message = Message
+
+    app.use(ZUI)
   },
 })
 
