@@ -1,5 +1,6 @@
 import MessageComponent from '../components/z-message.js'
 import { createApp } from 'vue'
+// import { usePageData } from '@vuepress/client'
 
 const Message = (options) => {
     const messageApp = createApp(MessageComponent, options)
@@ -10,7 +11,8 @@ const Message = (options) => {
 
 const showMessage = (app, duration) => {
     const oFrag = document.createDocumentFragment()
-    app.mount(oFrag)
+    // const vm= app.mount(usePageData().value)
+    // console.log(vm)
     document.body.appendChild(oFrag)
     hideMessage(app, duration)
 }
