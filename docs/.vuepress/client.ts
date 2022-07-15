@@ -1,7 +1,7 @@
 import { defineClientConfig } from '@vuepress/client'
 
 
-import ZUI from 'zdp-ui'
+import EUI from 'evergreen-ui'
 import "../../node_modules/zdp-ui/dist/style.css"
 // import ZButton from './components/z-button.vue'
 import ZRow from './components/z-row.vue'
@@ -45,7 +45,7 @@ export default defineClientConfig({
     // app.component('z-message', ZMessage)
     // app.config.globalProperties.$message = Message
 
-    app.use(ZUI)
+    app.use(EUI)
   },
 })
 
