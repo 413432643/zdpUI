@@ -5,11 +5,11 @@
 
 可以选择任意时间
 
-<z-time   placeholder="选择时间" clearable></z-time>
+<z-time  placeholder="选择时间" clearable></z-time>
 
 <script setup>
 import { ref, reactive } from "vue";
-const time = ref('20:40:40')
+const time = ref('20:40:59')
 
 const makeRange = (start, end) => {
     const result = []
@@ -57,7 +57,7 @@ const disabledSecond = (hour, minute) => {
 
 <script setup>
 import { ref, reactive } from "vue";
-const time = ref('20:40:40')
+const time = ref('20:40:59')
 const makeRange = (start, end) => {
     const result = []
     for (let i = start; i <= end; i++) {

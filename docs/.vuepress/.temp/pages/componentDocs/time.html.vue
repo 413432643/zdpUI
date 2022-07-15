@@ -2,7 +2,7 @@
 <p>用于选择或输入日期</p>
 <h3 id="基础用法" tabindex="-1"><a class="header-anchor" href="#基础用法" aria-hidden="true">#</a> 基础用法</h3>
 <p>可以选择任意时间</p>
-<z-time   placeholder="选择时间" clearable></z-time>
+<z-time  placeholder="选择时间" clearable></z-time>
 <details class="custom-container details"><summary>点击查看代码</summary>
 <div class="language-vue ext-vue line-numbers-mode"><pre v-pre class="language-vue"><code>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>z-time</span>  <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>选择时间<span class="token punctuation">"</span></span> <span class="token attr-name">clearable</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>z-time</span><span class="token punctuation">></span></span>
@@ -17,7 +17,7 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
 <span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> reactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> time <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'20:40:40'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> time <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'20:40:59'</span><span class="token punctuation">)</span>
 <span class="token keyword">const</span> <span class="token function-variable function">makeRange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">start<span class="token punctuation">,</span> end</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> start<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -133,7 +133,7 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-const time = ref('20:40:40')
+const time = ref('20:40:59')
 
 const makeRange = (start, end) => {
     const result = []
