@@ -1,6 +1,4 @@
 import { defineClientConfig } from '@vuepress/client'
-
-
 // import ZUI from 'zdpui'
 // import "../../node_modules/zdpui/dist/style.css"
 
@@ -26,7 +24,6 @@ import './styles/iconfont/iconfont.css'
 
 export default defineClientConfig({
   enhance({ app }) {
-
     app.component('z-button', ZButton)
     app.component('z-row', ZRow)
     app.component('z-col', ZCol)

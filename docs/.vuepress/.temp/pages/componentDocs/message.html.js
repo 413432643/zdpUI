@@ -11,6 +11,18 @@ export const data = {
       "title": "基础用法",
       "slug": "基础用法",
       "children": []
+    },
+    {
+      "level": 3,
+      "title": "不同状态",
+      "slug": "不同状态",
+      "children": []
+    },
+    {
+      "level": 3,
+      "title": "可关闭的消息提示",
+      "slug": "可关闭的消息提示",
+      "children": []
     }
   ],
   "git": {},

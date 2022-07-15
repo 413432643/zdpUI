@@ -29,7 +29,6 @@ const hideMessage = (app, vm, duration) => {
         await vm.show(false)
         app.unmount()
         messageArr.value = messageArr.value.filter(item => item !== vm)
-        console.log(messageArr.value)
         clearTimeout(vm.timer)
         vm.timer = null
     }, duration || 3000)
