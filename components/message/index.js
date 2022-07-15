@@ -1,5 +1,5 @@
 import MessageComponent from '../message/index.vue'
-import { createApp, ref ,watch} from 'vue'
+import { createApp, ref, watch } from 'vue'
 
 const messageArr = ref([])
 
@@ -16,7 +16,7 @@ const showMessage = (app, duration) => {
     setTop(vm)
     vm.show(true)
 
-    watch(messageArr,()=>{
+    watch(messageArr, () => {
         setTop(vm)
     })
 
@@ -29,7 +29,6 @@ const hideMessage = (app, vm, duration) => {
         await vm.show(false)
         app.unmount()
         messageArr.value = messageArr.value.filter(item => item !== vm)
-        console.log(messageArr.value)
         clearTimeout(vm.timer)
         vm.timer = null
     }, duration || 3000)

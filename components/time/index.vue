@@ -61,7 +61,7 @@ export default {
 
 <script setup>
 import { ref, computed,watch } from "vue";
-import ZInput from "./z-input.vue";
+import ZInput from "../input";
 const emit = defineEmits(["update:modelValue", "change"]);
 const props = defineProps({
   modelValue: String,
@@ -274,8 +274,6 @@ const scroll = (e) => {
       findTop(top / 30, eval(className + "List").value[1])
     ) {
       top = findTop(top / 30, eval(className + "List").value[1]) * 30;
-  
-    
     }
   }
   

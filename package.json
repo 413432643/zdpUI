@@ -1,6 +1,6 @@
 {
   "name": "zdpui",
-  "version": "0.0.10",
+  "version": "0.0.15",
   "description": "个人组件库",
   "main": "./dist/zdpui.umd.js",
   "module": "./dist/zdpui.es.js",
@@ -31,7 +31,7 @@
   "dependencies": {
     "sass": "^1.52.2",
     "vue": "^3.2.25",
-    "zdpui": "^0.0.10"
+    "zdpui": "^0.0.15"
   },
   "devDependencies": {
     "@types/node": "^17.0.41",
