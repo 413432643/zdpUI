@@ -1,8 +1,8 @@
 import { defineClientConfig } from '@vuepress/client'
 
 
-import ZUI from 'mzl-ui'
-import "../../node_modules/zdp-ui/dist/style.css"
+import ZUI from 'zdpui'
+import "../../node_modules/zdpui/dist/style.css"
 // import ZButton from './components/z-button.vue'
 import ZRow from './components/z-row.vue'
 import ZCol from './components/z-col.vue'

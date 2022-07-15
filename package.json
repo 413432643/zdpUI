@@ -1,13 +1,13 @@
 {
-  "name": "zdp-ui",
+  "name": " ",
   "version": "0.0.10",
   "description": "个人组件库",
-  "main": "./dist/zdp-ui.umd.js",
-  "module": "./dist/zdp-ui.es.js",
+  "main": "./dist/zdpui.umd.js",
+  "module": "./dist/zdpui.es.js",
   "exports": {
     ".": {
-      "import": "./dist/zdp-ui.es.js",
-      "require": "./dist/zdp-ui.umd.js"
+      "import": "./dist/zdpui.es.js",
+      "require": "./dist/zdpui.umd.js"
     }
   },
   "files": [
@@ -15,7 +15,7 @@
     "components"
   ],
   "keywords": [
-    "zdp-ui",
+    "zdpui",
     "vue",
     "vueprass2",
     "ts"
@@ -29,9 +29,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "mzl-ui": "^0.8.8",
     "sass": "^1.52.2",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "zdpui": "^0.0.10"
   },
   "devDependencies": {
     "@types/node": "^17.0.41",

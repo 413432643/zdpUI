@@ -22,7 +22,7 @@ import {
 } from "./chunk-VNKCJBW6.js";
 import "./chunk-FEFTYQ2P.js";
 
-// node_modules/zdp-ui/dist/zdp-ui.es.js
+// node_modules/zdpui/dist/zdpui.es.js
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = (() => ".btn[data-v-74a09a4a]{border:0;padding:8px 15px;outline:none;background:none;line-height:1;font-size:14px;box-sizing:border-box;border-radius:4px;cursor:pointer;display:inline-block;color:#333;border:1px solid #dcdfe6}.btn[data-v-74a09a4a]:hover,.btn[data-v-74a09a4a]:focus{opacity:.8}.btn-primary[data-v-74a09a4a]{color:#fff;background:#409EFF;border:1px solid #409EFF}.btn-success[data-v-74a09a4a]{color:#fff;background:#67C23A;border:1px solid #67C23A}.btn-warning[data-v-74a09a4a]{color:#fff;background:#E6A23C;border:1px solid #E6A23C}.btn-danger[data-v-74a09a4a]{color:#fff;background:#F56C6C;border:1px solid #F56C6C}.btn-info[data-v-74a09a4a]{color:#fff;background:#909399;border:1px solid #909399}.btn-large[data-v-74a09a4a]{padding:12px 20px}.btn-small[data-v-74a09a4a]{font-size:12px;padding:5px 10px}.btn-round[data-v-74a09a4a]{border-radius:1000px}.btn-circle[data-v-74a09a4a]{border-radius:50%;padding:10px}.btn-disabled[data-v-74a09a4a]{opacity:.4;cursor:no-drop}.btn-disabled[data-v-74a09a4a]:hover,.btn-disabled[data-v-74a09a4a]:focus{opacity:.4}\n")();
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
@@ -187,6 +187,7 @@ var showMessage = (app, duration) => {
   const oFrag = document.createDocumentFragment();
   const vm = app.mount(oFrag);
   messageArr.value.push(vm);
+  console.log(vm);
   setTop(vm);
   vm.show(true);
   watch(messageArr, () => {
@@ -218,12 +219,12 @@ var ZUI = {
   install
 };
 
-// dep:zdp-ui
-var zdp_ui_default = ZUI;
+// dep:zdpui
+var zdpui_default = ZUI;
 export {
   Message,
-  zdp_ui_default as default,
+  zdpui_default as default,
   install,
   zButton
 };
-//# sourceMappingURL=zdp-ui.js.map
+//# sourceMappingURL=zdpui.js.map
