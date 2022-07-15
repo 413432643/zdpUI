@@ -274,8 +274,6 @@ const scroll = (e) => {
       findTop(top / 30, eval(className + "List").value[1])
     ) {
       top = findTop(top / 30, eval(className + "List").value[1]) * 30;
-  
-    
     }
   }
   
@@ -296,7 +294,6 @@ const timeChanged = (value) => {
   const defaultHour = value.substr(0, value.indexOf(":"));
   const defaultMinute = value.substr(3, value.indexOf(":"));
   const defaultSecond = value.substr(6, value.lastIndexOf(":"));
-
   document.getElementById("hour" + props.id).scrollTop = defaultHour * 30;
   document.getElementById("minute" + props.id).scrollTop = defaultMinute * 30;
   document.getElementById("second" + props.id).scrollTop = defaultSecond * 30;

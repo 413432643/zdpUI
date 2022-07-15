@@ -92,8 +92,8 @@
 <td style="text-align:center">type</td>
 <td style="text-align:center">消息类型</td>
 <td style="text-align:center">string</td>
-<td style="text-align:center">'success'</td>
-<td style="text-align:center">'warning'</td>
+<td style="text-align:center">'success' / 'warning' / 'message' / 'error'</td>
+<td style="text-align:center">'message'</td>
 </tr>
 <tr>
 <td style="text-align:center">message</td>

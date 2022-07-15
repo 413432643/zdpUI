@@ -138,7 +138,7 @@ const openError =()=>{
 
 |    属性      |       说明      |     类型       |  可选值               |     默认值     |
 |:------------:|:--------------:|:--------------:|:------------------:|:----------------:|
-|    type      |       	消息类型      |     string       |  'success' | 'warning' | 'message' | 'error'               |     'message'     |
+|    type      |       	消息类型      |     string       |  'success' / 'warning' / 'message' / 'error'               |     'message'     |
 |    message      |       	消息文字      |     string        |  -               |     message     |
 |    isClose      |       是否显示关闭按钮      |     boolean       |  -               |     false     |
 |    leftIcon      |       自定义图标，该属性会覆盖 type 的图标      |     string       |  -               |     -     |
