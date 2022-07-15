@@ -5,20 +5,18 @@ const messageArr = ref([])
 
 const Message = (options) => {
     const messageApp = createApp(MessageComponent, options)
-    
     showMessage(messageApp, options.duration)
 }
 
 const showMessage = (app, duration) => {
     const oFrag = document.createDocumentFragment()
     const vm = app.mount(oFrag)
-   
     messageArr.value.push(vm)
-  
+
     setTop(vm)
     vm.show(true)
 
-    watch(messageArr, () => {
+    watch(messageArr,()=>{
         setTop(vm)
     })
 
