@@ -12,7 +12,7 @@ export default defineConfig({
   build: {
     // 不需要的外部依赖
     rollupOptions: {
-      external: ["vue", "zdp-ui"],
+      external: ["vue", "mzl-ui"],
       output: {
         globals: {
           vue: "Vue",
@@ -22,7 +22,7 @@ export default defineConfig({
     lib: {
       // 入口
       entry: './components/index.ts',
-      name: 'zdp-ui'
+      name: 'mzl-ui'
     },
   },
 

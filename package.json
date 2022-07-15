@@ -29,7 +29,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "evergreen-ui": "^6.10.2",
+    "mzl-ui": "^0.8.8",
     "sass": "^1.52.2",
     "vue": "^3.2.25"
   },
