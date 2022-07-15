@@ -1,0 +1,12 @@
+import{_ as n,o as s,c as a,a as e}from"./app.eb02876e.js";const i={},t=e(`<h1 id="\u5FEB\u901F\u5F00\u59CB" tabindex="-1"><a class="header-anchor" href="#\u5FEB\u901F\u5F00\u59CB" aria-hidden="true">#</a> \u5FEB\u901F\u5F00\u59CB</h1><h3 id="\u5B89\u88C5\u7EC4\u4EF6\u5E93" tabindex="-1"><a class="header-anchor" href="#\u5B89\u88C5\u7EC4\u4EF6\u5E93" aria-hidden="true">#</a> \u5B89\u88C5\u7EC4\u4EF6\u5E93</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">npm</span> i zdp-ui
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="\u5F15\u7528\u7EC4\u4EF6\u5E93" tabindex="-1"><a class="header-anchor" href="#\u5F15\u7528\u7EC4\u4EF6\u5E93" aria-hidden="true">#</a> \u5F15\u7528\u7EC4\u4EF6\u5E93</h3><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// \u5168\u90E8\u5F15\u7528</span>
+<span class="token keyword">import</span> <span class="token string">&#39;../node_modules/zdpui/dist/style.css&#39;</span>
+<span class="token keyword">import</span> <span class="token constant">ZUI</span> <span class="token keyword">from</span> <span class="token string">&#39;zdpui&#39;</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token constant">ZUI</span><span class="token punctuation">)</span>
+
+<span class="token comment">// \u6309\u9700\u5F15\u7528</span>
+<span class="token keyword">import</span> <span class="token string">&#39;../node_modules/zdpui/dist/style.css&#39;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Button<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;zdpui&#39;</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Button<span class="token punctuation">)</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,5),c=[t];function o(d,p){return s(),a("div",null,c)}var r=n(i,[["render",o],["__file","index.html.vue"]]);export{r as default};
