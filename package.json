@@ -29,6 +29,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
     "sass": "^1.52.2",
     "vue": "^3.2.25",
     "zdpui": "^0.0.10"
