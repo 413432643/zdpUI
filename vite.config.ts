@@ -1,19 +1,18 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import alias from "@rollup/plugin-alias";
 import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),alias()
+    vue()
   ],
   resolve: {
     alias: {
-      '@/': path.resolve(__dirname, './src'),
+      '@/': path.resolve(__dirname, './components/index.ts'),
     },
   },
-  alias: [{ find: '@', replacement: path.resolve(__dirname, './src') }],
+  alias: [{ find: '@', replacement: path.resolve(__dirname, './components/index.ts') }],
   build: {
     // 不需要的外部依赖
     rollupOptions: {
