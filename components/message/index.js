@@ -12,7 +12,7 @@ const showMessage = (app, duration) => {
     const oFrag = document.createDocumentFragment()
     const vm = app.mount(oFrag)
     messageArr.value.push(vm)
-    console.log(vm)
+
     setTop(vm)
     vm.show(true)
 

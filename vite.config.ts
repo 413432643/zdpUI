@@ -7,12 +7,7 @@ export default defineConfig({
   plugins: [
     vue()
   ],
-  resolve: {
-    alias: {
-      '@/': path.resolve(__dirname, './components'),
-    },
-  },
-  // alias: [{ find: '@', replacement: path.resolve(__dirname, './src') }],
+
   build: {
     // 不需要的外部依赖
     rollupOptions: {
